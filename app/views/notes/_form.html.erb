@@ -1,16 +1,12 @@
 <%= form_for(@note) do |f| %>
-
+  <%= f.text_field :video_timestamp %>
+  
   <div class="field">
     <%= f.label :body %></br>
     <%= f.text_area :body %>
   </div>
 
-  <div class="field">
-    <%= f.hidden_field :video_timestamp, :value => Note.all.last.video_timestamp %>
-  </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>
-
 <% end %>
