@@ -53,6 +53,18 @@ END GOALS:
 - finish edit/destroy functionality for notes
 - instructor login first
 
+Making Edit/Update Work
+- press edit button
+--- 1: show/hide: show the form version, hid the finished version
+- render the form version of the note
+- hit save
+--- 1: .post(update route, data, function(response))
+--- 2: in controller, update the note. send back json object with updated information
+--- 3: replace the note body with the response
+- updates database with updated note info
+- shows updated note info on the page
+--- 1: switches show and hide
+
 
 
 
