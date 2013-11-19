@@ -23,8 +23,34 @@ note
 #- generate video model
 #- generate note model
 #- do associations
-- stub out controller actions 
-- get seed data
-- views
+#- stub out controller actions 
+#- get seed data
+#- views
+
+- test the Javascript functionality (video.js)
+- questions
+- instructors
+- students
+- answers
+
+FEATURES:
+- Instructor can post videos
+- Students can post questions
+- Instructor can answer questions
+- Students can save and edit notes
+- Plot pins for questions and notes
+- 
+
+Video.js
+- get time dynamically, change png of skin to be 
+- 
+
+
+
+
+
+
+
+
 
 
