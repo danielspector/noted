@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+
+  <strong>Name:</strong>
+  <%= @video.name %>
+  <form method="POST">
+    <label>Test Time:</label>
+  <input name="time" id="time"></input>
+  <%= button_to "New Note", new_note_path%>
+  </form> 
+
+<ul>
+  <% @video.notes.each do |note| %>
+
+  <li><%= note.video_timestamp %></li>
+  <li><%= note.body %></li>
+
+  <% end %>
+</ul>
+
+</p>
+
+<p>
+
+</p>
+
+<%= link_to "Back", videos_path %>
