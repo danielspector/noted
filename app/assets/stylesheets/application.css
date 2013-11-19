@@ -10,5 +10,7 @@
  *
  *= require_self
  * require ../../../vendor/assets/video-js/video-js
+ *= require mediaelement_rails
+ *= require mediaelement_rails/mejs-skins
  *= require_tree .
  */
