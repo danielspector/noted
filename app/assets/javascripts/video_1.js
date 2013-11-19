@@ -1,5 +1,13 @@
 $(document).ready(function(){
-  var myPlayer = new MediaElementPlayer("#lecture_video");
+  
+  $("#new_note").click(function(e){
+    e.preventDefault();
+
+    var $myPlayer = $("#lecture_video");
+    $myPlayer[0].pause();
+    var timeStamp = $myPlayer[0].currentTime;
+    $("#note_video_timestamp").val(timeStamp)
+
 
   $("#new_note").click(function(){
     // var timeStamp = myPlayer.currentTime;
@@ -11,6 +19,7 @@ $(document).ready(function(){
     // $.post('/videos/:id/notes', {video_time: timeStamp}, function(response){
     //     //COME BACK FOR TIMESTAMP FUNCTIONALITY
     // });
+
   });
 
 });
