@@ -8,10 +8,6 @@ $(document).ready(function(){
     var timeStamp = $myPlayer[0].currentTime;
     $("#note_video_timestamp").val(timeStamp)
 
-    // $.post('/videos/:id/notes', {video_time: timeStamp}, function(response){
-    //     //COME BACK FOR TIMESTAMP FUNCTIONALITY
-    // });
-
   });
 
 });
