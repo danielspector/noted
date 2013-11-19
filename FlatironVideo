@@ -39,16 +39,19 @@ FEATURES:
 - Instructor can answer questions
 - Students can save and edit notes
 - Plot pins for questions and notes
-- HTML
+- Customize skin for video timeline note pins
+
 
 Video.js
 - get time dynamically, change png of skin to be 
-- 
 
 PULL REQUESTS:
 - change your "video_player" to "video_tag"
 
-
+END GOALS:
+- be able to add videos (links)
+- finish edit/destroy functionality for notes
+- instructor login first
 
 
 

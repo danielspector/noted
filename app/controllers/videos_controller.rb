@@ -9,12 +9,12 @@ class VideosController < ApplicationController
 
   def create
     @note = Note.create(:video_timestamp => params[:video_time])
-    binding.pry
     redirect_to new_note_path
   end
 
   def show
     @video = Video.find_by(id: params[:id])
+    @note = @video.notes.build
   end
 
   def edit
