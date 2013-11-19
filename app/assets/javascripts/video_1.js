@@ -1,6 +1,6 @@
 $(document).ready(function(){
   alert("Please fetch my silver spoon");
-  var myPlayer = _V_("#lecture_video");
+  var myPlayer = $("#lecture_video");
   //var timeStamp = myPlayer.currentTime();
   //myPlayer.pause();
   $("#new_note").click(function(){
