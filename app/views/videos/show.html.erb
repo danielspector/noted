@@ -5,12 +5,14 @@
   <strong>Name:</strong>
   <%= @video.name %>
   <br>
-  <video id="lecture_video" class="video-js vjs-default-skin"
+ <!--  <video id="lecture_video" class="video-js vjs-default-skin"
   controls preload="auto" width="640" height="264"
   poster="http://video-js.zencoder.com/oceans-clip.png"
   data-setup='{"example_option":true}'>
-  <source src=<%= @video.link %> type='video/mp4' />
-  </video>
+  <source src=<%#= @video.link %> type='video/mp4' />
+  </video> -->
+
+  <%= video_tag( @video.link, controls: true, height: '320', width: '320', :id => "lecture_video" ) %>
 
   <form method="POST">
   <!--   <label>Test Time:</label>
