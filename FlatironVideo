@@ -1,0 +1,28 @@
+Visually:
+
+1. press "new note"
+---> new note form (video_id, video_timestamp)
+2. pauses video, and shows text field
+3. when you submit form (notes), saves (with timestamp and video_id) and starts playing the video
+---> submitted the note form (new note instance in database, with video_id, video_timestamp, text)
+4. you can see a "pin" for all the notes on the video timeline
+---> Note.all.find_by(video_id)
+---> video_timestamp will plot it on video timeline
+
+MODELS:
+
+video
+- association: has_many :notes
+- columns: name:string, link:string, lecture_date:date
+
+note
+- association: belongs_to :video
+- columns: body:text, video_timestamp:integer, video_id:integer
+
+#TODO:
+#- generate video model
+#- generate note model
+- do associations
+- generate forms?
+
+
