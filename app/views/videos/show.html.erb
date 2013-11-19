@@ -14,12 +14,9 @@
 
   <%= video_tag( @video.link, controls: true, height: '320', width: '320', :id => "lecture_video" ) %>
 
-  <form method="POST">
-  <!--   <label>Test Time:</label>
-  <input name="time" id="time"></input> -->
-  <%= button_to "New Note", new_note_path %>
-  <button name="Submit" id="new_note" value="new_note"></button>
-  </form> 
+  <p><a href="#" id="new_note">New Note</a></p>
+
+  <%= render 'notes/form' %>
 
 <ul>
   <% @video.notes.each do |note| %>
