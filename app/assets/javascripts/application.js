@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+// require ../../../vendor/assets/video-js/video.dev
 //= require_tree .

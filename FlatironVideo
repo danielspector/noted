@@ -39,13 +39,14 @@ FEATURES:
 - Instructor can answer questions
 - Students can save and edit notes
 - Plot pins for questions and notes
-- 
+- HTML
 
 Video.js
 - get time dynamically, change png of skin to be 
 - 
 
-
+PULL REQUESTS:
+- change your "video_player" to "video_tag"
 
 
 
