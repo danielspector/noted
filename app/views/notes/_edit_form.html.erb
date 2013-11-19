@@ -1,3 +1,3 @@
-<%= form_for(note, :url => note_video_path(video, note)) do |f| %>
-  <%= render 'fields', :f => f %>
+<%= form_for([note.video, note]) do |f| %>
+  <%= render 'notes/fields', :f => f %>
 <% end %>

@@ -8,7 +8,7 @@ FlatironVideos::Application.routes.draw do
   post '/videos/:video_id/notes' => 'notes#create'
   get '/videos/:video_id/notes' => 'notes#index', :as => 'notes'
   get '/videos/:video_id/notes/:id/edit' => 'notes#edit', :as => 'edit_note'
-  get '/videos/:video_id/notes/:id' => 'notes#show', :as => 'note'
+  get '/videos/:video_id/notes/:id' => 'notes#show', :as => 'video_note'
   put '/videos/:video_id/notes/:id' => 'notes#update'
   patch '/videos/:video_id/notes/:id' => 'notes#update'
   delete '/videos/:video_id/notes/:id' => 'notes#destroy'
