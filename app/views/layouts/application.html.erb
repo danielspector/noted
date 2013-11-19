@@ -5,6 +5,11 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href="../../assets/video-js/video-js.css" rel="stylesheet">
+  <script src="../../assets/video-js/video.js"></script>
+  <script>
+    videojs.options.flash.swf = "../../assets/video-js/video-jsß"
+  </script>
 </head>
 <body>
 

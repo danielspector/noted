@@ -8,7 +8,8 @@ class VideosController < ApplicationController
   end
 
   def create
-    @note = Note.create(:video_timestamp => params[:time])
+    @note = Note.create(:video_timestamp => params[:video_time])
+    binding.pry
     redirect_to new_note_path
   end
 
