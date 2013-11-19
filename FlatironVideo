@@ -22,7 +22,9 @@ note
 #TODO:
 #- generate video model
 #- generate note model
-- do associations
-- generate forms?
+#- do associations
+- stub out controller actions 
+- get seed data
+- views
 
 
