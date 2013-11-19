@@ -1,4 +1,20 @@
 FlatironVideos::Application.routes.draw do
+
+  get '/videos/:id' => 'videos#show', :as => 'video'
+  get '/videos' => 'videos#index'
+  get '/videos/:id/notes/new' => 'notes#new', :as => 'new_note'
+  post '/videos/:id' => 'videos#create'
+
+  post '/videos/:id/notes' => 'notes#create'
+  get '/videos/:id/notes' => 'notes#index', :as => 'notes'
+  get '/videos/:id/notes/:id/edit' => 'notes#edit'
+  put '/videos/:id/notes/:id' => 'notes#update'
+  patch '/videos/:id/notes/:id' => 'notes#update'
+  delete '/videos/:id/notes/:id' => 'notes#destroy'
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
