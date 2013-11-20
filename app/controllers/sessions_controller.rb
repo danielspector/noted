@@ -10,10 +10,9 @@ class SessionsController < ApplicationController
     binding.pry
     if user && user.authenticate(params[:password])
       login(user.id)
-
       redirect_to videos_path
     else
-      render :text => "hi"
+      render :text => "sign up!"
     end
   end
 

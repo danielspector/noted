@@ -2,22 +2,19 @@ class VideosController < ApplicationController
   before_action :set_video, :only => [:show, :edit, :update, :destroy]
 
   before_action :require_instructor, :only => [:new, :create]
-  
+
   def index
     @video = Video.new
     @videos = Video.all
   end
 
   def new
-    if @user.permission_type == "instructor"
-      @video = Video.new
-    else
-      redirect_to 
-    end
+
   end
 
   def create
     @video = Video.new(video_params)
+    @video.instructor = current_user
     @video.save
     redirect_to videos_path
   end
