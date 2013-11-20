@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <input type="hidden" id="video_id" value="<%= @video.id %>"></input>
 
   <strong>Name:</strong>
   <%= @video.name %>
@@ -8,23 +9,30 @@
 
   <%= video_tag( @video.link, controls: true, height: '320', width: '320', :id => "lecture_video" ) %>
 
-  <p><a href="#" id="new_note">New Note</a></p>
+  <p>
+    <a href="#" id="new_note">New Note</a>
+  </p>
 
   <!-- is for new forms -->
+  <div class="new_note">
   <%= render 'notes/new_form' %>
+  </div>
 
-<ul>
-  <% @video.notes.each do |note| %>
-  <div class="added_note">
-    <li><%= note.video_timestamp %></li>
-    <li><%= note.body %></li>
-    <li><%= link_to "Edit", edit_note_path(note.video.id, note.id) %></li>
-  </div>
-  <div class="edit_form">
-    <li><%= render 'notes/edit_form', :note => note %></li>
-  </div>
-  <% end %>
-</ul>
+  <ul>
+    <% @video.notes.each do |note| %>
+    <div class="added_note">
+      <li><%= note.video_timestamp %></li>
+      <li><%= note.body %></li>
+      <li><%= link_to "Edit", edit_note_path(note.video.id, note.id) %></li>
+    </div>
+    <div class="edit_form">
+      <li><%= render 'notes/edit_form', :note => note %></li>
+    </div>
+    <% end %>
+    
+    <div class="append_note">
+    </div>
+  </ul>
 
 </p>
 
