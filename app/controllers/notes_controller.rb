@@ -31,6 +31,8 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy]
   end
 
   def destroy
+    @note.destroy
+    redirect_to video_path
   end
 
 
