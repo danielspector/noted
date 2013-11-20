@@ -7,4 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-videos = Video.create([{name: "Lecture 1", link: "http://flatiron-school.s3.amazonaws.com/ruby-003/reviews/associations.and.forms.mp4", lecture_date: "11/02/2013"}, {name: "Lecture 2", link: "http://flatiron-school.s3.amazonaws.com/ruby-003/reviews/playister-associations-with-artists.mp4", lecture_date: "11/10/2013"} ])
+videos = Video.create([{instructor_id: 1, name: "Lecture 1", link: "http://flatiron-school.s3.amazonaws.com/ruby-003/reviews/associations.and.forms.mp4", lecture_date: "11/02/2013"}, {name: "Lecture 2", link: "http://flatiron-school.s3.amazonaws.com/ruby-003/reviews/playister-associations-with-artists.mp4", lecture_date: "11/10/2013"} ])
+
+avi = User.create({name: "Avi", email: "avi@flombaum.com", password: "itest", permission_type: "instructor"})
+
+ian = User.create({name: "Ian", email: "ian@miller.com", password: "stest", permission_type: "student"})
+
+stephanie = User.create({name: "Stephanie", email: "stephanie@oh.com", password: "stest1", permission_type: "student"})
