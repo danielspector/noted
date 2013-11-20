@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  #has_secure_password 
+
   has_many :notes
   has_many :videos
 
@@ -13,4 +15,9 @@ class User < ActiveRecord::Base
   def role
     permission_type
   end
+
+  def authenticate(password)
+    User.find_by(:password => password) ? true : false
+  end
+
 end

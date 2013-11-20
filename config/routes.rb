@@ -1,6 +1,11 @@
 FlatironVideos::Application.routes.draw do
 
-  # USER ROUTES
+  # LOGIN ROUTES
+
+  get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#destroy' 
+  post '/sessions' => 'sessions#create'
+  root 'videos#index'
 
   # VIDEO ROUTES ONLY -- :WHOO:
   get '/videos/new' => 'videos#new', :as => 'new_video'
