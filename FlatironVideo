@@ -76,23 +76,24 @@ QUESTIONS:
   ---- underscore templates
 2. Can you use AJAX to refresh the skin without refreshing video to dynamically add chapters
 3. How can we make the authentication token dynamic?
+4. is ":authenticate" is a thing?
 
 TODAY:
 - destroy notes
 #- make instructor model
 #- allows instructor to make new videos (CRUD)
 #- make student model 
-- login [ student : instructor ]
+#- login [ student : instructor ]
 - fix the JavaScript form (text, timestamp remains in create note fields)
 - Work on form_render for JS (instead of literal HTML string)
 
 PLAN:
 -- Student questions
--- Login for both students and instructors
--- Sessions controller
+#-- Login for both students and instructors
+#-- Sessions controller
 -- permissions (one Users model)
---# Build out CRUD features for Video objects
---# Build out the routes for Video
+#-- Build out CRUD features for Video objects
+#-- Build out the routes for Video
 
 - User table
 - Sessions Controller to manage User sessions
@@ -118,8 +119,8 @@ Permissions/Users
 
 #- seed data
 
--figure out instructor routes
--figure out student routes
+#- figure out sessions
+- add password encryption (bcrypt)
 
 
 
