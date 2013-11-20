@@ -1,10 +1,17 @@
 FlatironVideos::Application.routes.draw do
 
+  # VIDEO ROUTES ONLY -- :WHOO:
+  get '/videos/new' => 'videos#new', :as => 'new_video'
   get '/videos/:video_id' => 'videos#show', :as => 'video'
+  get '/videos/:video_id/edit' => 'videos#edit', :as => 'edit_video'
+  patch '/videos/:video_id' => 'videos#update'
+  delete '/videos/:video_id' => 'videos#destroy'
   get '/videos' => 'videos#index'
-  get '/videos/:video_id/notes/new' => 'notes#new', :as => 'new_note'
-  post '/videos/:video_id' => 'videos#create'
+  post '/videos' => 'videos#create'
 
+  
+# NOTES ROUTES ONLY -- :YIKES:
+  get '/videos/:video_id/notes/new' => 'notes#new', :as => 'new_note'
   post '/videos/:video_id/notes' => 'notes#create'
   get '/videos/:video_id/notes' => 'notes#index', :as => 'notes'
   get '/videos/:video_id/notes/:id/edit' => 'notes#edit', :as => 'edit_note'
