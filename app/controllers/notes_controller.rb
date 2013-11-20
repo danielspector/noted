@@ -13,7 +13,7 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy]
     @video.notes.build({:video_timestamp => params[:note_video_timestamp], :body => params[:note_body]})
     @video.save
     @note = @video.notes.last
-    note = { :video_timestamp => @note.video_timestamp, :body => @note.body }
+    note = { :video_timestamp => @note.video_timestamp, :body => @note.body, :id => @note.id }
     render :json => note
   end
 
