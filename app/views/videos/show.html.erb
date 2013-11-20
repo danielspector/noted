@@ -23,7 +23,7 @@
     <div class="added_note">
       <li><%= note.video_timestamp %></li>
       <li><%= note.body %></li>
-      <li><%= link_to "Edit", edit_note_path(note.video.id, note.id) %></li>
+      <li><%= link_to "Edit", edit_note_path(note.video.id, note.id) %> | <%= link_to "Delete", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" } %></li>
     </div>
     <div class="edit_form">
       <li><%= render 'notes/edit_form', :note => note %></li>

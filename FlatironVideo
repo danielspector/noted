@@ -78,19 +78,19 @@ QUESTIONS:
 3. How can we make the authentication token dynamic?
 
 TODAY:
--# destroy notes
-- make instructor model
--# allows instructor to make new videos (CRUD)
-- make student model 
+- destroy notes
+#- make instructor model
+#- allows instructor to make new videos (CRUD)
+#- make student model 
 - login [ student : instructor ]
 - fix the JavaScript form (text, timestamp remains in create note fields)
 - Work on form_render for JS (instead of literal HTML string)
 
 PLAN:
 -- Student questions
--- Login for both students and instructors (one Users model)
+-- Login for both students and instructors
 -- Sessions controller
--- permissions
+-- permissions (one Users model)
 --# Build out CRUD features for Video objects
 --# Build out the routes for Video
 
@@ -100,6 +100,28 @@ PLAN:
 - Build out other features (questions, answer)
 - Griddler (instructor sends video)
 - SendGrid
+
+Permissions/Users
+#- make users model
+----> name, email, password, permission_type(students, instructor)
+----> associations: has_many :videos, has_many :notes
+
+#- notes
+----> belongs_to :user
+- @user.permission_type = "student"
+- alias as "student"
+
+#- videos
+----> belongs_to :user
+- @user.permission_type = "instructor"
+- alias as "instructor"
+
+#- seed data
+
+-figure out instructor routes
+-figure out student routes
+
+
 
 
 

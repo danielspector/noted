@@ -1,5 +1,7 @@
 FlatironVideos::Application.routes.draw do
 
+  # USER ROUTES
+
   # VIDEO ROUTES ONLY -- :WHOO:
   get '/videos/new' => 'videos#new', :as => 'new_video'
   get '/videos/:video_id' => 'videos#show', :as => 'video'
