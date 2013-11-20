@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :login_required
 
   def require_instructor
-    redirect_to '/' if !current_user.instructor?
+    redirect_to login_path if !current_user.instructor?
   end
 
   def current_user
