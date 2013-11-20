@@ -37,9 +37,10 @@ FEATURES:
 - Instructor can post videos
 - Students can post questions
 - Instructor can answer questions
-- Students can save and edit notes
+#- Students can save and edit notes
 - Plot pins for questions and notes
 - Customize skin for video timeline note pins
+- Can login as student or instructor
 
 
 Video.js
@@ -49,11 +50,36 @@ PULL REQUESTS:
 - change your "video_player" to "video_tag"
 
 END GOALS:
-- be able to add videos (links)
-- finish edit/destroy functionality for notes
+#- finish edit functionality for notes
+#- destroy notes
 - instructor login first
+- be able to add videos (links)
+
+Making Edit/Update Work
+- press edit button
+--- 1: show/hide: show the form version, hid the finished version
+- render the form version of the note
+#- hit save
+#--- 1: .post(update route, data, function(response))
+#--- 2: in controller, update the note. send back json object with updated information
+#--- 3: replace the note body with the response
+#- updates database with updated note info
+- shows updated note info on the page
+--- 1: switches show and hide
 
 
+QUESTIONS:
+
+1. How can we achieve a better version of this? -->
+  $('.append_note').html("<%= escape_javascript render @note.name %>");
+2. Can you use AJAX to refresh the skin without refreshing video to dynamically add chapters
+
+TOMORROW:
+- destroy notes
+- make instructor model
+- allows instructor to make new videos (CRUD)
+- make student model 
+- login [ student : instructor ]
 
 
 
