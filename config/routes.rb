@@ -1,16 +1,17 @@
 FlatironVideos::Application.routes.draw do
 
-  get '/videos/:id' => 'videos#show', :as => 'video'
+  get '/videos/:video_id' => 'videos#show', :as => 'video'
   get '/videos' => 'videos#index'
-  get '/videos/:id/notes/new' => 'notes#new', :as => 'new_note'
-  post '/videos/:id' => 'videos#create'
+  get '/videos/:video_id/notes/new' => 'notes#new', :as => 'new_note'
+  post '/videos/:video_id' => 'videos#create'
 
-  post '/videos/:id/notes' => 'notes#create'
-  get '/videos/:id/notes' => 'notes#index', :as => 'notes'
-  get '/videos/:id/notes/:id/edit' => 'notes#edit'
-  put '/videos/:id/notes/:id' => 'notes#update'
-  patch '/videos/:id/notes/:id' => 'notes#update'
-  delete '/videos/:id/notes/:id' => 'notes#destroy'
+  post '/videos/:video_id/notes' => 'notes#create'
+  get '/videos/:video_id/notes' => 'notes#index', :as => 'notes'
+  get '/videos/:video_id/notes/:id/edit' => 'notes#edit', :as => 'edit_note'
+  get '/videos/:video_id/notes/:id' => 'notes#show', :as => 'video_note'
+  put '/videos/:video_id/notes/:id' => 'notes#update'
+  patch '/videos/:video_id/notes/:id' => 'notes#update'
+  delete '/videos/:video_id/notes/:id' => 'notes#destroy'
 
 
 
