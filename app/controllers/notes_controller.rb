@@ -10,9 +10,11 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy]
 
   def create
     @video = Video.find_by(:id => params[:video_id])
-    @video.notes.build(notes_params)
+    @video.notes.build({:video_timestamp => params[:note_video_timestamp], :body => params[:note_body]})
     @video.save
-    redirect_to video_path
+    @note = @video.notes.last
+    note = { :video_timestamp => @note.video_timestamp, :body => @note.body }
+    render :json => note
   end
 
   def show
@@ -23,11 +25,14 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy]
   end
 
   def update
-
+    @note.update(notes_params)
+    @note.save
+    redirect_to video_path
   end
 
   def destroy
   end
+
 
   private
 
