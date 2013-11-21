@@ -21,7 +21,7 @@ $(document).ready(function(){
     var video_id = $("#video_id").val();
     
     $.post("/videos/"+video_id+"/notes", data, function(note){
-
+        $('.new_note #note_body').val("")
     var note_info = '<li>'+note.video_timestamp+'</li><li>'+note.body+'</li><li><a href="/videos/'+video_id+'/notes/'+note.id+'/edit">Edit</a></li>';
 
     var note_form = '<form action="/videos/'+video_id+'/notes/'+note.id+'" class="edit_note" id="edit_note_'+note.id+'" method="post"><input name="_method" type="hidden" value="patch"/><input name="authenticity_token" type="hidden" value="MZUFHn0QrnKvVy2ohBGesm+AbmRBESlYixTL7Ca5kpo="/><input id="note_video_timestamp" name="note[video_timestamp]" type="text" value="'+note.video_timestamp+'"/><br><label for="note_body">Body</label></br><textarea id="note_body" name="note[body]">'+note.body+'</textarea><input name="commit" type="submit" value="Update Note"/></form>';
