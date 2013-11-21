@@ -72,13 +72,14 @@ Making Edit/Update Work
 
 QUESTIONS:
 
-1. How can we achieve a better version of this? -->
+#1. How can we achieve a better version of this? -->
   $('.append_note').html("<%= escape_javascript render @note.name %>");
   ---- underscore templates
-2. Can you use AJAX to refresh the skin without refreshing video to dynamically add chapters
-3. How can we make the authentication token dynamic?
-4. is @current_user available everywhere because it's a helper method?
-5. Different js files?
+#2. Can you use AJAX to refresh the skin without refreshing video to dynamically add chapters
+#3. How can we make the authentication token dynamic?
+#4. is @current_user available everywhere because it's a helper method?
+#5. Different js files?
+#6. Why does .get('notes') ... nevamind
 
 TODAY:
 #- destroy notes
@@ -86,8 +87,8 @@ TODAY:
 #- allows instructor to make new videos (CRUD)
 #- make student model 
 #- login [ student : instructor ]
-- fix the JavaScript form (text, timestamp remains in create note fields)
-- Work on form_render for JS (instead of literal HTML string)
+#- fix the JavaScript form (text, timestamp remains in create note fields)
+#- Work on form_render for JS (instead of literal HTML string)
 
 PLAN:
 -- Student questions
@@ -115,16 +116,16 @@ Permissions/Users
 - alias as "student"
 
 #- videos
-----> belongs_to :user
-- @user.permission_type = "instructor"
-- alias as "instructor"
+#----> belongs_to :user
+#- @user.permission_type = "instructor"
+#- alias as "instructor"
 
 #- seed data
 
 #- figure out sessions
-- add password encryption (bcrypt)
+#- add password encryption (bcrypt)
 
-CLEAN UP
+# CLEAN UP
 #- if student, "new video" is hidden
 #- if instructor, "new video form" is hidden until you click "new video"
 #- make video name the link, get rid of "Show"
@@ -138,17 +139,17 @@ CLEAN UP
 #- rename "Back" to "All Videos" of "Main"
 
 - fix the video cloning, so video can't be destroyed by instructor
-- ajax should only return new values, NOT the whole form (fixes token)
+#- ajax should only return new values, NOT the whole form (fixes token)
 - logout dropdown 
 
 
-FOR TOMORROW:
-- edit ajax form is now create
+FOR Nov 21st:
+#- edit ajax form is now create
 - timeline plotting of notes
 - validating the login information
 - signup page
-- 
-
+- deploy today
+- hide edit until click on edit button
 
 
 

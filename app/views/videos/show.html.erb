@@ -37,8 +37,8 @@
     <% end %>
 
     <div class="append_note">
-      <%= render 'notes/edit_form', :note => @note %>
-    </div>
+      <%#= render 'notes/edit_form', :note => @video.notes.last if !@video.notes.empty? %>
+    </div>  
 
   </ul>
 
@@ -47,3 +47,6 @@
   <%= link_to "Edit Video", edit_video_path(@video) %>
 <% end %>
 <%= link_to "Main", videos_path %>
+
+
+
