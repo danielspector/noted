@@ -149,7 +149,9 @@ FOR Nov 21st:
 - validating the login information
 - signup page
 - deploy today
-- hide edit until click on edit button
+#- hide edit until click on edit button
+#- toggle Create
+- add delete button in ajax form
 
 
 

@@ -28,9 +28,10 @@ $(document).ready(function(){
   $('.new_note').on('click', 'button', function(){
     $(this).closest('.new_note').find('.new_note_form').toggle();
   });
-  
+
   // when "Create Note" is clicked, plays video, sends post with new note info, refreshes edit section 
   $("input[value='Create Note']").click(function(e){
+    $('.new_note_form').toggle();
     e.preventDefault();
     var $myPlayer = $("#lecture_video");
     $myPlayer[0].play();
