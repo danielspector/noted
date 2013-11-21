@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20131120184947) do
 
   create_table "notes", force: true do |t|
     t.text     "body"
-    t.integer  "video_timestamp"
+    t.float    "video_timestamp"
     t.integer  "video_id"
     t.datetime "created_at"
     t.datetime "updated_at"
