@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-before_action :set_note, :only => [:show, :edit, :update, :destroy]
+before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
 
   def index
   end
@@ -17,6 +17,11 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy]
     @note.save
     note = { :video_timestamp => @note.video_timestamp, :body => @note.body, :id => @note.id }
     render :json => note
+  end
+
+  def refresh
+    @video = Video.find_by(:id => params[:video_id])
+    render :partial => 'notes/edit_form', :format => 'text/html', :locals => {:note => (@video.notes.last)}
   end
 
   def show

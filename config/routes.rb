@@ -1,5 +1,8 @@
 FlatironVideos::Application.routes.draw do
 
+  # REFRESH ROUTE FOR NOTE AJAX
+  get 'notes/refresh' => 'notes#refresh'
+
   # LOGIN ROUTES
 
   get '/login' => 'sessions#new'
