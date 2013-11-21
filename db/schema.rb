@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131120184947) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "notes", force: true do |t|
     t.text     "body"
     t.float    "video_timestamp"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20131120184947) do
     t.integer  "student_id"
   end
 
-  add_index "notes", ["student_id"], name: "index_notes_on_student_id"
+  add_index "notes", ["student_id"], name: "index_notes_on_student_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -42,6 +45,6 @@ ActiveRecord::Schema.define(version: 20131120184947) do
     t.integer  "instructor_id"
   end
 
-  add_index "videos", ["instructor_id"], name: "index_videos_on_instructor_id"
+  add_index "videos", ["instructor_id"], name: "index_videos_on_instructor_id", using: :btree
 
 end
