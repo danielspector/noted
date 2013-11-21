@@ -9,34 +9,41 @@
 
   <%= video_tag( @video.link, controls: true, height: '320', width: '320', :id => "lecture_video" ) %>
 
-  <p>
-    <a href="#" id="new_note">New Note</a>
-  </p>
 
-  <!-- is for new forms -->
   <div class="new_note">
-  <%= render 'notes/new_form' %>
-  </div>
+    <p>
+      <button>New Note</button>
+    </p>
 
+    <!-- is for new forms -->
+    <div class="new_note_form">
+    <%= render 'notes/new_form' %>
+    </div>
+  </div>
   <ul>
     <% @video.notes.each do |note| %>
       <% if note.student == @current_user %>
+      <div class="note_info">
         <div class="added_note">
           <li><%= note.body %></li>
-          <li><%= button_to "Edit", edit_note_path(note.video.id, note.id) %><%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" } %></li>
+          <button class="edit_button">Edit</button><%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" } %>
         </div>
-      <% end %>
-      <div class="edit_form">
-        <li><%= render 'notes/edit_form', :note => note %></li>
+        <% end %>
+        <div class="edit_form">
+          <li><%= render 'notes/edit_form', :note => note %></li>
+        </div>
+        <br>
       </div>
     <% end %>
 
     <div class="append_note">
-
+      <%= render 'notes/edit_form', :note => @note %>
     </div>
+
   </ul>
 
 </p>
-
-<%= link_to "Edit Video", edit_video_path(@video) %>
+<% if current_user.permission_type == "instructor" %>
+  <%= link_to "Edit Video", edit_video_path(@video) %>
+<% end %>
 <%= link_to "Main", videos_path %>
