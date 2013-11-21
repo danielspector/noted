@@ -3,20 +3,18 @@ $(document).ready(function(){
   $(".video_form").hide();
   $(".new_note_form").hide();
 
-
+  // toggling edit form
   $('.note_info').on('click', 'button', function(){
     $(this).closest('.note_info').find('.edit_form').toggle();
   });
 
+  // toggling create video form for instructor -- video.index
   $('.new_video').on('click', 'button', function(){
     $(this).closest('.new_video').find('.video_form').toggle();
   });
 
-  $('.new_note').on('click', 'button', function(){
-    $(this).closest('.new_note').find('.new_note_form').toggle();
-  });
-  
-  $("#new_note").click(function(e){
+  // pause video on new note 
+ $(".new_note").on("click", "button", function(e){
     e.preventDefault();
 
     var $myPlayer = $("#lecture_video");
@@ -26,9 +24,14 @@ $(document).ready(function(){
 
   });
 
+  // toggle new form field
+  $('.new_note').on('click', 'button', function(){
+    $(this).closest('.new_note').find('.new_note_form').toggle();
+  });
+  
+  // when "Create Note" is clicked, plays video, sends post with new note info, refreshes edit section 
   $("input[value='Create Note']").click(function(e){
     e.preventDefault();
-
     var $myPlayer = $("#lecture_video");
     $myPlayer[0].play();
     var note_timestamp = $('.new_note #note_video_timestamp').val();
@@ -36,16 +39,27 @@ $(document).ready(function(){
     var data = { note_video_timestamp: note_timestamp, note_body: note_body};
     var video_id = $("#video_id").val();
     
+    // sending post to make new note
     $.post("/videos/"+video_id+"/notes", data, function(note){
         $('.new_note #note_body').val("")
 
-    var note_info = '<li>'+note.body+'</li><li><a href="/videos/'+video_id+'/notes/'+note.id+'/edit">Edit</a></li>';
+        // creating the note_info html
+        var note_info = '<li>'+note.body+'</li><button class="edit_button">Edit</button>';
 
-    $(".append_note #note_body").val(note.body);
-    // var note_form = '<form action="/videos/'+video_id+'/notes/'+note.id+'" class="edit_note" id="edit_note_'+note.id+'" method="post"><input name="_method" type="hidden" value="patch"/><input name="authenticity_token" type="hidden" value="MZUFHn0QrnKvVy2ohBGesm+AbmRBESlYixTL7Ca5kpo="/><input id="note_video_timestamp" name="note[video_timestamp]" type="text" value="'+note.video_timestamp+'"/><br><label for="note_body">Body</label></br><textarea id="note_body" name="note[body]">'+note.body+'</textarea><input name="commit" type="submit" value="Update Note"/></form>';
+        $.get('/notes/refresh?video_id='+video_id, function(edit_form) {
+            
+            // appending the edit form
 
-    $('.append_note').prepend(note_info);
+            $(".append_note").append('<div class="ajax_section">'+note_info+edit_form+'</div>').closest(".append_note").find(".edit_note").hide();
 
+            $(".append_note").on("click", "button", function(){
+              $(this).closest(".ajax_section").find('#edit_note_'+note.id).toggle();
+            });
+
+
+            // filling in the note body in the edit form
+            $(this).closest(".append_note").find("#note_body").val(note.body);
+    });
 
     });
 
