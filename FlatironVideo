@@ -34,14 +34,15 @@ note
 - answers
 
 FEATURES:
-- Instructor can post videos
+#- Instructor can post videos
 - Students can post questions
 - Instructor can answer questions
 #- Students can save and edit notes
 - Plot pins for questions and notes
 - Customize skin for video timeline note pins
-- Can login as student or instructor
+#- Can login as student or instructor
 - Student view clones videos 
+- Snapshots when detects change
 
 
 Video.js
@@ -53,12 +54,12 @@ PULL REQUESTS:
 END GOALS:
 #- finish edit functionality for notes
 #- destroy notes
-- instructor login first
-- be able to add videos (links)
+#- instructor login first
+#- be able to add videos (links)
 
 Making Edit/Update Work
-- press edit button
---- 1: show/hide: show the form version, hid the finished version
+#- press edit button
+#--- 1: show/hide: show the form version, hid the finished version
 - render the form version of the note
 #- hit save
 #--- 1: .post(update route, data, function(response))
@@ -77,6 +78,7 @@ QUESTIONS:
 2. Can you use AJAX to refresh the skin without refreshing video to dynamically add chapters
 3. How can we make the authentication token dynamic?
 4. is @current_user available everywhere because it's a helper method?
+5. Different js files?
 
 TODAY:
 #- destroy notes
@@ -123,21 +125,29 @@ Permissions/Users
 - add password encryption (bcrypt)
 
 CLEAN UP
-- if student, "new video" is hidden
-- if instructor, "new video form" is hidden until you click "new video"
+#- if student, "new video" is hidden
+#- if instructor, "new video form" is hidden until you click "new video"
 #- make video name the link, get rid of "Show"
 #- rename "destroy" to "delete video"
-- logout dropdown 
-- if student, "edit video" is hidden
-- "new note" button shows "new note form", other wise, form is hidden
-- "edit form" is hidden until the edit button is clicked
+#- if student, "edit video" is hidden
+#- "new note" button shows "new note form", other wise, form is hidden
+#- "edit form" is hidden until the edit button is clicked
 #- change timestamp to float
 #- timestamp needs to be hidden
-- ajax should only return new values, NOT the whole form (fixes token)
 #- on "create note", clear out the "new form" fields
 #- rename "Back" to "All Videos" of "Main"
-- fix the video cloning, so video can't be destroyed by instructor
 
+- fix the video cloning, so video can't be destroyed by instructor
+- ajax should only return new values, NOT the whole form (fixes token)
+- logout dropdown 
+
+
+FOR TOMORROW:
+- edit ajax form is now create
+- timeline plotting of notes
+- validating the login information
+- signup page
+- 
 
 
 
