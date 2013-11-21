@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, :only => [:show, :edit, :update, :destroy]
 
-  before_action :require_instructor, :only => [:new, :create]
+  before_action :require_instructor, :except => [:index, :show]
 
   def index
     @video = Video.new
