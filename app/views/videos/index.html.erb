@@ -10,20 +10,25 @@
     </tr>
   </thead>
 
-
-
   <tbody>
     <% @videos.each do |video| %>
       <tr>
         <td><%= link_to video.name, video %></td>
+        <% if current_user.permission_type == "instructor" %>
         <td><%= link_to '⊗', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<button>New Video</button>
-<%= render 'form' %>
-
+<% if current_user.permission_type == "instructor" %>
+  <div class="new_video">
+    <button class="new_video_button">New Video</button>
+    <div class="video_form">
+      <%= render 'form' %>
+    </div>
+  </div>
+<% end %>
 
 
