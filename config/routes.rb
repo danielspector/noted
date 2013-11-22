@@ -1,14 +1,17 @@
 FlatironVideos::Application.routes.draw do
 
+  get '/signup' => 'users#new', :as => "users"
+  post '/signup' => 'users#create', :as => "users_signup"
+
   # REFRESH ROUTE FOR NOTE AJAX
   get 'notes/refresh' => 'notes#refresh'
 
   # LOGIN ROUTES
-
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy' 
   post '/sessions' => 'sessions#create'
   root 'videos#index'
+
 
   # VIDEO ROUTES ONLY -- :WHOO:
   get '/videos/new' => 'videos#new', :as => 'new_video'
