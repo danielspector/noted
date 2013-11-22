@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require mediaelement_rails
+
+//= require video
 // require ../../../vendor/assets/video-js/video.dev
 //= require_tree .

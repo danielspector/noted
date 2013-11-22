@@ -12,6 +12,7 @@ end
 gem 'pg'
 
 # Use SCSS for stylesheets
+gem 'bootstrap-sass', '2.3.2.0'
 gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -42,7 +43,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'mediaelement_rails'
+# gem 'mediaelement_rails'
+gem 'videojs_rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
