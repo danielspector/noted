@@ -2,14 +2,14 @@
 
 <p>
   <input type="hidden" id="video_id" value="<%= @video.id %>"></input>
-  <div class="center hero-unit">
+  <div class="col md-12 center">
     <strong><%= @video.name %></strong>
     <br>
-    <div class="video_style">
-      <%#= videojs_rails sources: {mp4: @video.link}, width: "600" %>
-      <%= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %>
+    <div class="vjs_video_4_html5_api">
+      <%= videojs_rails sources: {mp4: @video.link}, height: "320", width: "600" %>
+      <%#= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %>
     </div>
-
+  </div>
     <div class="new_note">
       <p>
         <button>New Note</button>
@@ -21,6 +21,7 @@
       </div>
     </div>
     <ul>
+
       <% @video.notes.each do |note| %>
         <% if note.student == @current_user %>
         <div class="note_info">
@@ -46,7 +47,7 @@
   <% if current_user.permission_type == "instructor" %>
     <%= link_to "Edit Video", edit_video_path(@video) %>
   <% end %>
-  </div>
+  
 
 
 

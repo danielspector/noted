@@ -1,23 +1,21 @@
 <h1>Listing Videos</h1>
 
-<div class="center hero-unit"
+<div class="center hero-unit">
 <table>
   <thead>
     <tr>
-      <th align="center">Name</th>
+      <th></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 </div>
 
-
   <tbody>
     <% @videos.each do |video| %>
       <tr>
-        <div class="center row-fluid"
+        <div class="center row-fluid">
         <td><%= link_to video.name, video %></td>
-
         <td>[ <%= video.lecture_date %> ]</td>
         <% if current_user.permission_type == "instructor" %>
         <td><%= link_to '⊗', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
