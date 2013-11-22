@@ -1,16 +1,17 @@
 <p id="notice"><%= notice %></p>
+<div class="jumbotron center">
+  <h3><%= @video.name %></h3>
+</div>
 
-<p>
   <input type="hidden" id="video_id" value="<%= @video.id %>"></input>
-  <div class="col md-12 center">
-    <strong><%= @video.name %></strong>
-    <br>
+  <div class="col-md-12 center">
     <div class="vjs_video_4_html5_api">
       <%= videojs_rails sources: {mp4: @video.link}, height: "320", width: "600" %>
       <%#= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %>
     </div>
   </div>
-    <div class="new_note">
+  <div class="col-md-12 center">
+    <div align="center" class="new_note">
       <p>
         <button>New Note</button>
       </p>
