@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 			login(@user.id)
       redirect_to videos_path,notice: "Welcome to VideoNotes!" 
 		else
-			flash.now[:error] = "We were not able to process your request!"
+			flash[:error] = "We were not able to process your request!"
 			render :new
 		end
 	end
