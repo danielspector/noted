@@ -43,6 +43,7 @@ FEATURES:
 #- Can login as student or instructor
 - Student view clones videos 
 - Snapshots when detects change
+- Session has timelimit
 
 
 Video.js
@@ -51,23 +52,23 @@ Video.js
 PULL REQUESTS:
 - change your "video_player" to "video_tag"
 
-END GOALS:
+#END GOALS:
 #- finish edit functionality for notes
 #- destroy notes
 #- instructor login first
 #- be able to add videos (links)
 
-Making Edit/Update Work
+#Making Edit/Update Work
 #- press edit button
 #--- 1: show/hide: show the form version, hid the finished version
-- render the form version of the note
+#- render the form version of the note
 #- hit save
 #--- 1: .post(update route, data, function(response))
 #--- 2: in controller, update the note. send back json object with updated information
 #--- 3: replace the note body with the response
 #- updates database with updated note info
-- shows updated note info on the page
---- 1: switches show and hide
+#- shows updated note info on the page
+#--- 1: switches show and hide
 
 
 QUESTIONS:
@@ -105,7 +106,7 @@ PLAN:
 - Griddler (instructor sends video)
 - SendGrid
 
-Permissions/Users
+#Permissions/Users
 #- make users model
 ----> name, email, password, permission_type(students, instructor)
 ----> associations: has_many :videos, has_many :notes
@@ -119,9 +120,7 @@ Permissions/Users
 #----> belongs_to :user
 #- @user.permission_type = "instructor"
 #- alias as "instructor"
-
 #- seed data
-
 #- figure out sessions
 #- add password encryption (bcrypt)
 
@@ -137,7 +136,7 @@ Permissions/Users
 #- timestamp needs to be hidden
 #- on "create note", clear out the "new form" fields
 #- rename "Back" to "All Videos" of "Main"
-
+- AJAX all the functions on the entire note page
 - fix the video cloning, so video can't be destroyed by instructor
 #- ajax should only return new values, NOT the whole form (fixes token)
 - logout dropdown 
@@ -145,11 +144,27 @@ Permissions/Users
 
 FOR Nov 21st:
 #- edit ajax form is now create
-- timeline plotting of notes
-- validating the login information
-- signup page
-- deploy today
-- hide edit until click on edit button
+#- timeline plotting of notes
+#- validating the login information
+#- signup page
+#- deploy today
+#- hide edit until click on edit button
+#- toggle Create
+- add delete button in ajax form
 
+TIMELINE
+- manipulate the skin -> insert canvas element underneathe
+#- plot points on timeline
+- find the right note
+- scroll up the right note
 
+TOMORROW:
+- play with skin to get progress bar on the bottom and full span
+- when you click on the hearts, it gets a note -> put an anchor tag on canvas
+- 
 
+more on DOM levels: 
+quirksmode.org/js/dom0.html
+DOM level 2 has more support
+
+-websocket: 
