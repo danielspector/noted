@@ -50,13 +50,13 @@ $(document).ready(function(){
           var timeline = (((note.video_timestamp/total_time)*400)+3);
           
           y = timeline;
-          var marker = '<a href="#'+id+'" class="marker" style="left:'+y+'px;"></a>';
+          var marker = '<a href="#'+note.id+'" class="marker" style="left:'+y+'px;"></a>';
             
           $('#timeline').append(marker);
           
 
         // creating the note_info html
-        var note_info = '<li>'+note.body+'</li><button class="edit_button">Edit</button>';
+        var note_info = '<li id="'+note.id+'">'+note.body+'</li><button class="edit_button">Edit</button>';
 
         $.get('/notes/refresh?video_id='+video_id, function(edit_form) {
             
