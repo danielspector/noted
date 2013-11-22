@@ -3,6 +3,13 @@ $(document).ready(function(){
   $(".video_form").hide();
   $(".new_note_form").hide();
 
+  // canvas gray bar
+
+  var canvas = document.getElementById('myCanvas');
+  var context = canvas.getContext('2d');
+  context.fillStyle = '#ccc';
+  context.fillRect(0, 10, 600, 20);
+
   // toggling edit form
   $('.note_info').on('click', 'button', function(){
     $(this).closest('.note_info').find('.edit_form').toggle();
@@ -21,7 +28,6 @@ $(document).ready(function(){
     $myPlayer[0].pause();
     var timeStamp = $myPlayer[0].currentTime;
     $("#note_video_timestamp").val(timeStamp);
-
   });
 
   // toggle new form field
@@ -42,7 +48,7 @@ $(document).ready(function(){
     
     // sending post to make new note
     $.post("/videos/"+video_id+"/notes", data, function(note){
-        $('.new_note #note_body').val("")
+        $('.new_note #note_body').val("");
 
         // creating the note_info html
         var note_info = '<li>'+note.body+'</li><button class="edit_button">Edit</button>';
@@ -60,10 +66,38 @@ $(document).ready(function(){
 
             // filling in the note body in the edit form
             $(this).closest(".append_note").find("#note_body").val(note.body);
-    });
+        });
+
+         // canvas heart button
+
+        function draw_heart(){
+          var canvas = document.getElementById('myCanvas');
+          var context = canvas.getContext('2d');
+          var imageObj = new Image();
+          imageObj.name = note.id;
+          var total_time = $myPlayer[0].duration;
+          var note_number = parseFloat(note.timestamp);
+          var timeline = (((note.video_timestamp/total_time)*400)-15);
+          console.log(timeline);
+          var y = 0;
+          imageObj.onload = function() {
+            context.drawImage(imageObj, timeline, 0);
+          };
+          imageObj.src = 'http://www.clker.com/cliparts/b/d/7/7/11949914731729098287hearth_christoph_brill_01.svg';
+        };
+
+        draw_heart();
 
     });
-
   });
-
 });
+
+// The Timeline
+// $on "create"
+// pos = ((timestamp/total time)*canvas-width)
+// $ put O at pos and set div id = note_id_{ }
+// $ click O if note_id == $(form id).val(), scroll the note_id to the right valuei
+
+
+
+
