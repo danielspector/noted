@@ -159,19 +159,15 @@ TIMELINE
 
 TODAY Nov 22nd:
 - play with skin to get progress bar on the bottom and full span
-- when you click on the hearts, it gets a note -> put an anchor tag on canvas
+#- when you click on the hearts, it gets a note -> put an anchor tag on canvas
 - clicking on heart starts playing video at that time (<5 seconds)
 - when you reload page, JS dynamically adds hearts back on the timeline
 - add delete button in ajax form
 - make everything else AJAX!!!!!!! (i.e 'Delete', 'Update' are still refreshing page)
-- fix note.hide()
-- plotting points
-  - give the points an a tag (test responsiveness)
-  - make sure that tag connects to corresponding note
-  - #PSEUDOCODE --> 1. Get all image tags
-                    2. Find img tag with highest 'name' value (i.e note id, i.e recent note)
-                    3. Wrap that img tag with <a href=""></a> matching the 'name' value (i.e note id)
-
+#- fix note.hide()
+- play button for notes
+#- plotting points
+  
 more on DOM levels: 
 quirksmode.org/js/dom0.html
 DOM level 2 has more support
