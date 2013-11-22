@@ -164,6 +164,7 @@ TODAY Nov 22nd:
 - clicking on heart starts playing video at that time (<5 seconds)
 - when you reload page, JS dynamically adds hearts back on the timeline
 - make everything else AJAX!!!!!!!
+- fix note.hide()
 - plotting points
   - give the points an a tag (test responsiveness)
   - make sure that tag connects to corresponding note
