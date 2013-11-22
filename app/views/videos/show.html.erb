@@ -2,51 +2,51 @@
 
 <p>
   <input type="hidden" id="video_id" value="<%= @video.id %>"></input>
-
-  <strong>Name:</strong>
-  <%= @video.name %>
-  <br>
-
-  <%= video_tag( @video.link, controls: true, height: '320', width: '320', :id => "lecture_video" ) %>
-
-
-  <div class="new_note">
-    <p>
-      <button>New Note</button>
-    </p>
-
-    <!-- is for new forms -->
-    <div class="new_note_form">
-    <%= render 'notes/new_form' %>
+  <div class="center hero-unit">
+    <strong><%= @video.name %></strong>
+    <br>
+    <div class="video_style">
+      <%= videojs_rails sources: {mp4: @video.link}, width: "600" %>
+      <%#= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %>
     </div>
-  </div>
-  <ul>
-    <% @video.notes.each do |note| %>
-      <% if note.student == @current_user %>
-      <div class="note_info">
-        <div class="added_note">
-          <li><%= note.body %></li>
-          <button class="edit_button">Edit</button><%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" } %>
-        </div>
-        <% end %>
-        <div class="edit_form">
-          <li><%= render 'notes/edit_form', :note => note %></li>
-        </div>
-        <br>
+
+    <div class="new_note">
+      <p>
+        <button>New Note</button>
+      </p>
+
+      <!-- is for new forms -->
+      <div class="new_note_form">
+      <%= render 'notes/new_form' %>
       </div>
-    <% end %>
+    </div>
+    <ul>
+      <% @video.notes.each do |note| %>
+        <% if note.student == @current_user %>
+        <div class="note_info">
+          <div class="added_note">
+            <li><%= note.body %></li>
+            <button class="edit_button">Edit</button><%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" } %>
+          </div>
+          <% end %>
+          <div class="edit_form">
+            <li><%= render 'notes/edit_form', :note => note %></li>
+          </div>
+          <br>
+        </div>
+      <% end %>
 
-    <div class="append_note">
-      <%#= render 'notes/edit_form', :note => @video.notes.last if !@video.notes.empty? %>
-    </div>  
+      <div class="append_note">
+        <%#= render 'notes/edit_form', :note => @video.notes.last if !@video.notes.empty? %>
+      </div>  
 
-  </ul>
+    </ul>
 
-</p>
-<% if current_user.permission_type == "instructor" %>
-  <%= link_to "Edit Video", edit_video_path(@video) %>
-<% end %>
-<%= link_to "Main", videos_path %>
+  </p>
+  <% if current_user.permission_type == "instructor" %>
+    <%= link_to "Edit Video", edit_video_path(@video) %>
+  <% end %>
+  </div>
 
 
 
