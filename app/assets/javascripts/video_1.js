@@ -17,7 +17,8 @@ $(document).ready(function(){
  $(".new_note").on("click", "button", function(e){
     e.preventDefault();
 
-    var $myPlayer = $("#lecture_video");
+    var $myPlayer = $("#vjs_video_4_html5_api");
+    // var $myPlayer = $("#lecture_video");
     $myPlayer[0].pause();
     var timeStamp = $myPlayer[0].currentTime;
     $("#note_video_timestamp").val(timeStamp);
@@ -33,7 +34,7 @@ $(document).ready(function(){
   $("input[value='Create Note']").click(function(e){
     $('.new_note_form').toggle();
     e.preventDefault();
-    var $myPlayer = $("#lecture_video");
+    var $myPlayer = $("#vjs_video_4_html5_api");
     $myPlayer[0].play();
     var note_timestamp = $('.new_note #note_video_timestamp').val();
     var note_body = $('.new_note #note_body').val();

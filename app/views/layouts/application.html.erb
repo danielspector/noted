@@ -17,6 +17,8 @@
 				<nav>
 					<ul class="nav pull-right">
 						<li><%= link_to "Home", root_path %></li>
+						<li><%= link_to "Sign Up", users_path if !session[:user_id] %></li>
+						<li><%= link_to "Help", '#' %></li>
 						<% if session[:user_id] %>
 							<!-- user is logged in -->
 							<li><%= link_to "Sign Out", logout_path %><li>
@@ -24,8 +26,6 @@
 							<!-- user is NOT logged in -->
 							<li><%= link_to "Sign In", login_path %></li>
 						<% end %>
-						<li><%= link_to "Sign Up", users_path %></li>
-						<li><%= link_to "Help", '#' %></li>
 					</ul>
 				</nav>
 			</div>
