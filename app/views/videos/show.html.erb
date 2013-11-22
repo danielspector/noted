@@ -27,7 +27,7 @@
       <% if note.student == @current_user %>
       <div class="note_info">
         <div class="added_note">
-          <li><%= note.body %></li>
+          <li id="<%=note.id%>"><%= note.body %></li>
           <button class="edit_button">Edit</button><%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" } %>
         </div>
         <% end %>
