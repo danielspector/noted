@@ -90,8 +90,6 @@ $(document).ready(function(){
         $("canvas").append(imageObj);
         alert(document.images);
 
-
-
         var image_names = [];
 
         // $("canvas img").wrap('<a href="7"></a>');
@@ -105,20 +103,31 @@ $(document).ready(function(){
         var last_image_name = image_names[0];
         // $('img[name='+last_image_name+']').wrap('<a href="#'+last_image_name+'"></a>');
         
-       canvas.addEventListener("mousedown", getPosition, false);
+        function getPosition(canvas, event){
 
-        function getPosition(event)
-        {
-          var x = event.x;
-          var y = event.y;
+          // context.clearRect(0, 0, canvas.width, canvas.height);
 
-          x -= canvas.offsetLeft;
-          y -= canvas.offsetTop;
-
-          // alert("x:" + x + " y:" + y);
-          alert(x +': '+ y);
+          var rect = canvas.getBoundingClientRect();
+            return {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top
+          };
         };
 
+        canvas.addEventListener("click", function(event){
+          var mousePos = getPosition(canvas, event);
+          alert(mousePos.x +': '+ (mousePos.y));
+        });
+        // {
+        //   var x = event.x;
+        //   var y = event.y;
+
+        //   x -= canvas.offsetLeft;
+        //   y -= canvas.offsetTop;
+
+        //   // alert("x:" + x + " y:" + y);
+        //   alert(x +': '+ (130-event.y));
+        // };
     });
   });
 });
