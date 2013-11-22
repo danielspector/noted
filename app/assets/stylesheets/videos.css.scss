@@ -19,8 +19,6 @@ h1, h2, p, a, form, input, button, text-area, li, ul, table {
 	background-color: lightsteelgrey;
 }
 
- 
-
 .new_note button {
     padding: 10px 15px;
     background: #4479BA;
@@ -41,17 +39,20 @@ h1, h2, p, a, form, input, button, text-area, li, ul, table {
     -ms-user-select:none;
     user-select:none;
 }
+
 .new_note button:hover {
     background: #356094;
     border: solid 1px #2A4E77;
     text-decoration: none;
 }
+
 .new_note button:active {
     -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
     -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
     background: #2E5481;
     border: solid 1px #203E5F;
+}
 
 body {
   margin: 10%;
@@ -79,5 +80,4 @@ body {
 .marker:hover {
   background: yellow;
   z-index: 999;
-
 }
