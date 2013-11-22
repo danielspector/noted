@@ -7,10 +7,11 @@
   <%= @video.name %>
   <br>
 
-  <%= video_tag( @video.link, controls: true, height: '400', width: '400', :id => "lecture_video" ) %></br>
+  <%= video_tag( @video.link, controls: true, height: '400', width: '600', :id => "lecture_video" ) %></br>
 
-  <canvas id="myCanvas" width="400" height="50" style="background-color: yellow; "></canvas>
-  
+  <div id="timeline"></div></br>
+  <button id="add_note_timeline">Add Note</button>
+
   <div class="new_note">
     <p>
       <button>New Note</button>
