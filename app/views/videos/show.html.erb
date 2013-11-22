@@ -6,8 +6,8 @@
     <strong><%= @video.name %></strong>
     <br>
     <div class="video_style">
-      <%= videojs_rails sources: {mp4: @video.link}, width: "600" %>
-      <%#= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %>
+      <%#= videojs_rails sources: {mp4: @video.link}, width: "600" %>
+      <%= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %>
     </div>
 
     <div class="new_note">
