@@ -3,6 +3,13 @@ $(document).ready(function(){
   $(".video_form").hide();
   $(".new_note_form").hide();
 
+  // canvas gray bar
+
+  var canvas = document.getElementById('myCanvas');
+  var context = canvas.getContext('2d');
+  context.fillStyle = '#ccc';
+  context.fillRect(0, 10, 600, 20);
+
   // toggling edit form
   $('.note_info').on('click', 'button', function(){
     $(this).closest('.note_info').find('.edit_form').toggle();
@@ -21,6 +28,7 @@ $(document).ready(function(){
     $myPlayer[0].pause();
     var timeStamp = $myPlayer[0].currentTime;
     $("#note_video_timestamp").val(timeStamp);
+<<<<<<< HEAD
 
   // $("#new_note").click(function(){
   //   // var timeStamp = myPlayer.currentTime;
@@ -32,15 +40,18 @@ $(document).ready(function(){
   //   // $.post('/videos/:id/notes', {video_time: timeStamp}, function(response){
   //   //     //COME BACK FOR TIMESTAMP FUNCTIONALITY
   //   // });
+=======
+>>>>>>> 7404b18d965585b229b37c8a61e5b2a24e221af1
   });
 
   // toggle new form field
   $('.new_note').on('click', 'button', function(){
     $(this).closest('.new_note').find('.new_note_form').toggle();
   });
-  
+
   // when "Create Note" is clicked, plays video, sends post with new note info, refreshes edit section 
   $("input[value='Create Note']").click(function(e){
+    $('.new_note_form').toggle();
     e.preventDefault();
     var $myPlayer = $("#lecture_video");
     $myPlayer[0].play();
@@ -51,7 +62,7 @@ $(document).ready(function(){
     
     // sending post to make new note
     $.post("/videos/"+video_id+"/notes", data, function(note){
-        $('.new_note #note_body').val("")
+        $('.new_note #note_body').val("");
 
         // creating the note_info html
         var note_info = '<li>'+note.body+'</li><button class="edit_button">Edit</button>';
@@ -69,10 +80,39 @@ $(document).ready(function(){
 
             // filling in the note body in the edit form
             $(this).closest(".append_note").find("#note_body").val(note.body);
-    });
+        });
+
+         // canvas heart button
+
+        var imageObj = document.createElement('img');
+        var canvas = document.getElementById('myCanvas');
+
+        function draw_heart(){
+          var context = canvas.getContext('2d');
+          imageObj.name = note.id;
+          var total_time = $myPlayer[0].duration;
+          var timeline = (((note.video_timestamp/total_time)*400)-15);
+          console.log(typeof(imageObj));
+          var y = 0;
+          imageObj.onload = function() {
+            context.drawImage(imageObj, timeline, 0);
+          };
+          imageObj.src = 'http://www.clker.com/cliparts/b/d/7/7/11949914731729098287hearth_christoph_brill_01.svg';
+        };
+
+        draw_heart();
+        $("canvas").append(imageObj);
 
     });
-
   });
-
 });
+
+// The Timeline
+// $on "create"
+// pos = ((timestamp/total time)*canvas-width)
+// $ put O at pos and set div id = note_id_{ }
+// $ click O if note_id == $(form id).val(), scroll the note_id to the right valuei
+
+
+
+
