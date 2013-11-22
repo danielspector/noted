@@ -9,8 +9,9 @@ class UsersController < ApplicationController
 		@user.permission_type = "student"
 		if @user.save
 			login(@user.id)
-      redirect_to videos_path
+      redirect_to videos_path,notice: "Welcome to VideoNotes!" 
 		else
+			flash.now[:error] = "We were not able to process your request!"
 			render :new
 		end
 	end
