@@ -2,6 +2,9 @@ $(document).ready(function(){
   $(".edit_form").hide(); 
   $(".video_form").hide();
   $(".new_note_form").hide();
+  var id = 1;
+  var y = 0;
+  // testing new timeline divs
 
   // toggling edit form
   $('.note_info').on('click', 'button', function(){
@@ -22,7 +25,6 @@ $(document).ready(function(){
     $myPlayer[0].pause();
     var timeStamp = $myPlayer[0].currentTime;
     $("#note_video_timestamp").val(timeStamp);
-
   });
 
   // toggle new form field
@@ -43,7 +45,16 @@ $(document).ready(function(){
     
     // sending post to make new note
     $.post("/videos/"+video_id+"/notes", data, function(note){
-        $('.new_note #note_body').val("")
+        $('.new_note #note_body').val("");
+
+          var total_time = $myPlayer[0].duration;
+          var timeline = (((note.video_timestamp/total_time)*400)+3);
+          
+          y = timeline;
+          var marker = '<a href="#'+id+'" class="marker" style="left:'+y+'px;"></a>';
+            
+          $('#timeline').append(marker);
+          
 
         // creating the note_info html
         var note_info = '<li>'+note.body+'</li><button class="edit_button">Edit</button>';
@@ -61,10 +72,14 @@ $(document).ready(function(){
 
             // filling in the note body in the edit form
             $(this).closest(".append_note").find("#note_body").val(note.body);
-    });
+        });
 
+      
     });
-
   });
-
 });
+
+
+
+
+
