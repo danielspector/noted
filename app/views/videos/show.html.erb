@@ -9,15 +9,17 @@
     <div class="vjs_video_4_html5_api">
       <%= videojs_rails sources: {mp4: @video.link}, height: "320", width: "600" %>
       <%#= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %>
-
     </div>
   </div>
   <div class="col-md-12 center">
     <div align="center" class="new_note">
-      <p>
+      
+       <br>
+       <div id="timeline"></div>
+       <br><br><br>
+       <p>
         <button>New Note</button>
       </p>
-
       <!-- is for new forms -->
       <div class="new_note_form">
       <%= render 'notes/new_form' %>
