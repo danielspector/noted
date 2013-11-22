@@ -28,20 +28,6 @@ $(document).ready(function(){
     $myPlayer[0].pause();
     var timeStamp = $myPlayer[0].currentTime;
     $("#note_video_timestamp").val(timeStamp);
-<<<<<<< HEAD
-
-  // $("#new_note").click(function(){
-  //   // var timeStamp = myPlayer.currentTime;
-  //     // alert(timeStamp);
-  //   myPlayer.pause();
-  //   var timeStamp = $("#lecture_video").currentTime ();
-  //   // var timeStamp = myPlayer.currentTime();
-  //   console.log(timeStamp);
-  //   // $.post('/videos/:id/notes', {video_time: timeStamp}, function(response){
-  //   //     //COME BACK FOR TIMESTAMP FUNCTIONALITY
-  //   // });
-=======
->>>>>>> 7404b18d965585b229b37c8a61e5b2a24e221af1
   });
 
   // toggle new form field
@@ -102,6 +88,36 @@ $(document).ready(function(){
 
         draw_heart();
         $("canvas").append(imageObj);
+        alert(document.images);
+
+
+
+        var image_names = [];
+
+        // $("canvas img").wrap('<a href="7"></a>');
+        $("canvas img").each(function(i, img){
+          // console.log(i+': '+img);
+          var name = $(img).attr('name');
+          image_names.push(name)
+        });
+
+        image_names = image_names.sort().reverse();
+        var last_image_name = image_names[0];
+        // $('img[name='+last_image_name+']').wrap('<a href="#'+last_image_name+'"></a>');
+        
+       canvas.addEventListener("mousedown", getPosition, false);
+
+        function getPosition(event)
+        {
+          var x = event.x;
+          var y = event.y;
+
+          x -= canvas.offsetLeft;
+          y -= canvas.offsetTop;
+
+          // alert("x:" + x + " y:" + y);
+          alert(x +': '+ y);
+        };
 
     });
   });
