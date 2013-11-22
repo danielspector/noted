@@ -6,12 +6,9 @@ h1, h2, p, a, form, input, button, text-area, li, ul, table {
   font-family: Helvetica;
 }
 
-video {
-	border-width: 5px;
-	border-style: solid;
-	border-radius: 20px;
-	border-color: black;
-	background-color: lightsteelblue;
-	padding: 20px 20px 70px 20px;
-
+#vjs_video_4 {
+	width: 600px;
+	height: 320px;
+	text-align: center;
+	margin: 0 auto;
 }
