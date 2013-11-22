@@ -144,7 +144,7 @@ PLAN:
 
 FOR Nov 21st:
 #- edit ajax form is now create
-- timeline plotting of notes
+#- timeline plotting of notes
 #- validating the login information
 #- signup page
 #- deploy today
@@ -154,9 +154,17 @@ FOR Nov 21st:
 
 TIMELINE
 - manipulate the skin -> insert canvas element underneathe
-- plot points on timeline
+#- plot points on timeline
 - find the right note
 - scroll up the right note
 
+TOMORROW:
+- play with skin to get progress bar on the bottom and full span
+- when you click on the hearts, it gets a note -> put an anchor tag on canvas
+- 
 
+more on DOM levels: 
+quirksmode.org/js/dom0.html
+DOM level 2 has more support
 
+-websocket: 

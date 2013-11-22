@@ -70,15 +70,15 @@ $(document).ready(function(){
 
          // canvas heart button
 
+        var imageObj = document.createElement('img');
+        var canvas = document.getElementById('myCanvas');
+
         function draw_heart(){
-          var canvas = document.getElementById('myCanvas');
           var context = canvas.getContext('2d');
-          var imageObj = new Image();
           imageObj.name = note.id;
           var total_time = $myPlayer[0].duration;
-          var note_number = parseFloat(note.timestamp);
           var timeline = (((note.video_timestamp/total_time)*400)-15);
-          console.log(timeline);
+          console.log(typeof(imageObj));
           var y = 0;
           imageObj.onload = function() {
             context.drawImage(imageObj, timeline, 0);
@@ -87,6 +87,7 @@ $(document).ready(function(){
         };
 
         draw_heart();
+        $("canvas").append(imageObj);
 
     });
   });
