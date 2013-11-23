@@ -1,5 +1,9 @@
 FlatironVideos::Application.routes.draw do
 
+  # AJAX FOR DELETE BUTTON
+  get 'notes/delete_button' => 'notes#delete_button'
+
+  # SIGN UP
   get '/signup' => 'users#new', :as => "users"
   post '/signup' => 'users#create', :as => "users_signup"
 
@@ -24,6 +28,7 @@ FlatironVideos::Application.routes.draw do
 
   
 # NOTES ROUTES ONLY -- :YIKES:
+
   get '/videos/:video_id/notes/new' => 'notes#new', :as => 'new_note'
   post '/videos/:video_id/notes' => 'notes#create'
   get '/videos/:video_id/notes' => 'notes#index', :as => 'notes'
