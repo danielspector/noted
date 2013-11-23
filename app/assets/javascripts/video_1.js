@@ -51,21 +51,28 @@ $(document).ready(function(){
           $('#timeline').append(marker);         
 
         // creating the note_info html
-        var note_info = '<li id="'+note.id+'">'+note.body+'</li><button class="edit_button">Edit</button>';
+        var note_info = '<li id="'+note.id+'">'+note.body+'</li><button class="edit_button">Edit</button>'; 
+
+        // AJAX function for delete 
 
         $.get('/notes/refresh?video_id='+video_id, function(edit_form) {
+
+            // getting the delete button
+            $.get('/notes/delete_button?video_id='+video_id+'&id='+note.id, function(delete_button) {
+
+              var delete_button_var = delete_button;
             
-            // appending the edit form
+              // appending the edit form
 
-            $(".append_note").append('<div class="ajax_section">'+note_info+edit_form+'</div>').closest(".append_note").find(".edit_note").hide();
+              $(".append_note").append('<div class="ajax_section">'+note_info+delete_button_var+edit_form+'</div>').closest(".append_note").find(".edit_note").hide();
 
-            $(".append_note").on("click", "button", function(){
-              $(this).closest(".ajax_section").find('#edit_note_'+note.id).toggle();
+              $(".append_note").on("click", "button", function(){
+                $(this).closest(".ajax_section").find('#edit_note_'+note.id).toggle();
+              });
+
+              // filling in the note body in the edit form
+              $(this).closest(".append_note").find("#note_body").val(note.body);
             });
-
-
-            // filling in the note body in the edit form
-            $(this).closest(".append_note").find("#note_body").val(note.body);
         });
 
       

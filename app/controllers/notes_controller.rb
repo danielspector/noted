@@ -42,6 +42,11 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
     redirect_to video_path
   end
 
+  def delete_button
+    @video = Video.find_by(:id => params[:video_id])
+    @note = Note.find_by(:id => params[:id])
+    render :partial => 'notes/delete_button', :format => 'text/html'
+  end
 
   private
 
