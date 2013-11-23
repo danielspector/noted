@@ -38,16 +38,16 @@ FEATURES:
 - Students can post questions
 - Instructor can answer questions
 #- Students can save and edit notes
-- Plot pins for questions and notes
+#- Plot pins for questions and notes
 - Customize skin for video timeline note pins
 #- Can login as student or instructor
-- Student view clones videos 
-- Snapshots when detects change
-- Session has timelimit
+- Student view clones videos (how does instructor destroying the video work?)
+- Chapters/bookmarks
+
 
 
 Video.js
-- get time dynamically, change png of skin to be 
+#- get time dynamically, change png of skin to be 
 
 PULL REQUESTS:
 - change your "video_player" to "video_tag"
@@ -108,13 +108,13 @@ PLAN:
 
 #Permissions/Users
 #- make users model
-----> name, email, password, permission_type(students, instructor)
-----> associations: has_many :videos, has_many :notes
+#----> name, email, password, permission_type(students, instructor)
+#----> associations: has_many :videos, has_many :notes
 
 #- notes
-----> belongs_to :user
-- @user.permission_type = "student"
-- alias as "student"
+#----> belongs_to :user
+#- @user.permission_type = "student"
+#- alias as "student"
 
 #- videos
 #----> belongs_to :user
@@ -139,7 +139,6 @@ PLAN:
 - AJAX all the functions on the entire note page
 - fix the video cloning, so video can't be destroyed by instructor
 #- ajax should only return new values, NOT the whole form (fixes token)
-- logout dropdown 
 
 
 FOR Nov 21st:
@@ -152,24 +151,23 @@ FOR Nov 21st:
 #- toggle Create
 
 TIMELINE
-- manipulate the skin -> insert canvas element underneath
 #- plot points on timeline
-- find the right note
-- scroll up the right note
+#- find the right note
+#- scroll up the right note
 
-TODAY Nov 22nd:
+Nov 23rd:
 - play with skin to get progress bar on the bottom and full span
 #- when you click on the hearts, it gets a note -> put an anchor tag on canvas
-- clicking on heart starts playing video at that time (<5 seconds)
 - when you reload page, JS dynamically adds hearts back on the timeline
 - add delete button in ajax form
 - make everything else AJAX!!!!!!! (i.e 'Delete', 'Update' are still refreshing page)
 #- fix note.hide()
 - play button for notes
 #- plotting points
+- add scroll divs
   
 more on DOM levels: 
 quirksmode.org/js/dom0.html
 DOM level 2 has more support
 
--websocket: 
+- websocket: 
