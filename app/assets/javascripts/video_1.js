@@ -45,7 +45,7 @@ $(document).ready(function(){
 
           // creating markers based on timestamp and with note.id anchor tags
           var total_time = $myPlayer[0].duration;
-          var timeline = (((note.video_timestamp/total_time)*400)+3);
+          var timeline = (((note.video_timestamp/total_time)*600)+3);
           var marker = '<a href="#'+note.id+'" class="marker" style="left:'+timeline+'px;"></a>';           
           $('#timeline').append(marker);         
 
