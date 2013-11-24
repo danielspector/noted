@@ -2,12 +2,16 @@
 <div class="jumbotron center">
   <h3><%= @video.name %></h3>
 </div>
-
+  
   <input type="hidden" id="video_id" value="<%= @video.id %>"></input>
 
+<!-- <video id="autoplay_test" src="http://flatiron-school.s3.amazonaws.com/ruby-003/reviews/associations.and.forms.mp4" height="300" width="500" controls>
+</video>
+  <button class="fake_button">HIT ME ONE MORE TIME</button> -->
+
   <div class="col-md-12 center">
-    <div class="vjs_video_4_html5_api">
-      <%= videojs_rails sources: {mp4: @video.link}, height: "320", width: "600" %>
+    <div class="vjs_video_4_html5_api" autoplay="true" preload="auto">
+      <%= videojs_rails sources: {mp4: @video.link}, height: "320", width: "600"%>
       <%#= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %>
     </div>
   </div>
@@ -32,7 +36,8 @@
         <div class="note_info">
           <div class="added_note">
             <input type="hidden" class="added_note_timestamp" value="<%= note.video_timestamp %>"></input>
-            <li><%= note.body %></li>
+            <input type="hidden" class="added_note_id" value="<%= note.id %>"></input>
+            <li id="<%= note.id %>"><%= note.body %></li>
             <button class="edit_button">Edit</button><button class="play_button">Play</button><%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" } %>
           </div>
           <% end %>
