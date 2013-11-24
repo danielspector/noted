@@ -158,7 +158,7 @@ TIMELINE
 Nov 23rd:
 - play with skin to get progress bar on the bottom and full span
 #- when you click on the hearts, it gets a note -> put an anchor tag on canvas
-- when you reload page, JS dynamically adds hearts back on the timeline
+#- when you reload page, JS dynamically adds hearts back on the timeline
 #- add delete button in ajax form
 - make everything else AJAX!!!!!!! (i.e 'Delete', 'Update' are still refreshing page)
 #- fix note.hide()
