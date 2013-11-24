@@ -15,7 +15,7 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
     @note = @video.notes.last
     @note.student = current_user
     @note.save
-    note = { :video_timestamp => @note.video_timestamp, :body => @note.body, :id => @note.id }
+    note = { :note_video_timestamp => @note.video_timestamp, :body => @note.body, :id => @note.id }
     render :json => note
   end
 
@@ -32,9 +32,11 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
   end
 
   def update
-    @note.update(notes_params)
+    @note.update(:body => params[:edited_note_body])
     @note.save
-    redirect_to video_path
+    note = { :note_video_timestamp => @note.video_timestamp, :body => @note.body, :id => @note.id }
+    # render :json => note
+    render :json => note
   end
 
   def destroy
