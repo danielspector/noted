@@ -4,9 +4,34 @@ $(document).ready(function(){
   $(".new_note_form").hide();
 
   // toggling edit form
-  // $('.note_info').on('click', 'button', function(){
-  //   $(this).closest('.note_info').find('.edit_form').toggle();
-  // });
+  $('.note_info').on('click', 'button', function(){
+    $(this).closest('.note_info').find('.edit_form').toggle();
+  });
+
+  var duration = 4000;
+  var markerBucket = [];
+  var $allNotes = $(".added_note");
+  $allNotes.each(function(){
+    var noteId = $(this).find(".added_note_id").val();
+    var noteTime = $(this).find(".added_note_timestamp").val();
+    var noteTimeNumber = parseFloat(noteTime);
+
+    var $myPlayer = $(".vjs_video_4_html5_api");
+    // var total_time = $myPlayer[0].duration;
+    var timeline = (((noteTimeNumber/duration)*600)+3);
+    var marker = '<a href="#'+noteId+'" class="marker" style="left:'+timeline+'px;"></a>';
+    markerBucket.push(marker);           
+    $('#timeline').append(marker); 
+  });
+
+// MYSTERY TO BE SOLVED - WHY IS FAKED 'CLICK' NOT GOOD ENOUGH?!
+// $('.fake_button').click(function(){
+//   var $testPlayer = $('#autoplay_test');
+//   var time = $testPlayer[0].duration;
+//   alert(time);
+// });
+// $('.fake_button').trigger("click");
+
 
   $('.edit_button').click(function(){
     $(this).closest('.note_info').find('.edit_form').toggle();
@@ -91,9 +116,12 @@ $(document).ready(function(){
               $(this).closest(".append_note").find("#note_body").val(note.body);
             });
         });
-
-      
     });
+
+    // IAN IS WORKING ON THIS STILL - DON'T DELETE
+    // $.post("/videos/"+video_id+"/notes/"+note.id, data, function(note){
+    //     $('.edit_form #note_body').val();
+    // });
   });
 });
 
