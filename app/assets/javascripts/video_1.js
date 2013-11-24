@@ -115,11 +115,21 @@ $(document).ready(function(){
     });
 
     // IAN IS WORKING ON THIS STILL - DON'T DELETE
-    $.post("/videos/"+video_id+"/notes/"+note.id, data, function(note){
-        $('.edit_form #note_body').val();
-    });
+   
 
   });
+ $("input[value='Update Note']").click(function(e){
+      e.preventDefault();
+      var edited_note_body = $('.edit_form #note_body').val();
+      var note_id = $(".added_note_id").val();
+      var video_id = $("#video_id").val();
+      var data = {edited_note_body: edited_note_body, _method: "patch"};  
+      $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note){
+        $('.edit_form #note_body').val(note.body);
+        $('.added_note li').text(note.body)
+        $(".edit_form").hide();
+      });
+    });
 });
 
 
