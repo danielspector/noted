@@ -120,13 +120,16 @@ $(document).ready(function(){
   });
  $("input[value='Update Note']").click(function(e){
       e.preventDefault();
-      var edited_note_body = $('.edit_form #note_body').val();
-      var note_id = $(".added_note_id").val();
+      var edited_note_body = $(this).closest(".edit_form").find('#note_body').val();
+      alert(edited_note_body);
+      var note_id = $(this).closest(".note_info").find(".added_note_id").val();
+      alert(note_id);
       var video_id = $("#video_id").val();
       var data = {edited_note_body: edited_note_body, _method: "patch"};  
       $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note){
-        $('.edit_form #note_body').val(note.body);
-        $('.added_note li').text(note.body)
+        // $('')
+        // $('.edit_form #note_body').val(note.body);
+        $('input[value="'+note.id+'""]').closest(".added_note").find("li").text(note.body);
         $(".edit_form").hide();
       });
     });
