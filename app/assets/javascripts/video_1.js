@@ -3,11 +3,6 @@ $(document).ready(function(){
   $(".video_form").hide();
   $(".new_note_form").hide();
 
-  // toggling edit form
-  $('.note_info').on('click', 'button', function(){
-    $(this).closest('.note_info').find('.edit_form').toggle();
-  });
-
   var duration = 4000;
   var markerBucket = [];
   var $allNotes = $(".added_note");
@@ -33,16 +28,17 @@ $(document).ready(function(){
 // $('.fake_button').trigger("click");
 
 
-  $('.edit_button').click(function(){
-    $(this).closest('.note_info').find('.edit_form').toggle();
-  });
-
-  //adding play from timestamp function
+  // adding play from timestamp function
    $(".play_button").click(function(){
-    var timestamp = $(this).closest(".added_note").find(".added_note_timestamp").val();
+    var timestamp = $(this).closest(".note_info").find(".added_note_timestamp").val();
       var $myPlayer = $("#vjs_video_4_html5_api");
       $myPlayer[0].play();
       $myPlayer[0].currentTime = timestamp;
+  });
+
+  // toggling the edit button 
+   $('.edit_button').click(function(){
+    $(this).closest('.note_info').find('.edit_form').toggle();
   });
 
   // toggling create video form for instructor -- video.index
@@ -119,9 +115,10 @@ $(document).ready(function(){
     });
 
     // IAN IS WORKING ON THIS STILL - DON'T DELETE
-    // $.post("/videos/"+video_id+"/notes/"+note.id, data, function(note){
-    //     $('.edit_form #note_body').val();
-    // });
+    $.post("/videos/"+video_id+"/notes/"+note.id, data, function(note){
+        $('.edit_form #note_body').val();
+    });
+
   });
 });
 
