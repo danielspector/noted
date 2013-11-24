@@ -32,7 +32,8 @@ $(document).ready(function(){
   // delete function
   $("body").on("click", "input[value='Delete Note']", function (e){
     e.preventDefault();
-    var note_id = $(".added_note_id").val();
+    var note_id = $(this).closest(".added_note").find(".added_note_id").val();
+    alert(note_id);
     var video_id = $("#video_id").val();
     var data = {_method: "delete"}; 
     $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note_all){
@@ -42,12 +43,11 @@ $(document).ready(function(){
   });
 
   // edit funtion
-  $(".note_all").on("click", "input[value='Update Note']", function (e){
+  $("body").on("click", "input[value='Update Note']", function (e){
     e.preventDefault();
     var note_id = $(".added_note_id").val();
     var video_id = $("#video_id").val();
     var note_body = $(this).closest(".note_info").find(".edit_form #note_body").val();
-    alert(note_body);
     var data = {_method: "patch", edited_note_body: note_body}; 
     $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note_all){
       $(".note_all").html(note_all);
@@ -57,7 +57,7 @@ $(document).ready(function(){
 
 
   // adding play from timestamp function
-   $(".play_button").click(function(){
+   $("body").on("click",".play_button", function(){
     var timestamp = $(this).closest(".note_info").find(".added_note_timestamp").val();
       var $myPlayer = $("#vjs_video_4_html5_api");
       $myPlayer[0].play();
@@ -116,20 +116,6 @@ $(document).ready(function(){
 
         // hide edit form 
         $(".edit_form").hide(); 
-
-        // toggling the edit click button
-        // $('.edit_button').click(function(){
-        //   $(this).closest('.note_info').find('.edit_form').toggle();
-        // });
-
-        // adding play from timestamp function
-        $(".play_button").click(function(){
-          var timestamp = $(this).closest(".note_info").find(".added_note_timestamp").val();
-          var $myPlayer = $("#vjs_video_4_html5_api");
-          $myPlayer[0].play();
-          $myPlayer[0].currentTime = timestamp;
-        });
-
 
     });
   });
