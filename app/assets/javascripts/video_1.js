@@ -130,6 +130,19 @@ $(document).ready(function(){
         $(".edit_form").hide();
       });
     });
+
+ // ?? HOW TO FIRE ON SUCCESSFUL RESPONSE? (Code School)
+ $("input[value='Delete Note']").click(function(e){
+  e.preventDefault();
+
+  var note_id = $(".added_note_id").val();
+  var video_id = $("#video_id").val();
+  var data = {_method: "delete"}; 
+  $.post("/videos/"+video_id+"/notes/"+note_id, data, function(chickens){
+    
+ });
+  $(this).closest(".note_info").find(".added_note").text("");
+   });
 });
 
 
