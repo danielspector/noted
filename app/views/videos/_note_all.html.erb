@@ -1,4 +1,4 @@
-      <% @video.notes.each do |note| %>
+      <% @video.notes.sort.each do |note| %>
         <% if note.student == @current_user %>
         <div class="note_info">
           <div class="added_note">

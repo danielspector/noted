@@ -45,7 +45,8 @@ $(document).ready(function(){
   // edit funtion
   $("body").on("click", "input[value='Update Note']", function (e){
     e.preventDefault();
-    var note_id = $(".added_note_id").val();
+    var note_id = $(this).closest(".note_info").find(".added_note_id").val();
+    alert(note_id);
     var video_id = $("#video_id").val();
     var note_body = $(this).closest(".note_info").find(".edit_form #note_body").val();
     var data = {_method: "patch", edited_note_body: note_body}; 
