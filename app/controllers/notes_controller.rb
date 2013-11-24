@@ -32,11 +32,10 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
   end
 
   def update
+    @video = Video.find_by(:id => params[:video_id])
     @note.update(:body => params[:edited_note_body])
     @note.save
-    note = { :note_video_timestamp => @note.video_timestamp, :body => @note.body, :id => @note.id }
-    # render :json => note
-    render :json => note
+    render :partial => 'videos/note_all', :format => 'text/html'
   end
 
   def destroy
@@ -46,7 +45,7 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
   end
 
   private
-
+ 
   def set_note
     @note = Note.find_by(:id => params[:id])
   end
