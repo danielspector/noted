@@ -31,8 +31,9 @@
         <% if note.student == @current_user %>
         <div class="note_info">
           <div class="added_note">
+            <input type="hidden" class="added_note_timestamp" value="<%= note.video_timestamp %>"></input>
             <li><%= note.body %></li>
-            <button class="edit_button">Edit</button><%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" } %>
+            <button class="edit_button">Edit</button><button class="play_button">Play</button><%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" } %>
           </div>
           <% end %>
           <div class="edit_form">

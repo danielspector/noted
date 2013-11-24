@@ -4,8 +4,20 @@ $(document).ready(function(){
   $(".new_note_form").hide();
 
   // toggling edit form
-  $('.note_info').on('click', 'button', function(){
+  // $('.note_info').on('click', 'button', function(){
+  //   $(this).closest('.note_info').find('.edit_form').toggle();
+  // });
+
+  $('.edit_button').click(function(){
     $(this).closest('.note_info').find('.edit_form').toggle();
+  });
+
+  //adding play from timestamp function
+   $(".play_button").click(function(){
+    var timestamp = $(this).closest(".added_note").find(".added_note_timestamp").val();
+      var $myPlayer = $("#vjs_video_4_html5_api");
+      $myPlayer[0].play();
+      $myPlayer[0].currentTime = timestamp;
   });
 
   // toggling create video form for instructor -- video.index
@@ -51,7 +63,7 @@ $(document).ready(function(){
           $('#timeline').append(marker);         
 
         // creating the note_info html
-        var note_info = '<li id="'+note.id+'">'+note.body+'</li><button class="edit_button">Edit</button>'; 
+        var note_info = '<li id="'+note.id+'">'+note.body+'</li><button class="edit_button">Edit</button><button class="play_button">Play</button>'; 
 
         // AJAX function for delete 
 
@@ -66,8 +78,13 @@ $(document).ready(function(){
 
               $(".append_note").append('<div class="ajax_section">'+note_info+delete_button_var+edit_form+'</div>').closest(".append_note").find(".edit_note").hide();
 
-              $(".append_note").on("click", "button", function(){
+              $(".edit_button").click(function(){
                 $(this).closest(".ajax_section").find('#edit_note_'+note.id).toggle();
+              });
+
+              $(".play_button").click(function(){
+                $myPlayer[0].currentTime = note.video_timestamp;
+                $myPlayer[0].play();
               });
 
               // filling in the note body in the edit form
