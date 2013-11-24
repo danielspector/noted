@@ -16,7 +16,7 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
     @note.student = current_user
     @note.save
     note = { :note_video_timestamp => @note.video_timestamp, :body => @note.body, :id => @note.id }
-    render :json => note
+    render :partial => 'videos/note_all', :format => 'text/html'
   end
 
   def refresh
@@ -40,14 +40,9 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
   end
 
   def destroy
-    @note.destroy
-    redirect_to video_path
-  end
-
-  def delete_button
     @video = Video.find_by(:id => params[:video_id])
-    @note = Note.find_by(:id => params[:id])
-    render :partial => 'notes/delete_button', :format => 'text/html'
+    @note.destroy
+    render :partial => 'videos/note_all', :format => 'text/html'
   end
 
   private
