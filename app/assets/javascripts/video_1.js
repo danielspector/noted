@@ -33,7 +33,6 @@ $(document).ready(function(){
   $("body").on("click", "input[value='Delete Note']", function (e){
     e.preventDefault();
     var note_id = $(this).closest(".added_note").find(".added_note_id").val();
-    alert(note_id);
     var video_id = $("#video_id").val();
     var data = {_method: "delete"}; 
     $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note_all){
