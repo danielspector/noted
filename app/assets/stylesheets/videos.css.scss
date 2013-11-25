@@ -85,3 +85,38 @@ li {
   background: yellow;
   z-index: 999;
 }
+
+/* new video layout from js.fiddle*/
+
+html, body {
+    height: 100%;
+}
+
+.container, .row {
+    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+#video {
+   position: relative;
+   background: yellow;
+   height: 100%;
+   min-height: 100%;
+}
+
+#notes {
+    background: aqua;
+    height: 100%;
+    min-height: 100%;
+}
+
+#playbar {
+    position: absolute;
+    bottom: 20px;
+    background: lime;
+    padding: 20px;
+    width: 100%;
+}
+
+
