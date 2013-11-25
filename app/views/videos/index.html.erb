@@ -1,39 +1,29 @@
-<h1>Listing Videos</h1>
-
-<div class="center hero-unit">
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-</div>
-
-  <tbody>
+<div="container">
+  <div class="row col-xs-12 center" id="video_all">
     <% @videos.each do |video| %>
-      <tr>
-        <div class="center row-fluid">
-        <td><%= link_to video.name, video %></td>
-        <td>[ <%= video.lecture_date %> ]</td>
-        <% if current_user.permission_type == "instructor" %>
-        <td><%= link_to '⊗', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+    <div id="lecture_video" class="col-xs-4 center">
+      <%= video.name %>
+      <%= videojs_rails sources: {mp4: video.link}, height: "200", width: "300" %>
+      <button class="watch_video"><%= link_to 'Take Notes!', video %></button>
+      <% if current_user.permission_type == "instructor" %>
+        <%= link_to '⊗', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
     <% end %>
-    </div>
-  </tbody>
-</table>
-<br>
-<% if current_user.permission_type == "instructor" %>
-  <div class="new_video">
-    <button class="new_video_button">New Video</button>
-    <div class="video_form">
-      <%= render 'form' %>
-    </div>
   </div>
-<% end %>
+
+  <div id="instructor_actions">
+    <% if current_user.permission_type == "instructor" %>
+      <div class="new_video">
+        <button class="new_video_button">New Video</button>
+        <div class="video_form">
+          <%= render 'form' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
 
 
 
