@@ -122,6 +122,13 @@ $(document).ready(function(){
     });
   });
 
+  // INDEX - HIDE AND SHOW TOPGGLE
+  // $('#lecture_video').hover(function(){
+
+  // }, function(){
+
+  // }); 
+
 });
 
 
