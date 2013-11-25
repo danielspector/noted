@@ -136,7 +136,7 @@ PLAN:
 #- timestamp needs to be hidden
 #- on "create note", clear out the "new form" fields
 #- rename "Back" to "All Videos" of "Main"
-- AJAX all the functions on the entire note page
+#- AJAX all the functions on the entire note page
 - fix the video cloning, so video can't be destroyed by instructor
 #- ajax should only return new values, NOT the whole form (fixes token)
 
@@ -160,7 +160,7 @@ Nov 23rd:
 #- when you click on the hearts, it gets a note -> put an anchor tag on canvas
 #- when you reload page, JS dynamically adds hearts back on the timeline
 #- add delete button in ajax form
-- make everything else AJAX!!!!!!! (i.e 'Delete', 'Update' are still refreshing page)
+#- make everything else AJAX!!!!!!! (i.e 'Delete', 'Update' are still refreshing page)
 #- fix note.hide()
 #- play button for notes
 #- plotting points
@@ -174,3 +174,6 @@ DOM level 2 has more support
 
 ALL THE BROKEN STUFF TO FIX: 
 - 
+
+CSS and UI:
+-
