@@ -176,4 +176,13 @@ ALL THE BROKEN STUFF TO FIX:
 - 
 
 CSS and UI:
--
+- get rid of white space
+- autoplay
+- know what I'm watching
+- big enough screen
+- focus on video (dim out)
+- play/pause on spacebar
+- make bar bigger
+- about section
+- notes: boxed notes, same width as video, 
+- notes shouldn't be sorted by id, they should be sorted by timestamp
