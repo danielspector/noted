@@ -105,15 +105,17 @@ $(document).ready(function(){
     // sending post to make new note
     $.post("/videos/"+video_id+"/notes", data, function(note_all){
         $('.new_note #note_body').val("");
-        // creating markers based on timestamp and with note.id anchor tags
-        // var total_time = $myPlayer[0].duration;
-        // var timeline = (((note.note_video_timestamp/total_time)*600)+3);
-        // alert(typeof(timeline));
-        // var marker = '<a href="#'+note.id+'" class="marker" style="left:'+timeline+'px;"></a>';           
-        // $('#timeline').append(marker);
 
         // putting the rendered note_all partial on page
         $(".note_all").html(note_all);
+
+        // creating markers based on timestamp and with note.id anchor tags
+        var total_time = $myPlayer[0].duration;
+        var note_time = $(".note_all .added_note").last().find(".added_note_timestamp").val();
+        var note_id = $(".note_all .added_note").last().find(".added_note_id").val();
+        var timeline = (((note_time/total_time)*600)+3);
+        var marker = '<a href="#'+note_id+'" class="marker" style="left:'+timeline+'px;"></a>';           
+        $('#timeline').append(marker);
 
         // hide edit form 
         $(".edit_form").hide(); 
