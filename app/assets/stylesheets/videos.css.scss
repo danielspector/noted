@@ -108,8 +108,10 @@ html, body {
 
 /* INDEX VIDEO PAGE */
 .video-js-box {
+    position: relative;
     width: 320px;
     margin: 0 auto;
+    z-index: 9999;
 }
 
 #video_all {
@@ -127,6 +129,20 @@ html, body {
     margin: 20px;
 }
 
+.video_wrap {
+    width: 300px;
+    height: 200px;
+    overflow: hidden; 
+}
+
+    .hover_description {
+        position: relative;
+        background-color: black;
+        height: 200px;
+        width: 300px;
+        z-index: 0;
+        top: -200px;
+    }
 
 
 
