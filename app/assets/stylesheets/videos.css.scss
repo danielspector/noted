@@ -6,19 +6,6 @@ h1, h2, p, a, form, input, button, text-area, li, ul, table {
   font-family: Helvetica;
 }
 
-
-#vjs_video_4 {
-	width: 600px;
-	height: 320px;
-	text-align: center;
-	margin: 0 auto;
-	padding: 40px;
-	border-style: solid;
-	border-color: black;
-	border-radius: 20px;
-	background-color: lightsteelgrey;
-}
-
 .new_note button {
     padding: 10px 15px;
     background: #4479BA;
@@ -118,5 +105,28 @@ html, body {
     padding: 20px;
     width: 100%;
 }
+
+/* INDEX VIDEO PAGE */
+.video-js-box {
+    width: 320px;
+    margin: 0 auto;
+}
+
+#video_all {
+    border-style: solid;
+    border-color: black;
+    border-radius: 20px;
+}
+
+#lecture_video {
+    display: block; 
+    margin: 0 auto;
+}
+
+.watch_video {
+    margin: 20px;
+}
+
+
 
 
