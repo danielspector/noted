@@ -15,4 +15,5 @@
 
 //= require video
 // require ../../../vendor/assets/video-js/video.dev
+//= require twitter/bootstrap
 //= require_tree .

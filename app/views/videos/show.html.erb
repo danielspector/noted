@@ -1,46 +1,48 @@
-<p id="notice"><%= notice %></p>
-<div class="jumbotron center">
-  <h3><%= @video.name %></h3>
-</div>
-  
-  <input type="hidden" id="video_id" value="<%= @video.id %>"></input>
 
-<!-- <video id="autoplay_test" src="http://flatiron-school.s3.amazonaws.com/ruby-003/reviews/associations.and.forms.mp4" height="300" width="500" controls>
-</video>
-  <button class="fake_button">HIT ME ONE MORE TIME</button> -->
 
-  <div class="col-md-12 center">
-    <div class="vjs_video_4_html5_api" autoplay="true" preload="auto">
-      <%= videojs_rails sources: {mp4: @video.link}, height: "320", width: "600"%>
-      <%#= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %>
+<!-- starting actual page -->
+
+<!-- <div class="container">
+ -->  <!-- <div class="row"> -->
+
+    <!-- BEGINNING OF VIDEO SECTION -->
+
+    <div id="video" class="col-xs-10">     
+        <h3><%= @video.name %></h3>
+        <input type="hidden" id="video_id" value="<%= @video.id %>"></input>
+        <div class="vjs_video_4_html5_api" autoplay="true" preload="auto">
+            <%= videojs_rails sources: {mp4: @video.link}, height: "320", width: "600"%>
+            <%#= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %>
+        </div>
+        <div id="playbar">
+          <div id="timeline">
+            <div class="marker"></div>
+          </div>
+        </div>
     </div>
-  </div>
-  <div class="col-md-12 center">
-    <div align="center" class="new_note">
-      
-       <br>
-       <div id="timeline"></div>
-       <br><br><br>
-       <p>
-        <button>New Note</button>
-      </p>
-      <!-- is for new forms -->
-      <div class="new_note_form">
-      <%= render 'notes/new_form' %>
-      </div>
-    </div>
-    <ul>
-      <div class="note_all">
-        <%= render 'videos/note_all' %>  
-      </div>
-          
-    </ul>
 
-  </p>
-  <% if current_user.permission_type == "instructor" %>
-    <%= link_to "Edit Video", edit_video_path(@video) %>
-  <% end %>
-  
+        <!-- BEGINNING OF NOTE SECTION -->
+
+    <div id ="notes" class="col-xs-2">
+        <div align="center" class="new_note">
+           <p>
+            <button>New Note</button>
+          </p>
+          <!-- is for new forms -->
+          <div class="new_note_form">
+          <%= render 'notes/new_form' %>
+          </div>
+          <ul>
+            <div class="note_all">
+              <%= render 'videos/note_all' %>  
+            </div>         
+          </ul>
+      <% if current_user.permission_type == "instructor" %>
+        <%= link_to "Edit Video", edit_video_path(@video) %>
+      <% end %>
+    </div>
+  <!-- </div> -->
+<!-- </div>   -->
 
 
 
