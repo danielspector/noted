@@ -1,48 +1,55 @@
 
 
 <!-- starting actual page -->
-
-<!-- <div class="container">
- -->  <!-- <div class="row"> -->
-
+<div class="container">
+  <div class="row">
     <!-- BEGINNING OF VIDEO SECTION -->
 
-    <div id="video" class="col-xs-10">     
+    <div id="video-container" class="col-xs-9"> 
+
+      <!-- ACTUAL VIDEO -->
+      <div id="video">    
         <h3><%= @video.name %></h3>
         <input type="hidden" id="video_id" value="<%= @video.id %>"></input>
         <div class="vjs_video_4_html5_api" autoplay="true" preload="auto">
-            <%= videojs_rails sources: {mp4: @video.link}, height: "320", width: "600"%>
-            <%#= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %>
+            <%= videojs_rails sources: {mp4: @video.link} %>
         </div>
-        <div id="playbar">
+      </div>
+
+      <!-- PLAYBAR STUFF -->
+      <div id="playbar">
           <div id="timeline">
+            <div class="new_note">
+              <button>New Note</button>
+            </div>
             <div class="marker"></div>
-          </div>
-        </div>
+          </div>      
+      </div>
     </div>
 
-        <!-- BEGINNING OF NOTE SECTION -->
+    <!-- END OF VIDEO SECTION -->
 
-    <div id ="notes" class="col-xs-2">
-        <div align="center" class="new_note">
-           <p>
-            <button>New Note</button>
-          </p>
+    <!-- BEGINNING OF NOTE SECTION -->
+
+    <div id ="notes" class="col-xs-3">
+      <div id="note-all">
+        <div class="note_all">
+          <%#= render 'videos/note_all' %>  
+        </div>
+
           <!-- is for new forms -->
-          <div class="new_note_form">
-          <%= render 'notes/new_form' %>
+          <div id="new-note">
+            <div class="new_note_form">
+              <textarea></textarea>
+              <button>+</button>
+            <%#= render 'notes/new_form' %>
+            </div>
           </div>
-          <ul>
-            <div class="note_all">
-              <%= render 'videos/note_all' %>  
-            </div>         
-          </ul>
+        </div>
       <% if current_user.permission_type == "instructor" %>
         <%= link_to "Edit Video", edit_video_path(@video) %>
       <% end %>
     </div>
-  <!-- </div> -->
-<!-- </div>   -->
 
-
-
+  </div>
+</div>
