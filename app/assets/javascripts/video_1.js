@@ -1,8 +1,9 @@
 $(document).ready(function(){
   $(".edit_form").hide(); 
   $(".video_form").hide();
-  $(".new_note_form").hide();
+  // $(".new_note_form").hide();
 
+  
 
   // making all of the tickers on ready
   var duration = 4000;
@@ -12,7 +13,8 @@ $(document).ready(function(){
     var noteId = $(this).find(".added_note_id").val();
     var noteTime = $(this).find(".added_note_timestamp").val();
     var noteTimeNumber = parseFloat(noteTime);
-
+    $(this).find(".btn-toolbar").hide();
+    $(this).showPreview();
     var $myPlayer = $(".vjs_video_4_html5_api");
     // var total_time = $myPlayer[0].duration;
     var timeline = (((noteTimeNumber/duration)*600)+3);
@@ -45,11 +47,11 @@ $(document).ready(function(){
   $("body").on("click", "input[value='Update Note']", function (e){
     e.preventDefault();
     var note_id = $(this).closest(".note_info").find(".added_note_id").val();
-    alert(note_id);
     var video_id = $("#video_id").val();
     var note_body = $(this).closest(".note_info").find(".edit_form #note_body").val();
     var data = {_method: "patch", edited_note_body: note_body}; 
     $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note_all){
+      console.log(note_all);
       $(".note_all").html(note_all);
       $(".edit_form").hide();  
     });
@@ -92,7 +94,7 @@ $(document).ready(function(){
 
   // when "Create Note" is clicked, plays video, sends post with new note info, refreshes edit section 
   $("input[value='Create Note']").click(function(e){
-    $('.new_note_form').toggle();
+    // $('.new_note_form').toggle();
     e.preventDefault();
     var $myPlayer = $("#vjs_video_4_html5_api");
     // $myPlayer[0].play();

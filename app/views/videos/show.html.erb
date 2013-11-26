@@ -32,15 +32,15 @@
     <!-- BEGINNING OF NOTE SECTION -->
 
     <div id="notes" class="col-xs-3">
-      <div id="note-all">
+      <div id="note-all" class="note_all">
         <%= render "videos/note_all" %>   
       </div>
       <!-- is for NEW notes -->
       <div id="new-note">
-<!--          <div class="new_note_form">
-# -->          <%#= render 'notes/new_form' %>
+        <div class="new_note_form">         
+          <%= render 'notes/new_form' %>
           <!-- <button>+</button> -->
-        
+        </div>
       </div>      
     </div>
       <% if current_user.permission_type == "instructor" %>
