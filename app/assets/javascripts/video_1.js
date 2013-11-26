@@ -122,12 +122,12 @@ $(document).ready(function(){
     });
   });
 
-  // INDEX - HIDE AND SHOW TOPGGLE
-  // $('#lecture_video').hover(function(){
-
-  // }, function(){
-
-  // }); 
+  // INDEX - HIDE AND SHOW TOGGLE
+  $('.lecture_video').hover(function(){
+    $(this).find('.video-js-box').fadeTo(500, .1);
+  }, function(){
+    $(this).find('.video-js-box').fadeTo(500, 1);
+  }); 
 
 });
 
