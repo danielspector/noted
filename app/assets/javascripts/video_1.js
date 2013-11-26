@@ -125,6 +125,11 @@ $(document).ready(function(){
 });
 
 
+// from js.fiddle -- resize window
 
+// $(window).resize(function(){
+//    var $video = $('#Box_Video');            $("#timeline").width($video[0].width());
+//     alert($video[0].width());
+// });
 
 
