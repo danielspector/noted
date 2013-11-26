@@ -31,25 +31,25 @@
 
     <!-- BEGINNING OF NOTE SECTION -->
 
-    <div id ="notes" class="col-xs-3">
+    <div id="notes" class="col-xs-3">
       <div id="note-all">
-        <div class="note_all">
-          <%#= render 'videos/note_all' %>  
-        </div>
-
-          <!-- is for new forms -->
-          <div id="new-note">
-            <div class="new_note_form">
-              <textarea></textarea>
-              <button>+</button>
-            <%#= render 'notes/new_form' %>
-            </div>
-          </div>
-        </div>
+        <%= render "videos/note_all" %>   
+      </div>
+      <!-- is for NEW notes -->
+      <div id="new-note">
+<!--          <div class="new_note_form">
+# -->          <%#= render 'notes/new_form' %>
+          <!-- <button>+</button> -->
+        
+      </div>      
+    </div>
       <% if current_user.permission_type == "instructor" %>
         <%= link_to "Edit Video", edit_video_path(@video) %>
       <% end %>
-    </div>
+    <!-- END OF NOTE SECTION -->
 
   </div>
 </div>
+
+
+
