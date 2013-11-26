@@ -1,95 +1,49 @@
-// Place all the styles related to the videos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1, h2, p, a, form, input, button, text-area, li, ul, table {
-  font-family: Helvetica;
+<div class="container">
+    <div class="row">
+      <div id="video-container" class="col-xs-9">
+          <div id="video"><video controls id="Box_Video" src="http://flatiron-school.s3.amazonaws.com/ruby-003/reviews/playister-associations-with-artists.mp4"></video></div>
+          <div id="playbar">
+              <div id="timeline"></div>
+              <button>New Note</button>
+          </div>
+      </div>
+      <div id="notes" class="col-xs-3">
+          <div id="note-all">
+              <div class="one-note">
+                  This is the first note.
+                  <div class="buttons">
+                      <button class="play">P</button>
+                      <button class="edit">E</button>
+                      <button class="save">S</button>
+                  </div>
+              </div> 
+              <div class="one-note">
+                  This is the second note.
+              </div>
+          </div>
+              <div id="new-note">
+              <textarea></textarea>
+              <button>+</button>
+          </div>
+      </div>
+    </div>
+</div>
+
+****
+
+@import url('http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css');
+
+div, body {
+    font-family: Helvetica;
+    size: .9em;
 }
-
-
-/*#vjs_video_4 {
-	width: 600px;
-	height: 320px;
-	text-align: center;
-	margin: 0 auto;
-	padding: 40px;
-	border-style: solid;
-	border-color: black;
-	border-radius: 20px;
-	background-color: lightsteelgrey;
-}*/
-
-.new_note button {
-    padding: 10px 15px;
-    background: #4479BA;
-    color: #FFF;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    border: solid 1px #20538D;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
-}
-
-.new_note button:hover {
-    background: #356094;
-    border: solid 1px #2A4E77;
-    text-decoration: none;
-}
-
-.new_note button:active {
-    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
-    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
-    background: #2E5481;
-    border: solid 1px #203E5F;
-}
-
-li {
-	list-style	: none;
-}
-
-/*#timeline {
-    top: 0;
-    position: relative;
-    width: 615px;
-    height: 20px;
-    background: #ccc;
-}*/
-
-.marker {
-    position: absolute;
-    bottom: -5px;
-    width: 5px;
-    height: 35px;
-    background: #000;
-    color: white;
-    border-radius: 2px;
-    box-shadow: 0px 0px 10px 2px;
-}
-
-.marker:hover {
-  background: yellow;
-  z-index: 999;
-}
-
-/* new video layout from js.fiddle*/
-
 
 html, body {
     height: 100%;
 }
 
-.row .col-xs-9 {
+.col-xs-9 {
     margin: 0;
     padding: 0;    
 }
@@ -112,7 +66,7 @@ html, body {
 
 #video {
     position:relative;
-    background: aqua;
+    background: #111;
     height: 90%;
     min-height: 90%;
     min-width: 600px;
@@ -156,12 +110,11 @@ button {
     margin-right: 40px;
 }
 
-video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech, .vjs-default-skin {
+video {
     width: 100%;
     height: 100%;
     min-width: 320px;
-    min-height: 240px; 
-    background-color: lime;   
+    min-height: 240px;    
 }
 
 #note-all {
@@ -248,7 +201,3 @@ textarea {
 textarea:focus {
     outline: none;
 }
-
-/* our own video shit */
-
-

@@ -8,32 +8,30 @@
 
 </head>
 <body>
-	<header class="navbar navbar-fixed-top navbar-inverse">
+<!-- 	<header class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-inner">
 			<div class="container">
-          <%= link_to "FlatironVideos", "#", id: "logo" %>
+          <%#= link_to "FlatironVideos", "#", id: "logo" %>
 				<nav>
 					<ul class="nav nav-pills pull-right">
-						<li><%= link_to "Home", root_path %></li>
-						<li><%= link_to "Sign Up", users_path if !session[:user_id] %></li>
-						<li><%= link_to "Help", '#' %></li>
-						<% if session[:user_id] %>
+						<li><%#= link_to "Home", root_path %></li>
+						<li><%#= link_to "Sign Up", users_path if !session[:user_id] %></li>
+						<li><%#= link_to "Help", '#' %></li>
+						<%# if session[:user_id] %>
 							<!-- user is logged in -->
-							<li><%= link_to "Sign Out", logout_path %><li>
-						<% else %>
-							<!-- user is NOT logged in -->
-							<li><%= link_to "Sign In", login_path %></li>
-						<% end %>
-					</ul>
+					<!-- 		<li><%#= link_to "Sign Out", logout_path %><li>
+						<%# else %>
+							user is NOT logged in
+							<li><%#= link_to "Sign In", login_path %></li> -->
+						<%# end %>
+			<!-- 		</ul>
 				</nav>
 			</div>
-		</div>
-  </header>
+		</div> 
+  </header> -->
 	
 	
 <%= yield %>
-
-</br>
 
 
 </body>
