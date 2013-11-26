@@ -16,13 +16,13 @@
                       <button class="play">P</button>
                       <button class="edit">E</button>
                       <button class="save">S</button>
-                  </div>
+                  </div>                                                
               </div> 
               <div class="one-note">
                   This is the second note.
               </div>
           </div>
-              <div id="new-note">
+          <div id="new-note">
               <textarea></textarea>
               <button>+</button>
           </div>
