@@ -15,7 +15,7 @@
                   <div class="buttons">
                       <button class="play">P</button>
                       <button class="edit">E</button>
-                      <button class="save">S</button>
+                      <button class="delete">D</button>
                   </div>                                                
               </div> 
               <div class="one-note">
