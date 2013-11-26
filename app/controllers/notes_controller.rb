@@ -10,7 +10,7 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
 
   def create
     @video = Video.find_by(:id => params[:video_id])
-    @video.notes.build({:video_timestamp => params[:note_video_timestamp], :body => params[:note_body]})
+    @video.notes.build({:video_timestamp => params[:note][:video_timestamp], :body => params[:note][:body]})
     @video.save
     @note = @video.notes.last
     @note.student = current_user

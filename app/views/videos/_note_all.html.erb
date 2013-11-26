@@ -1,3 +1,6 @@
+      
+<% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true) %>
+
       <% @video.notes.sort.each do |note| %>
 
         <% if note.student == @current_user %>
@@ -5,11 +8,12 @@
             <div class="added_note one-note">
               <input type="hidden" class="added_note_timestamp" value="<%= note.video_timestamp %>"></input>
               <input type="hidden" class="added_note_id" value="<%= note.id %>"></input>
-              <li id="<%= note.id %>"><%= note.body %></li> 
-            <!--   <li id="video_timestamp"><%#= note.video_timestamp %></li> -->
-             <!--  <button class="play_button">Play</button>
-              <button class="edit_button">Edit</button>  -->      
-              <%#= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" } %>
+              <li id="<%= note.id %>"><%= raw markdown.render(note.body) unless note.body.nil? %></li> 
+            <li id="video_timestamp"><%= note.video_timestamp %></li>
+              <button class="play play_button">Play</button>
+              <button class="edit">Edit</button>       
+            <%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" }, :class => "delete" %>
+
             </div>
             
          <!--    <div class="edit_form">

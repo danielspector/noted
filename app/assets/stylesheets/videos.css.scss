@@ -140,7 +140,7 @@ html, body {
     margin-left: 40px;
 }
 
-button {
+.one-note button, .one-note .button_to, {
     position: relative;
     background: #ddd;
     border-radius: 5px;
@@ -148,6 +148,11 @@ button {
     font-family: Helvetica;
     float: right;
     margin-right: 40px;
+}
+
+.new_note button {
+    position: relative;
+    float: right;
 }
 
 video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech, /*.vjs-time-controls,*/ /*.vjs-progress-control,*/ /*.vjs-progress-holder, *//*.vjs-load-progress, *//*.vjs-control, */ {
@@ -195,11 +200,51 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
     padding: 5px;
 }
 
-.one-note button .save {
-    background: yellow;
+
+#new-note .actions input {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
-#new-note button {
+#new-note .new_note_form form .field .md-editor {
+    display: show;
+    background: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    border: none;
+    bottom: 0;
+}
+
+.md-editor .btn-toolbar {
+    position: absolute;
+    float: left;
+    height: 20%;
+}
+
+.md-editor .md-input {
+    position: relative;
+    float: left;
+    top: 60px;
+    height: 100%;
+    background: #eee;
+}
+
+.md-editor .btn-toolbar .btn-group button {
+    position: relative;
+    top: 0;
+    left: 0;
+    float: left;
+    background: cornflower-blue;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+/*#new-note button {
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -210,20 +255,20 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
     border: 1px solid #ccc;
     border-radius: 1px;
     background: pink;
-}
+}*/
 
-.one-note button {
-    position: absolute;
+.one-note button, .one-note .button_to .delete {
+    position: relative;
     padding: 0;
     margin: 0;
     height: 20px;
-    width: 25px;
+    width: 30px;
     border: 1px solid #ccc;
     border-radius: 1px;
     background: #eee
 }
 
-.save {
+.one-note .button_to .delete {
     right:0px;
     bottom: 0px;
 }
@@ -234,21 +279,10 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
 }
 
 .edit {
-    right: 50px;
+    right: 25px;
     bottom: 0px;
 }
 
-textarea {
-    width: 100%;
-    height: 100%;
-    padding: 0px;
-    margin: px;
-    border: none;
-}
-
-textarea:focus {
-    outline: none;
-}
 
 /* our own video shit */
 
