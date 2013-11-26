@@ -41,10 +41,6 @@ h1, h2, p, a, form, input, button, text-area, li, ul, table {
     border: solid 1px #203E5F;
 }
 
-body {
-  margin: 10%;
-}
-
 li {
 	list-style	: none;
 }
@@ -85,6 +81,10 @@ html, body {
     min-width: 100%;
 }
 
+.container {
+  padding: -20px;  
+} 
+
 #video {
    position: relative;
    background: yellow;
@@ -109,18 +109,25 @@ html, body {
 /* INDEX VIDEO PAGE */
 .video-js-box {
     position: relative;
-    width: 320px;
+    width: 100%;
+    height: auto;
     margin: 0 auto;
-    z-index: 9999;
+    z-index: 500;
 }
 
 #video_all {
     border-style: solid;
     border-color: black;
     border-radius: 20px;
+    margin: 0 auto;
+    padding: 0;
+    display: block;
+    width: 90%;
+    min-width: 973px;
+    max-width: 1100px;
 }
 
-#lecture_video {
+.lecture_video {
     display: block; 
     margin: 0 auto;
 }
@@ -133,16 +140,42 @@ html, body {
     width: 300px;
     height: 200px;
     overflow: hidden; 
+    margin: 0 auto;
+    background: black;
 }
 
-    .hover_description {
-        position: relative;
-        background-color: black;
-        height: 200px;
-        width: 300px;
-        z-index: 0;
-        top: -200px;
-    }
+.hover_description {
+    position: relative;
+    background-color: black;
+    color: white;
+    height: auto;
+    width: 100%;
+    z-index: 0;
+    top: -200px;
+    margin: 0 auto;
+}
 
+.hover_description > p {
+    margin-top: 20px;
+    padding: 5px;
+    text-align: center;
+}
 
+#video_all .col-xs-4 {
+    min-width: 300px;
+    margin-top: 20px;
+}
 
+.new_video_form > input {
+    margin: 0 auto;
+    text-align: center;
+    width: 350px;
+}
+
+#new_video_form_wrapper {
+    text-align: center;
+    border-style: solid;
+    padding: 10px;
+    width: 400px;
+    margin: 0 auto;
+}
