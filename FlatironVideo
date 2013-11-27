@@ -186,3 +186,10 @@ CSS and UI:
 - about section
 - notes: boxed notes, same width as video, 
 - notes shouldn't be sorted by id, they should be sorted by timestamp
+
+
+- style buttons
+- scroll on hover
+- order by timestamp
+- hover note to show buttons
+- notes scroll with video

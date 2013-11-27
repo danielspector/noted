@@ -2,8 +2,6 @@ $(document).ready(function(){
   $(".edit_form").hide(); 
   $(".video_form").hide();
 
-  
-
   // making all of the tickers on ready
   var duration = 4000;
   var markerBucket = [];
@@ -16,18 +14,22 @@ $(document).ready(function(){
     var $myPlayer = $(".vjs_video_4_html5_api");
     // var total_time = $myPlayer[0].duration;
     var timeline = (((noteTimeNumber/duration)*600)+3);
-    var marker = '<a href="#'+noteId+'" class="marker" style="left:'+timeline+'px;"></a>';
+    var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
     markerBucket.push(marker);           
     $('#timeline').append(marker); 
   });
 
-// MYSTERY TO BE SOLVED - WHY IS FAKED 'CLICK' NOT GOOD ENOUGH?!
-// $('.fake_button').click(function(){
-//   var $testPlayer = $('#autoplay_test');
-//   var time = $testPlayer[0].duration;
-//   alert(time);
-// });
-// $('.fake_button').trigger("click");
+  // marker click highlights corresponding note
+  $(".marker").on("mouseenter", function(){
+    var note_marker = $(this).data("id");
+    $("#note_wrapper_"+note_marker).css("border", "3px solid pink");
+    $("#note_wrapper_"+note_marker).trigger("click");
+  });
+
+  $(".marker").on("mouseleave", function(){
+    var note_marker = $(this).data("id");
+    $("#note_wrapper_"+note_marker).css("border", "none");
+  });
   
   // delete function
   $("body").on("click", "input[value='Delete Note']", function (e){
@@ -41,7 +43,7 @@ $(document).ready(function(){
     });
   });
 
-  // edit funtion
+  // update function
   $("body").on("click", "input[value='Update Note']", function (e){
     e.preventDefault();
     var note_id = $(this).closest(".edit_form").find("#note_id").val();
@@ -66,12 +68,48 @@ $(document).ready(function(){
 
   // toggling the edit button 
    $("body").on("click", '.edit_button', function(){
-    var edit_form = $(this).closest(".note_info").find(".edit_form")[0];
-    $(this).closest(".note_info").find(".edit_form").show();
-    $(".new_note_form, new_note").hide();
-    $(".render-edit-form").html(edit_form);
-    $("#new-note #note_body").markdown({autofocus:true,savable:false});
+
+    var note_id = $(this).data("note-id");
+
+
+    var $edit_form = $("#note_"+ note_id +".edit_form");
+
+    console.log(note_id, $edit_form)
+    // var edit_form = $(this).closest(".note_info").find(".edit_form")[0];
+    // $(this).closest(".note_info").find(".edit_form").toggle();
     
+  
+    $(".new_note_form, new_note").hide();
+    
+    // grab the old note edit form render-edit and move it back up
+    // then replace the html
+    var $old_edit_form  = $(".render-edit-form .edit_form");
+    var old_edit_note_id = $old_edit_form.data("note-id");
+    console.log(old_edit_note_id)
+    $("#note_wrapper_"+ old_edit_note_id).append($old_edit_form );
+    
+    $(".render-edit-form").html($edit_form);
+    
+    $(".edit_form").hide();
+    $edit_form.show();
+
+    $("#new-note #note_body").markdown({autofocus:false,savable:false});
+    
+  });
+
+  // focus on textarea to pause video and create timestamp
+
+  $(".field textarea").focus(function(e){
+    e.preventDefault();
+    var $myPlayer = $("#vjs_video_4_html5_api");
+    // var $myPlayer = $("#lecture_video");
+    $myPlayer[0].pause();
+    var timeStamp = $myPlayer[0].currentTime;
+    $("#new-note #note_video_timestamp").val(timeStamp);
+    // hide edit form, showing new note form and focusing textarea on "New Note" click
+    $(".edit_form").hide();  
+    $(".new_note_form, new_note").show();
+
   });
 
   // toggling create video form for instructor -- video.index
@@ -94,6 +132,22 @@ $(document).ready(function(){
     $(".field textarea").focus();
 
   });
+
+  // // when click on text-area, pause video and 
+  // $(".new_note").on("click", "button", function(e){
+  //   e.preventDefault();
+
+  //   var $myPlayer = $("#vjs_video_4_html5_api");
+  //   // var $myPlayer = $("#lecture_video");
+  //   $myPlayer[0].pause();
+  //   var timeStamp = $myPlayer[0].currentTime;
+  //   $("#new-note #note_video_timestamp").val(timeStamp);
+  //   // hide edit form, showing new note form and focusing textarea on "New Note" click
+  //   $(".edit_form").hide();  
+  //   $(".new_note_form, new_note").show();
+  //   $(".field textarea").focus();
+
+  // });
 
   // when "Create Note" is clicked, plays video, sends post with new note info, refreshes edit section 
   $("input[value='Create Note']").click(function(e){
@@ -118,7 +172,7 @@ $(document).ready(function(){
         var note_time = $(".note_all .added_note").last().find(".added_note_timestamp").val();
         var note_id = $(".note_all .added_note").last().find(".added_note_id").val();
         var timeline = (((note_time/total_time)*600)+3);
-        var marker = '<a href="#'+note_id+'" class="marker" style="left:'+timeline+'px;"></a>';           
+        var marker = '<a href="#'+note_id+'" class="marker" data-id="'+note_id+'" style="left:'+timeline+'px;"></a>';           
         $('#timeline').append(marker);
 
         // // hide edit form 
@@ -136,5 +190,22 @@ $(document).ready(function(){
 //    var $video = $('#Box_Video');            $("#timeline").width($video[0].width());
 //     alert($video[0].width());
 // });
+
+// resizing the window with draggable
+
+// var div_orig = $(".divider").top-position;
+// $(".divider").draggable(function(){
+//   var div_drag = $(".divider").top-position;
+//   var notes_height = $("#notes").height;
+//   var div_pos_change = ((div_orig - div_drag)/notes_height)*100%
+//   var c1 = $("#note_all").height;
+//   var c2 = $("#new-note").height;
+//   c1.height(c1 - div_pos_change);
+//   c2.height(c2 + div_pos_change);
+// })
+
+
+
+
 
 
