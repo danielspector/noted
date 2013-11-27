@@ -45,14 +45,15 @@ $(document).ready(function(){
   // edit funtion
   $("body").on("click", "input[value='Update Note']", function (e){
     e.preventDefault();
-    var note_id = $(this).closest(".note_info").find(".added_note_id").val();
+    var note_id = $(this).closest(".edit_form").find("#note_id").val();
     var video_id = $("#video_id").val();
-    var note_body = $(this).closest(".note_info").find(".edit_form #note_body").val();
+    var note_body = $(this).closest(".edit_form").find("#note_body").val();
     var data = {_method: "patch", edited_note_body: note_body}; 
     $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note_all){
       console.log(note_all);
       $(".note_all").html(note_all);
       $(".edit_form").hide();  
+      $(".new_note_form, new_note").show();
     });
   });
 
@@ -67,7 +68,12 @@ $(document).ready(function(){
 
   // toggling the edit button 
    $("body").on("click", '.edit_button', function(){
-    $(this).closest('.note_info').find('.edit_form').toggle();
+    var edit_form = $(this).closest(".note_info").find(".edit_form")[0];
+    $(this).closest(".note_info").find(".edit_form").show();
+    $(".new_note_form, new_note").hide();
+    console.log(edit_form);
+    $(".render-edit-form").html(edit_form);
+    
   });
 
   // toggle new form field
