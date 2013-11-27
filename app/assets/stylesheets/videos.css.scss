@@ -173,7 +173,7 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
     position: relative;
     background: #efefef;
     width: 100%;
-    height: 35%;
+    height: 65%;
     margin-top: 10px;
     padding: 5px;
     overflow: hidden;
@@ -193,9 +193,8 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
     bottom: 0px;
     background: white;
     width: 100%;
-    height: 60%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    height: 30%;
+    margin: 10px 0;
     padding: 5px;
 }
 
@@ -205,6 +204,13 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
     bottom: 0;
     right: 0;
 }
+
+.note-highlight {
+    border: 2px solid pink;
+/*    transition-all: all;
+    transition-duration: 1s;*/
+/*    background: pink;
+*/}
 
 form .field .md-editor {
     display: show;
@@ -229,6 +235,7 @@ form .field .md-editor {
     top: 100px;
     height: 100%;
     background: #eee;
+    rows: 6;
 }
 
 .md-editor .btn-toolbar .btn-group button {
