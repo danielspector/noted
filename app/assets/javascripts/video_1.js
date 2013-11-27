@@ -73,6 +73,7 @@ $(document).ready(function(){
     $(".new_note_form, new_note").hide();
     console.log(edit_form);
     $(".render-edit-form").html(edit_form);
+    $("#new-note #note_body").markdown({autofocus:false,savable:false});
     
   });
 
