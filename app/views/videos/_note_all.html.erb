@@ -11,8 +11,9 @@
               <li id="<%= note.id %>"><%= raw markdown.render(note.body) unless note.body.nil? %></li> 
             <li id="video_timestamp"><%= note.video_timestamp %></li>
               <button class="play play_button">Play</button>
-              <button class="edit">Edit</button>       
-            <%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" }, :class => "delete" %>
+              <button class="edit">Edit</button>  
+          <!--     <button action="<#= video_note_path(@video, note) %>" method="post" name="_method" value="delete" class="delete">Delete</button> -->     
+         <%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" }, :class => "delete" %>
 
             </div>
             
