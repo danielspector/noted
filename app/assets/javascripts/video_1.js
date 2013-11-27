@@ -1,7 +1,6 @@
 $(document).ready(function(){
   $(".edit_form").hide(); 
   $(".video_form").hide();
-  // $(".new_note_form").hide();
 
   
 
@@ -50,7 +49,6 @@ $(document).ready(function(){
     var note_body = $(this).closest(".edit_form").find("#note_body").val();
     var data = {_method: "patch", edited_note_body: note_body}; 
     $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note_all){
-      console.log(note_all);
       $(".note_all").html(note_all);
       $(".edit_form").hide();  
       $(".new_note_form, new_note").show();
@@ -71,9 +69,8 @@ $(document).ready(function(){
     var edit_form = $(this).closest(".note_info").find(".edit_form")[0];
     $(this).closest(".note_info").find(".edit_form").show();
     $(".new_note_form, new_note").hide();
-    console.log(edit_form);
     $(".render-edit-form").html(edit_form);
-    $("#new-note #note_body").markdown({autofocus:false,savable:false});
+    $("#new-note #note_body").markdown({autofocus:true,savable:false});
     
   });
 
@@ -90,9 +87,11 @@ $(document).ready(function(){
     // var $myPlayer = $("#lecture_video");
     $myPlayer[0].pause();
     var timeStamp = $myPlayer[0].currentTime;
-    $("#note_video_timestamp").val(timeStamp);
+    $("#new-note #note_video_timestamp").val(timeStamp);
+    // hide edit form, showing new note form and focusing textarea on "New Note" click
     $(".edit_form").hide();  
     $(".new_note_form, new_note").show();
+    $(".field textarea").focus();
 
   });
 
