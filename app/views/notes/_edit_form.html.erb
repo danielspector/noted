@@ -1,17 +1,13 @@
-<%= form_for([note.video, note]
-) do |f| %>
+<%= form_for([note.video, note]) do |f| %>
   <%= f.hidden_field :video_timestamp %>
-  
+  <%= f.hidden_field :id %>
   <input name="_method" type="hidden" value="patch"/>
 
   <div class="field">
-    <%= f.label :note %></br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :data => {:provide => "markdown"} %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-
-<!-- give it an explicit action -->

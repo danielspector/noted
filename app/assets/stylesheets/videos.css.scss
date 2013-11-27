@@ -19,7 +19,7 @@ h1, h2, p, a, form, input, button, text-area, li, ul, table {
 	background-color: lightsteelgrey;
 }*/
 
-.new_note button {
+.new_note button, .render-edit-form button {
     padding: 10px 15px;
     background: #4479BA;
     color: #FFF;
@@ -206,7 +206,7 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
     right: 0;
 }
 
-#new-note .new_note_form form .field .md-editor {
+form .field .md-editor {
     display: show;
     background: none;
     position: relative;
