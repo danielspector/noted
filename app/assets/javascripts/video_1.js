@@ -77,17 +77,12 @@ $(document).ready(function(){
     
   });
 
-  // toggle new form field
-  $('.new_note').on('click', 'button', function(){
-    $(this).closest('.new_note').find('.new_note_form').toggle();
-  });
-
   // toggling create video form for instructor -- video.index
   $('.new_video').on('click', 'button', function(){
     $(this).closest('.new_video').find('.video_form').toggle();
   });
 
-  // pause video on new note 
+  // pause and show new note form on "new note" button
  $(".new_note").on("click", "button", function(e){
     e.preventDefault();
 
@@ -96,6 +91,9 @@ $(document).ready(function(){
     $myPlayer[0].pause();
     var timeStamp = $myPlayer[0].currentTime;
     $("#note_video_timestamp").val(timeStamp);
+    $(".edit_form").hide();  
+    $(".new_note_form, new_note").show();
+
   });
 
   // when "Create Note" is clicked, plays video, sends post with new note info, refreshes edit section 
