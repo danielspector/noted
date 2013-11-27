@@ -106,7 +106,7 @@ html, body {
 
 #video {
     position:relative;
-    background: aqua;
+    background: none;
     height: 90%;
     min-height: 90%;
     min-width: 600px;
@@ -185,7 +185,6 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
     background: white;
     margin-top: 5px;
     width: 100%;
-    height: 100%; 
     padding: 5px;
 }
 
@@ -257,8 +256,9 @@ textarea:focus {
     background: pink;
 }*/
 
-.one-note button, .one-note .button_to .delete {
+.one-note button {
     position: relative;
+    bottom: 20px;
     padding: 0;
     margin: 0;
     height: 20px;
@@ -268,19 +268,28 @@ textarea:focus {
     background: #eee
 }
 
-.one-note .button_to .delete {
-    right:0px;
+.one-note .button_to {
+    position: relative;
+    bottom: 20px;
+    background: none;
+}
+
+.one-note .button_to .delete  {
+    right: -40px;
+    position: relative;
+    width: 30px;
     bottom: 0px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    background: #eee
 }
 
 .play {
-    right: 25px;
-    bottom: 0px;
+    right: 0px;
 }
 
 .edit {
-    right: 25px;
-    bottom: 0px;
+    right: 0px;
 }
 
 

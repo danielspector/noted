@@ -14,7 +14,6 @@ $(document).ready(function(){
     var noteTime = $(this).find(".added_note_timestamp").val();
     var noteTimeNumber = parseFloat(noteTime);
     $(this).find(".btn-toolbar").hide();
-    $(this).showPreview();
     var $myPlayer = $(".vjs_video_4_html5_api");
     // var total_time = $myPlayer[0].duration;
     var timeline = (((noteTimeNumber/duration)*600)+3);
@@ -97,7 +96,7 @@ $(document).ready(function(){
     // $('.new_note_form').toggle();
     e.preventDefault();
     var $myPlayer = $("#vjs_video_4_html5_api");
-    // $myPlayer[0].play();
+    $myPlayer[0].play();
     var note_timestamp = $('.new_note #note_video_timestamp').val();
     var note_body = $('.new_note #note_body').val();
     var data = { note_video_timestamp: note_timestamp, note_body: note_body};
@@ -106,7 +105,7 @@ $(document).ready(function(){
     // sending post to make new note
     $.post("/videos/"+video_id+"/notes", data, function(note_all){
         $('.new_note #note_body').val("");
-
+        console.log(note_all);
         // putting the rendered note_all partial on page
         $(".note_all").html(note_all);
 
@@ -118,7 +117,7 @@ $(document).ready(function(){
         var marker = '<a href="#'+note_id+'" class="marker" style="left:'+timeline+'px;"></a>';           
         $('#timeline').append(marker);
 
-        // hide edit form 
+        // // hide edit form 
         $(".edit_form").hide(); 
 
     });
