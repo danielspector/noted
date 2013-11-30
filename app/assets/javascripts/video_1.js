@@ -71,7 +71,6 @@ $(document).ready(function(){
 
     var note_id = $(this).data("note-id");
 
-
     var $edit_form = $("#note_"+ note_id +".edit_form");
 
     console.log(note_id, $edit_form)
@@ -129,6 +128,7 @@ $(document).ready(function(){
     // hide edit form, showing new note form and focusing textarea on "New Note" click
     $(".edit_form").hide();  
     $(".new_note_form, new_note").show();
+    $(".render-edit-form").html("<p></p>");
     $(".field textarea").focus();
 
   });
