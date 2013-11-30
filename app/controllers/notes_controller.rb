@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
 before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
 
+
   def index
   end
 
@@ -15,7 +16,6 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
     @note = @video.notes.last
     @note.student = current_user
     @note.save
-    note = { :note_video_timestamp => @note.video_timestamp, :body => @note.body, :id => @note.id }
     render :partial => 'videos/note_all', :format => 'text/html'
   end
 
