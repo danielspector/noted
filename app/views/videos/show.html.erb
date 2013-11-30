@@ -1,3 +1,22 @@
+<nav class="navbar navbar-default navbar-fixed-top show-nav" role="navigation">
+     
+      <ul>
+        <li class="col-xs-4">
+           <div >
+        <%= link_to "FlatironVideos", videos_path, id: "logo" %>
+      </div>
+        </li>
+        <li class="col-xs-4"><%= link_to "Sign Up", users_path if !session[:user_id] %></li>
+       
+        <% if session[:user_id] %>
+          <!-- user is logged in -->
+          <li class="col-xs-4"><%= link_to "Sign Out", logout_path %><li>
+        <% else %>
+          <!-- user is NOT logged in -->
+          <li class="col-xs-4"><%= link_to "Sign In", login_path %></li>
+        <% end %>
+    </ul>
+  </nav> 
 
 
 <!-- starting actual page -->
@@ -43,9 +62,6 @@
         </div>
       </div>      
     </div>
-      <% if current_user.permission_type == "instructor" %>
-        <%= link_to "Edit Video", edit_video_path(@video) %>
-      <% end %>
     <!-- END OF NOTE SECTION -->
 
   </div>

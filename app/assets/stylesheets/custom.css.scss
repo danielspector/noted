@@ -2,16 +2,38 @@
 
 /* navbar */
 
+.nav-background {
+  height: 50px;
+  width: 100%;
+  background: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
 .navbar {
-  background: black;
+  top: 0;
   z-index: 9999;
   position: fixed;
+  width: 75%;
+}
+
+.navbar li {
+  padding: 10px;
+}
+
+.nav-new-video, .nav-sign {
+  text-align: right;
+}
+
+.nav-logo {
+  left: 30px;
 }
 
 nav ul {
-  padding-top:8px;
-  padding-right: 8%;
-  padding-bottom:4px;
+  margin-bottom: 30px;
+  position: absolute;
 }
 
 /* universal */
@@ -20,7 +42,8 @@ html {
   overflow-y: scroll;
 }
 
-body {
+/* used to be body */
+.index-padding {
   margin: 0 auto;
   padding-top: 8%;
   width: 80%;
@@ -46,14 +69,14 @@ textarea {
 /* header */
 
 #logo {
-  float: left;
-  margin-right: 10px;
+/*  float: left;
+  margin-right: 10px;*/
   font-size: 1.7em;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 18px;
-  padding-left: 55%;
+ /* padding-top: 18px;*/
+/*  padding-left: 68%;*/
   font-weight: bold;
   line-height: 1;
 
