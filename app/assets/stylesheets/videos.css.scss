@@ -250,7 +250,13 @@ form .field .md-editor {
 }
 
 /* INDEX VIDEO PAGE */
-.video-js-box {
+
+.show-nav .col-xs-4 {
+    background: pink;
+
+}
+
+.col-xs-4 .video-js-box {
     position: relative;
     width: 100%;
     height: auto;
@@ -259,15 +265,13 @@ form .field .md-editor {
 }
 
 #video_all {
-    border-style: solid;
-    border-color: black;
-    border-radius: 20px;
-    margin: 0 auto;
+/*    margin: 0 auto;
     padding: 0;
     display: block;
     width: 90%;
     min-width: 973px;
     max-width: 1100px;
+    background: pink;*/
 }
 
 .lecture_video {
