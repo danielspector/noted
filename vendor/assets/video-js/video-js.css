@@ -215,9 +215,10 @@ fonts to show/hide properly.
 .vjs-default-skin .vjs-volume-control {
   width: 5em;
   float: right;
+  margin-right: 100px;
 }
 .vjs-default-skin .vjs-volume-bar {
-  width: 5em;
+  width: 10em;
   height: 0.6em;
   margin: 1.1em auto 0;
 }
@@ -236,7 +237,7 @@ fonts to show/hide properly.
   height: 0.5em;
 }
 .vjs-default-skin .vjs-volume-handle:before {
-  font-size: 0.9em;
+  font-size: 1.2em;
   top: -0.2em;
   left: -0.2em;
   width: 1em;
@@ -269,7 +270,7 @@ fonts to show/hide properly.
     This simply changes the overall font for the progress bar, and this
     updates both the em-based widths and heights, as wells as the icon font */
 .vjs-default-skin:hover .vjs-progress-control {
-  font-size: .9em;
+  font-size: 2em;
   /* Even though we're not changing the top/height, we need to include them in
       the transition so they're handled correctly. */
 
@@ -322,9 +323,11 @@ fonts to show/hide properly.
 --------------------------------------------------------------------------------
 */
 .vjs-default-skin .vjs-time-controls {
-  font-size: 1em;
+  font-size: 1.5em;
   /* Align vertically by making the line height the same as the control bar */
-  line-height: 3em;
+  line-height: 1.5em;
+  padding-top: 5px;
+
 }
 .vjs-default-skin .vjs-current-time {
   float: left;
@@ -339,7 +342,9 @@ fonts to show/hide properly.
 }
 .vjs-time-divider {
   float: left;
-  line-height: 3em;
+  line-height: 1.5em;
+  font-size: 1.5em;
+  padding-top: 5px;
 }
 /* Fullscreen
 --------------------------------------------------------------------------------
