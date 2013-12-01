@@ -98,18 +98,18 @@ $(document).ready(function(){
 
   // focus on textarea to pause video and create timestamp
 
-  $(".field textarea").focus(function(e){
-    e.preventDefault();
-    var $myPlayer = $("#vjs_video_4_html5_api");
-    // var $myPlayer = $("#lecture_video");
-    $myPlayer[0].pause();
-    var timeStamp = $myPlayer[0].currentTime;
-    $("#new-note #note_video_timestamp").val(timeStamp);
-    // hide edit form, showing new note form and focusing textarea on "New Note" click
-    $(".edit_form").hide();  
-    $(".new_note_form, new_note").show();
+  // $(".field textarea").focus(function(e){
+  //   e.preventDefault();
+  //   var $myPlayer = $("#vjs_video_4_html5_api");
+  //   // var $myPlayer = $("#lecture_video");
+  //   $myPlayer[0].pause();
+  //   var timeStamp = $myPlayer[0].currentTime;
+  //   $("#new-note #note_video_timestamp").val(timeStamp);
+  //   // hide edit form, showing new note form and focusing textarea on "New Note" click
+  //   $(".edit_form").hide();  
+  //   $(".new_note_form, new_note").show();
 
-  });
+  // });
 
   // toggling create video form for instructor -- video.index
   $('.new_video').on('click', 'button', function(){
@@ -169,8 +169,11 @@ $(document).ready(function(){
 
         // creating markers based on timestamp and with note.id anchor tags
         var total_time = $myPlayer[0].duration;
-        var note_time = $(".note_all .added_note").last().find(".added_note_timestamp").val();
-        var note_id = $(".note_all .added_note").last().find(".added_note_id").val();
+        // var note_time = $(".note_all .added_note").last().find(".added_note_timestamp").val();
+        var note_id = $(".added_note_id").sort().first().val();
+        alert(note_id);
+        // var note_id = $(".note_all .added_note").last().find(".added_note_id").val();
+        var note_time = $(".note_wrapper_"+note_id+" .added_note_timestamp").val();
         var timeline = (((note_time/total_time)*600)+3);
         var marker = '<a href="#'+note_id+'" class="marker" data-id="'+note_id+'" style="left:'+timeline+'px;"></a>';           
         $('#timeline').append(marker);
