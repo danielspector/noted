@@ -1,29 +1,28 @@
-<nav class="navbar navbar-default navbar-fixed-top show-nav" role="navigation">
-     
-      <ul>
-        <li class="col-xs-4">
-           <div >
-        <%= link_to "FlatironVideos", videos_path, id: "logo" %>
-      </div>
-        </li>
-        <li class="col-xs-4"><%= link_to "Sign Up", users_path if !session[:user_id] %></li>
-       
-        <% if session[:user_id] %>
-          <!-- user is logged in -->
-          <li class="col-xs-4"><%= link_to "Sign Out", logout_path %><li>
-        <% else %>
-          <!-- user is NOT logged in -->
-          <li class="col-xs-4"><%= link_to "Sign In", login_path %></li>
-        <% end %>
-    </ul>
-  </nav> 
-
-
-<!-- starting actual page -->
 <div class="container">
   <div class="row">
-    <!-- BEGINNING OF VIDEO SECTION -->
+    <div class="show-nav">
+      <div class="nav-background"></div>
+        <nav>
+          <ul class="navbar col-xs-12">
+            <li class="col-xs-4 nav-new-video"><%= link_to "+ New Video", new_video_path %></li>
+            <li class="col-xs-4 nav-logo">
+              <%= link_to "Video Notes", videos_path, id: "logo" %>
+            </li>
+              <% if session[:user_id] %>
+              <!-- user is logged in -->
+            <li class="col-xs-4 nav-sign"><%= link_to "Sign Out", logout_path %><li>
+              <% else %>
+              <!-- user is NOT logged in -->
+            <li class="col-xs-4 nav-sign"><%= link_to "Sign In", login_path %></li>
+              <% end %>
+          </ul>
+        </nav>
+      </div>
 
+<!-- starting actual page -->
+  
+    <!-- BEGINNING OF VIDEO SECTION -->
+  <div class="show-body">
     <div id="video-container" class="col-xs-9"> 
 
       <!-- ACTUAL VIDEO -->
@@ -63,7 +62,7 @@
       </div>      
     </div>
     <!-- END OF NOTE SECTION -->
-
+    </div>
   </div>
 </div>
 
