@@ -11,7 +11,7 @@
   background: white;
   border: 1px solid #ddd;
   box-shadow: none;
-  border-radius: 5px;
+  border-radius: 3px;
   box-sizing: none;
 }
 
@@ -70,12 +70,11 @@
 }
 
 .show-nav .nav-new-video {
-  text-align: left;
+  text-align: right;
 }
 
 .show-nav .nav-logo {
   text-align: center;
-  margin-left: -30px;
 }
 
 .navbar {
@@ -90,14 +89,28 @@
 }
 
 .nav-new-video, .nav-sign {
-  text-align: right;
-  color: #ddd;
-  padding-top: 10px;
+  font-size: 1.2em;
+  padding-top: 20px;
+  font-weight: 400;
 }
 
 nav ul {
   margin-bottom: 30px;
+}
+
+nav .nav-right-options {
+  float: right;
   position: absolute;
+  right: 0;
+  margin-top: 12px;
+}
+
+nav li a {
+  padding: 15px;
+}
+
+nav li {
+  display: inline;
 }
 
 /* universal */
@@ -133,27 +146,20 @@ textarea {
 /* header */
 
 #logo {
-/*  float: left;
-  margin-right: 10px;*/
   font-size: 2.5em;
-/*  letter-spacing: -1px;
-*/ /* padding-top: 18px;*/
-/*  padding-left: 68%;*/
-/*  font-weight: 900;
-/**/  /*line-height: 1;*/
   margin-bottom: 10px;
+  font-weight: 900;
 }
 
 nav .navbar a:hover, #logo:hover {
   color: #fff;
   text-decoration: none;
-  
+  font-weight: 900;
 }
 
 nav .navbar a, #logo {
   color: #069BCC;
   font-family: 'PT Mono', cursive;
-  font-weight: 900;
   text-transform: lowercase;
 }
    
