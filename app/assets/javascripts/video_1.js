@@ -121,12 +121,13 @@ $(document).ready(function(){
 
   // focus on textarea to pause video and create timestamp
 
-  $(".field textarea").focus(function(e){
+  $("#new-note .field textarea").focus(function(e){
     e.preventDefault();
     var $myPlayer = $("#vjs_video_4_html5_api");
     // var $myPlayer = $("#lecture_video");
     $myPlayer[0].pause();
-    var timeStamp = $myPlayer[0].currentTime;
+    var timestampp = $myPlayer[0].currentTime;
+    alert(timeStamp);
     $("#new-note #note_video_timestamp").val(timeStamp);
     // hide edit form, showing new note form and focusing textarea on "New Note" click
     $(".edit_form").hide();  
