@@ -4,6 +4,11 @@ $(document).ready(function(){
   $(".added_note").each(function(){
     $(".note_buttons").hide();
   });
+
+
+  // get width of timeline
+  var timelineLength = $("#timeline").width();
+
   // making all of the tickers on ready
   function makeMarkers(){
     var markerBucket = [];
@@ -17,7 +22,7 @@ $(document).ready(function(){
       var $myPlayer = $(".vjs_video_4_html5_api");
       var videoDuration = $("#video_duration").val();
       // var total_time = $myPlayer[0].duration;
-      var timeline = (((noteTimeNumber/videoDuration)*600)+3);
+      var timeline = (((noteTimeNumber/videoDuration)*timelineLength)+3);
       var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
       markerBucket.push(marker);           
       $('.all_markers').append(marker); 
