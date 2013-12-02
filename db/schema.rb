@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20131126142445) do
     t.string   "name"
     t.string   "link"
     t.date     "lecture_date"
+    t.float    "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "instructor_id"

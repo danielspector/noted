@@ -11,6 +11,7 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
 
   def create
     @video = Video.find_by(:id => params[:video_id])
+    @video.duration = params[:video_duration]
     @video.notes.build({:video_timestamp => params[:note_video_timestamp], :body => params[:note_body]})
     @video.save
     @note = @video.notes.last
