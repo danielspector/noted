@@ -22,7 +22,7 @@
 
       <div class="index-video-buttons">
         <% if current_user.permission_type == "student" %>
-          <button class="watch_video"><%= link_to 'Take Notes!', video %></button>
+          <button class="watch_video"><%= link_to 'take notes', video %></button>
         <% end %>
         
         <% if current_user.permission_type == "instructor" %>
