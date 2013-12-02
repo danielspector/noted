@@ -28,8 +28,9 @@
       <!-- ACTUAL VIDEO -->
       <div id="video">    
         <h3><%= @video.name %></h3>
+        <input type="hidden" id="video_duration" value="<%= @video.duration if @video.duration %>"></input>
         <input type="hidden" id="video_id" value="<%= @video.id %>"></input>
-        <div class="vjs_video_4_html5_api" autoplay="true" preload="auto">
+        <div class="vjs_video_4_html5_api" autoplay="true" preload="metadata">
             <%= videojs_rails sources: {mp4: @video.link} %>
         </div>
       </div>
