@@ -1,4 +1,6 @@
 @import "twitter/bootstrap";
+/* Light blue shade: #069BCC */
+
 @import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
 @import url(http://fonts.googleapis.com/css?family=Neucha);
 @import url(http://fonts.googleapis.com/css?family=Rock+Salt);
@@ -6,8 +8,20 @@
 @import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
 @import url(http://fonts.googleapis.com/css?family=Nixie+One);
 
-/* navbar */
+/* button stuff */
 
+#new-note-button {
+  background: #069BCC;
+  border: none;
+  color: #fff;
+}
+
+.note_buttons {
+  background: #069BCC;
+}
+
+/* navbar */
+  
 .show-nav {
   height: 6%;
   margin: 0;

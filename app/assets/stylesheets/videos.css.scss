@@ -22,21 +22,21 @@ h1, h2, p, a, form, input, button, text-area, li, ul, table {
 
 .new_note button, .render-edit-form button {
     padding: 10px 15px;
-    background: #4479BA;
-    color: #FFF;
+/*    background: #4479BA;*/
+    color: #222;
     top: -12px;
     right: -130px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    border: solid 1px #20538D;
+    border: solid 1px #777;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    transition-duration: 0.1s;
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
@@ -44,17 +44,17 @@ h1, h2, p, a, form, input, button, text-area, li, ul, table {
 }
 
 .new_note button:hover {
-    background: #356094;
-    border: solid 1px #2A4E77;
+ /*   background: #356094;*/
+    border: solid 1px #777;
     text-decoration: none;
 }
 
 .new_note button:active {
-    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+  /*  -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
     -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
-    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);*/
     background: #2E5481;
-    border: solid 1px #203E5F;
+/*    border: solid 1px #203E5F;*/
 }
 
 li {
@@ -65,11 +65,10 @@ li {
     position: absolute;
     bottom: -10px;
     width: 5px;
-    height: 30px;
-    background: #000;
-    color: white;
-    border-radius: 2px;
-    box-shadow: 0px 0px 5px 1px;
+    height: 25px;
+    background: #ccc;
+    border-radius: 5px;
+    /*box-shadow: 0px 0px 5px 2px black;*/
 }
 
 .marker:hover {
@@ -120,14 +119,16 @@ html, body {
 
 #notes {
     position: relative;
-    background: #324f6c;
+    background: black;
     height: 100%;
     min-height: 100%;
+/*    border-left: 1px solid #333;*/
+    box-shadow: 0px 5px 5px 3px #333;
 }
 
 #playbar {
     position: absolute;
-    background: #36394a;
+    background: black;
     height: 10%;
     min-height: 10%;
     margin: 0 auto;
@@ -135,20 +136,23 @@ html, body {
     bottom: 0;
     padding: 35px;
     vertical-align: middle;
+/*    border-top: 1px solid #333;*/
+    box-shadow: 0px -1px 5px 3px #333;
 }
 
 #timeline {
     position: relative;
-    height: 10px;
-    background: white;
-    width: 600px;
-    float: left;
-    margin-left: 40px;
+    height: 8px;
+    background: #444;
+    width: 87%;
+/*    box-shadow: 0px -2px 3px 2px #555;*/
+  /*  float: left;*/
+/*    margin-left: 40px;*/
 }
 
 .one-note button, .one-note .button_to, {
     position: relative;
-    background: #ddd;
+/*    background: #ddd;*/
     border-radius: 5px;
     font-size: .7em;
     font-family: Helvetica;
@@ -159,6 +163,8 @@ html, body {
 .new_note button {
     position: relative;
     float: right;
+    margin-bottom: 3px;
+ /*   background: #999;*/
 }
 
 video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech, /*.vjs-time-controls,*/ /*.vjs-progress-control,*/ /*.vjs-progress-holder, *//*.vjs-load-progress, *//*.vjs-control, */ {
@@ -171,13 +177,14 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
 
 .vjs-control-bar {
     width: 100%;
-    min-height: 70px;
+    height: 20%;
+    min-height: 30px;
     bottom: 0px;
 }
 
 #note-all {
     position: relative;
-    background: #efefef;
+    background: #eee;
     width: 100%;
     height: 65%;
     margin-top: 10px;
@@ -211,12 +218,13 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
     right: 0;
 }
 
-.note-highlight {
-    border: 2px solid pink;
-/*    transition-all: all;
-    transition-duration: 1s;*/
-/*    background: pink;
-*/}
+/*.note-highlight {
+    border: 2px solid #069BCC;
+    border-shadow: 0px 0px 5px 0px;
+    transition-all: all;
+    transition-duration: 1s;
+    background: pink; 
+} */
 
 form .field .md-editor {
     display: show;
@@ -249,7 +257,7 @@ form .field .md-editor {
     top: 0;
     left: 0;
     float: left;
-    background: cornflower-blue;
+/*    background: cornflower-blue; */
 }
 
 /* INDEX VIDEO PAGE */
@@ -304,29 +312,35 @@ textarea:focus {
 
 .one-note button {
     position: relative;
-    bottom: 20px;
+    display: inline-block;
+    bottom: 15px;
     padding: 0;
-    margin: 0;
+    margin: 2px;
     height: 20px;
     width: 30px;
-    border: 1px solid #ccc;
-    border-radius: 1px;
-    background: #eee
+    border: none;
+    border-radius: 4px;
+    background: #eee;
+    box-shadow: none;
 }
 
 .one-note .button_to {
     position: relative;
     bottom: 20px;
     background: none;
+
 }
 
 .one-note .button_to .delete  {
     right: -40px;
     position: relative;
-    width: 30px;
+    display: inline-block;
+    height: 20px;
+    margin: 5px;
+    width: 40px;
     bottom: 0px;
-    border: 1px solid #ccc;
-    border-radius: 1px;
+    border: none;
+    border-radius: 4px;
     background: #eee
 }
 
