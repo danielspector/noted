@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -9,44 +10,76 @@
 
   <%= video_tag( @video.link, controls: true, width: '600', :id => "lecture_video" ) %></br>
 
-  <div id="timeline"></div>
-  <div class="new_note">
-    <p>
-      <button>New Note</button>
-    </p>
+<div class="container">
+  <div class="row">
+    <div class="show-nav">
+      <div class="nav-background"></div>
+        <nav>
+          <ul class="navbar col-xs-12">
+            <li class="col-xs-4 nav-new-video"><%= link_to "+ New Video", new_video_path %></li>
+            <li class="col-xs-4 nav-logo">
+              <%= link_to "noted", videos_path, id: "logo" %>
+            </li>
+              <% if session[:user_id] %>
+              <!-- user is logged in -->
+            <li class="col-xs-4 nav-sign"><%= link_to "Sign Out", logout_path %><li>
+              <% else %>
+              <!-- user is NOT logged in -->
+            <li class="col-xs-4 nav-sign"><%= link_to "Sign In", login_path %></li>
+              <% end %>
+          </ul>
+        </nav>
+      </div>
 
-    <!-- is for new forms -->
-    <div class="new_note_form">
-    <%= render 'notes/new_form' %>
+<!-- starting actual page -->
+  
+    <!-- BEGINNING OF VIDEO SECTION -->
+  <div class="show-body">
+    <div id="video-container" class="col-xs-9"> 
+
+      <!-- ACTUAL VIDEO -->
+      <div id="video">    
+        <h3><%= @video.name %></h3>
+        <input type="hidden" id="video_duration" value="<%= @video.duration if @video.duration %>"></input>
+        <input type="hidden" id="video_id" value="<%= @video.id %>"></input>
+        <div class="vjs_video_4_html5_api" autoplay="true" preload="metadata">
+            <%= videojs_rails sources: {mp4: @video.link} %>
+        </div>
+      </div>
+
+      <!-- PLAYBAR STUFF -->
+      <div id="playbar">
+          <div id="timeline">
+            <div class="new_note">
+              <button>New Note</button>
+            </div>
+            <div class="all_markers">
+            </div>
+          </div>      
+      </div>
+    </div>
+
+    <!-- END OF VIDEO SECTION -->
+
+    <!-- BEGINNING OF NOTE SECTION -->
+
+    <div id="notes" class="col-xs-3">
+      <div id="note-all" class="note_all">
+        <%= render "videos/note_all" %>   
+      </div>
+      <!-- is for NEW notes -->
+      <div id="new-note">
+        <div class="new_note_form new_note">         
+          <%= render 'notes/new_form' %>
+        </div>
+        <div class="render-edit-form">
+        </div>
+      </div>      
+    </div>
+    <!-- END OF NOTE SECTION -->
     </div>
   </div>
-  <ul>
-    <% @video.notes.each do |note| %>
-      <% if note.student == @current_user %>
-      <div class="note_info">
-        <div class="added_note">
-          <li id="<%=note.id%>"><%= note.body %></li>
-          <button class="edit_button">Edit</button><%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" } %>
-        </div>
-        <% end %>
-        <div class="edit_form">
-          <li><%= render 'notes/edit_form', :note => note %></li>
-        </div>
-        <br>
-      </div>
-    <% end %>
-
-    <div class="append_note">
-      <%#= render 'notes/edit_form', :note => @video.notes.last if !@video.notes.empty? %>
-    </div>  
-
-  </ul>
-
-</p>
-<% if current_user.permission_type == "instructor" %>
-  <%= link_to "Edit Video", edit_video_path(@video) %>
-<% end %>
-<%= link_to "Main", videos_path %>
+</div>
 
 
 

@@ -2,12 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+
 h1, h2, p, a, form, input, button, text-area, li, ul, table {
   font-family: Helvetica;
 }
 
-body {
-  margin: 10%;
+/*#vjs_video_4 {
+	width: 600px;
+	height: 320px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 40px;
+	border-style: solid;
+	border-color: black;
+	border-radius: 20px;
+	background-color: lightsteelgrey;
+}*/
+
+.new_note button, .render-edit-form button {
+    padding: 10px 15px;
+    background: #4479BA;
+    color: #FFF;
+    top: -12px;
+    right: -130px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
 }
 
 video {
@@ -20,19 +53,343 @@ video {
     height: 20px;
     background: #ccc;
 }
+.new_note button:hover {
+    background: #356094;
+    border: solid 1px #2A4E77;
+    text-decoration: none;
+}
+
+.new_note button:active {
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    background: #2E5481;
+    border: solid 1px #203E5F;
+}
+
+li {
+	list-style	: none;
+}
 
 .marker {
     position: absolute;
-    bottom: -5px;
+    bottom: -10px;
     width: 5px;
-    height: 35px;
+    height: 30px;
     background: #000;
     color: white;
     border-radius: 2px;
-    box-shadow: 0px 0px 10px 2px;
+    box-shadow: 0px 0px 5px 1px;
 }
 
 .marker:hover {
   background: yellow;
   z-index: 999;
+}
+
+/* new video layout from js.fiddle*/
+
+
+html, body {
+    height: 100%;
+}
+
+.row .col-xs-9 {
+    margin: 0;
+    padding: 0;    
+}
+
+.container, .row {
+    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    position: relative;
+}
+
+.container {
+  padding: -20px;  
+} 
+
+#video-container {
+   position: relative;
+   background: black;
+   height: 100%;
+   min-height: 100%;
+   padding: 0;
+   margin: 0;
+}
+
+#video {
+    position:relative;
+    background: none;
+    height: 90%;
+    min-height: 90%;
+    min-width: 600px;
+}
+
+#notes {
+    position: relative;
+    background: #324f6c;
+    height: 100%;
+    min-height: 100%;
+}
+
+#playbar {
+    position: absolute;
+    background: #36394a;
+    height: 10%;
+    min-height: 10%;
+    margin: 0 auto;
+    width: 100%;
+    bottom: 0;
+    padding: 35px;
+    vertical-align: middle;
+}
+
+#timeline {
+    position: relative;
+    height: 10px;
+    background: white;
+    width: 600px;
+    float: left;
+    margin-left: 40px;
+}
+
+.one-note button, .one-note .button_to, {
+    position: relative;
+    background: #ddd;
+    border-radius: 5px;
+    font-size: .7em;
+    font-family: Helvetica;
+    float: right;
+    margin-right: 40px;
+}
+
+.new_note button {
+    position: relative;
+    float: right;
+}
+
+video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech, /*.vjs-time-controls,*/ /*.vjs-progress-control,*/ /*.vjs-progress-holder, *//*.vjs-load-progress, *//*.vjs-control, */ {
+    width: 100%;
+    height: 99%;
+    min-width: 320px;
+    min-height: 240px; 
+    background-color: black;   
+}
+
+.vjs-control-bar {
+    width: 100%;
+    min-height: 70px;
+    bottom: 0px;
+}
+
+#note-all {
+    position: relative;
+    background: #efefef;
+    width: 100%;
+    height: 65%;
+    margin-top: 10px;
+    padding: 5px;
+    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 1;
+}
+
+.one-note, .note_info, .added_note {
+    background: white;
+    margin-top: 5px;
+    width: 100%;
+    padding: 5px;
+}
+
+#new-note {
+    position: relative;
+    bottom: 0px;
+    background: white;
+    width: 100%;
+    height: 30%;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+
+#new-note .actions input {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.note-highlight {
+    border: 2px solid pink;
+/*    transition-all: all;
+    transition-duration: 1s;*/
+/*    background: pink;
+*/}
+
+form .field .md-editor {
+    display: show;
+    background: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    border: none;
+    bottom: 0;
+}
+
+.md-editor .btn-toolbar {
+    position: absolute;
+    float: left;
+    height: 20%;
+}
+
+.md-editor .md-input {
+    position: relative;
+    float: left;
+    top: 100px;
+    height: 100%;
+    background: #eee;
+    rows: 6;
+}
+
+.md-editor .btn-toolbar .btn-group button {
+    position: relative;
+    top: 0;
+    left: 0;
+    float: left;
+    background: cornflower-blue;
+}
+
+/* INDEX VIDEO PAGE */
+
+/*.show-nav .col-xs-4 {
+    background: pink;
+
+}*/
+
+.col-xs-4 .video-js-box {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    z-index: 500;
+}
+
+#video_all {
+/*    margin: 0 auto;
+    padding: 0;
+    display: block;
+    width: 90%;
+    min-width: 973px;
+    max-width: 1100px;
+    background: pink;*/
+}
+
+.lecture_video {
+    display: block; 
+    margin: 0 auto;
+}
+
+.watch_video {
+    margin: 20px;
+}
+textarea:focus {
+    outline: none;
+}
+
+/*#new-note button {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 0;
+    margin: 0;
+    height: 20px;
+    width: 25px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    background: pink;
+}*/
+
+.one-note button {
+    position: relative;
+    bottom: 20px;
+    padding: 0;
+    margin: 0;
+    height: 20px;
+    width: 30px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    background: #eee
+}
+
+.one-note .button_to {
+    position: relative;
+    bottom: 20px;
+    background: none;
+}
+
+.one-note .button_to .delete  {
+    right: -40px;
+    position: relative;
+    width: 30px;
+    bottom: 0px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    background: #eee
+}
+
+.play {
+    right: 0px;
+}
+
+.edit {
+    right: 0px;
+}
+
+
+/* our own video shit */
+
+.video_wrap {
+    width: 300px;
+    height: 200px;
+    overflow: hidden; 
+    margin: 0 auto;
+    background: black;
+}
+
+.hover_description {
+    position: relative;
+    background-color: black;
+    color: white;
+    height: auto;
+    width: 100%;
+    z-index: 0;
+    top: -200px;
+    margin: 0 auto;
+}
+
+.hover_description > p {
+    margin-top: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+#video_all .col-xs-4 {
+    min-width: 300px;
+    margin-top: 20px;
+}
+
+.new_video_form > input {
+    margin: 0 auto;
+    text-align: center;
+    width: 350px;
+}
+
+#new_video_form_wrapper {
+    text-align: center;
+    border-style: solid;
+    padding: 10px;
+    width: 400px;
+    margin: 0 auto;
 }

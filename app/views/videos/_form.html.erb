@@ -1,10 +1,20 @@
-<%= form_for(@video) do |f| %>
 
-	<%= f.text_field :name, :placeholder => "Name" %><br>
-
-	<%= f.text_field :link, :placeholder => "Link" %><br>
-
-	<%= f.text_field :lecture_date, :placeholder => "Lecture Date" %><br>
-	
-	<%= f.submit %>
-<% end %>
+<div class="container">
+	<div id="new_video_form_wrapper">
+	<h3>New Video</h3>
+	<br>
+	<%= form_for(@video) do |f| %>
+		<div class="new_video_form">
+			<%= f.text_field :name, :placeholder => "Name" %><br>
+			<br>
+		  <%= f.text_field :description, :placeholder => "Description" %><br>
+		  <br>
+			<%= f.text_field :link, :placeholder => "Link (mp4 only!)" %><br>
+			<br>
+			<%= f.text_field :lecture_date, :placeholder => "Lecture Date" %><br>
+			<br>
+			<%= f.submit %>	
+		</div>
+	<% end %>
+	</div>
+</div>
