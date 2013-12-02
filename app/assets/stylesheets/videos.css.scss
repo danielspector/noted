@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
 
 h1, h2, p, a, form, input, button, text-area, li, ul, table {
   font-family: Helvetica;
@@ -368,10 +369,10 @@ textarea:focus {
     z-index: 0;
     top: -200px;
     margin: 0 auto;
+    
 }
 
 .hover_description > p {
-    margin-top: 20px;
     padding: 5px;
     text-align: center;
 }
