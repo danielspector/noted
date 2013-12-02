@@ -1,5 +1,6 @@
 FlatironVideos::Application.routes.draw do
 
+  get '/dashboard' => 'dashboard#index', :as => "dashboard"
   # AJAX FOR DELETE BUTTON
   get 'notes/delete_button' => 'notes#delete_button'
 
