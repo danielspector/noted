@@ -199,7 +199,7 @@ $(document).ready(function(){
 
         // creating markers based on timestamp and with note.id anchor tags
         // var total_time = $myPlayer[0].duration;
-        var duration = $("#video_duration").val();;
+        var duration = $("#video_duration").val();
         var idBucket = [];
         var $allNotes = $(".added_note");
         $allNotes.each(function(){
@@ -218,11 +218,7 @@ $(document).ready(function(){
     });
   });
 
-          // creating markers based on timestamp and with note.id anchor tags
-          var total_time = $myPlayer[0].duration;
-          var timeline = (((note.video_timestamp/total_time)*600)+3);
-          var marker = '<a href="#'+note.id+'" class="marker" style="left:'+timeline+'px;"></a>';           
-          $('#timeline').append(marker);         
+                  
   // INDEX - HIDE AND SHOW TOGGLE
   $('.lecture_video').hover(function(){
     $(this).find('.video-js-box').fadeTo(500, .1);
