@@ -184,8 +184,8 @@ CSS and UI:
 - play/pause on spacebar
 - make bar bigger
 - about section
-- notes: boxed notes, same width as video, 
-- notes shouldn't be sorted by id, they should be sorted by timestamp
+#X- notes: boxed notes, same width as video, 
+#- notes shouldn't be sorted by id, they should be sorted by timestamp
 
 
 - style buttons
