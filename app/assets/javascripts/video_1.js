@@ -20,13 +20,13 @@ $(document).ready(function(){
   });
 
   // marker click highlights corresponding note
-  $(".marker").on("mouseenter", function(){
+  $("body").on("mouseenter", ".marker", function(){
     var note_marker = $(this).data("id");
     $("#note_wrapper_"+note_marker).css("border", "3px solid pink");
     $("#note_wrapper_"+note_marker).trigger("click");
   });
 
-  $(".marker").on("mouseleave", function(){
+  $("body").on("mouseleave", ".marker", function(){
     var note_marker = $(this).data("id");
     $("#note_wrapper_"+note_marker).css("border", "none");
   });
@@ -163,18 +163,45 @@ $(document).ready(function(){
     // sending post to make new note
     $.post("/videos/"+video_id+"/notes", data, function(note_all){
         $('.new_note #note_body').val("");
-        console.log(note_all);
         // putting the rendered note_all partial on page
         $(".note_all").html(note_all);
 
         // creating markers based on timestamp and with note.id anchor tags
         var total_time = $myPlayer[0].duration;
         // var note_time = $(".note_all .added_note").last().find(".added_note_timestamp").val();
-        var note_id = $(".added_note_id").sort().first().val();
-        alert(note_id);
+    // THIS IS NOT WORKING YET - STILL WORKING ON .SORT
+
+        var duration = 4000;
+        var idBucket = [];
+        var $allNotes = $(".added_note");
+        $allNotes.each(function(){
+          var noteId = $(this).find(".added_note_id").val();
+          idBucket.push(noteId);
+        });
+          console.log(idBucket);
+          var note_id = idBucket.sort().reverse()[0];
+          console.log("note_id:"+note_id);
+          var noteTimestamp = $("#note_wrapper_"+note_id+" .added_note_timestamp").val();
+          console.log(noteTimestamp);
+
+          // var noteTime = $(this).find(".added_note_timestamp").val();
+          // var noteTimeNumber = parseFloat(noteTime);
+          // $(this).find(".btn-toolbar").hide();
+          // var $myPlayer = $(".vjs_video_4_html5_api");
+          // // var total_time = $myPlayer[0].duration;
+          // var timeline = (((noteTimeNumber/duration)*600)+3);
+          // var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
+          // markerBucket.push(marker);           
+          // $('#timeline').append(marker); 
+        // });
+
+
+
+        // var note_id = $(".added_note_id").sort().first().val();
+        
         // var note_id = $(".note_all .added_note").last().find(".added_note_id").val();
-        var note_time = $(".note_wrapper_"+note_id+" .added_note_timestamp").val();
-        var timeline = (((note_time/total_time)*600)+3);
+        // var note_time = $(".note_wrapper_"+note_id+" .added_note_timestamp").val();
+        var timeline = (((noteTimestamp/total_time)*600)+3);
         var marker = '<a href="#'+note_id+'" class="marker" data-id="'+note_id+'" style="left:'+timeline+'px;"></a>';           
         $('#timeline').append(marker);
 
