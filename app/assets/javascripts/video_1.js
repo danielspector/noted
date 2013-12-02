@@ -5,6 +5,11 @@ $(document).ready(function(){
     $(".note_buttons").hide();
   });
 
+  function removePreview(){
+    $("#new-note .btn-group")[3].remove();
+  }
+  removePreview();
+
 
   // get width of timeline
   var timelineLength = $("#timeline").width();
@@ -80,7 +85,7 @@ $(document).ready(function(){
 
 
   // adding play from timestamp function
-   $("body").on("click",".play_button", function(){
+  $("body").on("click",".play_button", function(){
     var timestamp = $(this).closest(".note_info").find(".added_note_timestamp").val();
       var $myPlayer = $("#vjs_video_4_html5_api");
       $myPlayer[0].play();
@@ -88,17 +93,11 @@ $(document).ready(function(){
   });
 
   // toggling the edit button 
-   $("body").on("click", '.edit_button', function(){
+  $("body").on("click", '.edit_button', function(){
 
     var note_id = $(this).data("note-id");
 
     var $edit_form = $("#note_"+ note_id +".edit_form");
-
-    console.log(note_id, $edit_form)
-    // var edit_form = $(this).closest(".note_info").find(".edit_form")[0];
-    // $(this).closest(".note_info").find(".edit_form").toggle();
-    
-  
     $(".new_note_form, new_note").hide();
     
     // grab the old note edit form render-edit and move it back up
@@ -113,7 +112,10 @@ $(document).ready(function(){
     $(".edit_form").hide();
     $edit_form.show();
 
-    $("#new-note #note_body").markdown({autofocus:false,savable:false});
+    $("#new-note #note_body").markdown({autofocus:false,savable:false}, function(){
+        
+    });
+    $(".render-edit-form .btn-group")[3].remove();
     
   });
 
@@ -213,13 +215,13 @@ $(document).ready(function(){
         });
         var note_id = idBucket.sort().reverse()[0];
         var noteTimestamp = $("#note_wrapper_"+note_id+" .added_note_timestamp").val();
-        var timeline = (((noteTimestamp/duration)*600)+3);
+        var timeline = (((noteTimestamp/duration)*timelineLength)+3);
         var marker = '<a href="#'+note_id+'" class="marker" data-id="'+note_id+'" style="left:'+timeline+'px;"></a>';           
         $('.all_markers').append(marker);
 
-        // // hide edit form 
+        // hide edit form 
         $(".edit_form").hide(); 
-        // alert("AYYYY!: "+ $("#video_duration").val());
+        
     });
   });
 
