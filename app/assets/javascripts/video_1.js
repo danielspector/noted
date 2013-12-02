@@ -4,6 +4,11 @@ $(document).ready(function(){
   $(".added_note").each(function(){
     $(".note_buttons").hide();
   });
+
+
+  // get width of timeline
+  var timelineLength = $("#timeline").width();
+
   // making all of the tickers on ready
   function makeMarkers(){
     var markerBucket = [];
@@ -17,7 +22,7 @@ $(document).ready(function(){
       var $myPlayer = $(".vjs_video_4_html5_api");
       var videoDuration = $("#video_duration").val();
       // var total_time = $myPlayer[0].duration;
-      var timeline = (((noteTimeNumber/videoDuration)*800)+3);
+      var timeline = (((noteTimeNumber/videoDuration)*timelineLength)+3);
       var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
       markerBucket.push(marker);           
       $('.all_markers').append(marker); 
@@ -199,7 +204,7 @@ $(document).ready(function(){
 
         // creating markers based on timestamp and with note.id anchor tags
         // var total_time = $myPlayer[0].duration;
-        var duration = $("#video_duration").val();;
+        var duration = $("#video_duration").val();
         var idBucket = [];
         var $allNotes = $(".added_note");
         $allNotes.each(function(){
@@ -218,11 +223,12 @@ $(document).ready(function(){
     });
   });
 
+                  
   // INDEX - HIDE AND SHOW TOGGLE
-  $('.lecture_video').hover(function(){
-    $(this).find('.video-js-box').fadeTo(500, .1);
+  $('video').hover(function(){
+    $(this).closest('.video-js-box').fadeTo(200, 0);
   }, function(){
-    $(this).find('.video-js-box').fadeTo(500, 1);
+    $(this).closest('.video-js-box').fadeTo(200, 1);
   }); 
 
 });

@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
 
 h1, h2, p, a, form, input, button, text-area, li, ul, table {
   font-family: Helvetica;
@@ -43,6 +44,16 @@ h1, h2, p, a, form, input, button, text-area, li, ul, table {
     user-select:none;
 }
 
+video {
+}
+
+#timeline {
+    top: 0;
+    position: relative;
+    width: 87%;
+    height: 20px;
+    background: #ccc;
+}
 .new_note button:hover {
  /*   background: #356094;*/
     border: solid 1px #777;
@@ -360,22 +371,22 @@ textarea:focus {
     height: 200px;
     overflow: hidden; 
     margin: 0 auto;
-    background: black;
+    background: #069BCC;
 }
 
 .hover_description {
     position: relative;
-    background-color: black;
+    background-color: #069BCC;
     color: white;
     height: auto;
     width: 100%;
     z-index: 0;
     top: -200px;
     margin: 0 auto;
+    
 }
 
 .hover_description > p {
-    margin-top: 20px;
     padding: 5px;
     text-align: center;
 }
