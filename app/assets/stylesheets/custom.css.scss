@@ -1,13 +1,49 @@
 @import "twitter/bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
-@import url(http://fonts.googleapis.com/css?family=Neucha);
-@import url(http://fonts.googleapis.com/css?family=Rock+Salt);
 
 @import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
 @import url(http://fonts.googleapis.com/css?family=Nixie+One);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+
+/* index page buttons */
+
+.index-video-buttons button{
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  border-radius: 3px;
+  box-sizing: none;
+  padding: 10px;
+}
+
+.index-video-buttons button a {
+  color: #069BCC;
+  padding: 20px;
+}
+
+.index-video-buttons button:hover a {
+  color: white;
+  text-decoration: none;
+}
+
+.index-video-buttons button:hover {
+  background: #069BCC;
+}
+
+
+/* button stuff */
+
+#new-note-button {
+  background: #069BCC;
+  border: none;
+  color: #fff;
+}
+
+.note_buttons {
+  background: #069BCC;
+}
 
 /* navbar */
-
+  
 .show-nav {
   height: 6%;
   margin: 0;
@@ -33,7 +69,7 @@
 .nav-background {
   height: 50px;
   width: 100%;
-  background: #069BCC;
+  background: #efefef;
   position: fixed;
   top: 0;
   left: 0;
@@ -46,12 +82,11 @@
 }
 
 .show-nav .nav-new-video {
-  text-align: left;
+  text-align: right;
 }
 
 .show-nav .nav-logo {
   text-align: center;
-  margin-left: -30px;
 }
 
 .navbar {
@@ -66,15 +101,28 @@
 }
 
 .nav-new-video, .nav-sign {
-  text-align: right;
-  float: right;
-  color: #ddd;
-  padding-top: 10px;
+  font-size: 1.2em;
+  padding-top: 20px;
+  font-weight: 400;
 }
 
 nav ul {
   margin-bottom: 30px;
+}
+
+nav .nav-right-options {
+  float: right;
   position: absolute;
+  right: 0;
+  margin-top: 12px;
+}
+
+nav li a {
+  padding: 15px;
+}
+
+nav li {
+  display: inline;
 }
 
 /* universal */
@@ -111,26 +159,21 @@ textarea {
 /* header */
 
 #logo {
-/*  float: left;
-  margin-right: 10px;*/
   font-size: 2.5em;
-/*  letter-spacing: -1px;
-*/ /* padding-top: 18px;*/
-/*  padding-left: 68%;*/
-/*  font-weight: 900;
-/**/  /*line-height: 1;*/
   margin-bottom: 10px;
-  font-family: 'Cutive Mono', cursive;
+  font-weight: 900;
 }
 
 nav .navbar a:hover, #logo:hover {
   color: #fff;
   text-decoration: none;
-  text-decoration: none;
+  font-weight: 900;
 }
 
 nav .navbar a, #logo {
-  color: #eee;
+  color: #069BCC;
+  font-family: 'PT Mono', cursive;
+  text-transform: lowercase;
 }
    
 /* typography */

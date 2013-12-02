@@ -12,7 +12,7 @@
               <div class="note_buttons"> 
                 <button class="play play_button">Play</button>
                 <button class="edit edit_button" data-note-id="<%= note.id %>">Edit</button>       
-                <%= button_to "Delete Note", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" }, :class => "delete" %>
+                <%= button_to "Delete", video_note_path(@video, note), :method => :delete, data: {confirm: "Are you sure?" }, :class => "delete" %>
               </div>
             </div>
             <%= div_for note, :class => "edit_form", :data => {:note_id => note.id} do %>
