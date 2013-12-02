@@ -6,7 +6,7 @@
           <ul class="navbar col-xs-12">
             <li class="col-xs-4 nav-new-video"><%= link_to "+ New Video", new_video_path %></li>
             <li class="col-xs-4 nav-logo">
-              <%= link_to "Video Notes", videos_path, id: "logo" %>
+              <%= link_to "noted", videos_path, id: "logo" %>
             </li>
               <% if session[:user_id] %>
               <!-- user is logged in -->
