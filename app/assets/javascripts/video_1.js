@@ -2,22 +2,88 @@ $(document).ready(function(){
   $(".edit_form").hide(); 
   $(".video_form").hide();
 
+
+
+  // var myPlayer = $('#vjs_video_4_html5_api');
+  // (myPlayer).get(0).load(function(){
+  //   alert("Hi");
+  // });
+  
+  
+  // setTimeout(function(){
+  //     var $myPlayer = $("#vjs_video_4_html5_api");
+  // //     while($myPlayer[0].duration==undefined){
+  // //     setTimeout(function(){
+  // //       $myPlayer[0].duration;
+  // //     }, 500);
+  // // }
+
+  // alert($myPlayer[0].duration);
+  // }, 1000)
+
+
+  // setTimeout(function(){
+      // var $myPlayer = $("#vjs_video_4_html5_api");
+      // // $myPlayer.ready(function(){
+      //   $myPlayer.on("durationchange", function(){
+      //     alert($myPlayer[0].duration);
+      //   })
+        // $myPlayer.on('loadedmetadata', function(){
+        // alert($myPlayer[0].duration);
+       // })
+    
+    
+      // $myPlayer[0].onloadedmetadata = alert($myPlayer[0].duration);
+      // console.log($myPlayer[0].duration);
+    // }, 0);
+    
+    // var video = document.createElement('video')
+    // var $myPlayer = $("#vjs_video_4_html5_api");
+    // video.addEventListener("loadedmetadata", function(e){
+    //   // alert("Hi");
+    // })
+    // video.onloadedmetadata = alert("Hi");
+
+    // $myPlayer.on("loadeddata", function(){
+    //   alert("Hey now!")
+    // })
+
+//     var $myPlayer = $("#vjs_video_4_html5_api");
+
+      
+//       myVid=document.getElementById("vjs_video_4_html5_api");
+// myVid.onLoadedMetaData=alert($myPlayer.duration);
+
+    // setTimeout(function(){
+    //   var $myPlayer = $("#vjs_video_4_html5_api");
+    //   $myPlayer[0].play();
+    //   $myPlayer[0].addEventListener("loadedmetadata", function(e){
+    //     $myPlayer[0].duration
+    //   })
+    //   $myPlayer[0].loadedmetadata;
+    // }, 300);
+
+  // alert($("#vjs_video_4_html5_api")[0].duration);
+
   // making all of the tickers on ready
-  var duration = 4000;
+  
   var markerBucket = [];
   var $allNotes = $(".added_note");
   $allNotes.each(function(){
     var noteId = $(this).find(".added_note_id").val();
     var noteTime = $(this).find(".added_note_timestamp").val();
+    console.log("refresh:"+noteTime);
     var noteTimeNumber = parseFloat(noteTime);
     $(this).find(".btn-toolbar").hide();
     var $myPlayer = $(".vjs_video_4_html5_api");
+    var videoDuration = $("#video_duration").val();
     // var total_time = $myPlayer[0].duration;
-    var timeline = (((noteTimeNumber/duration)*600)+3);
+    var timeline = (((noteTimeNumber/videoDuration)*600)+3);
     var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
     markerBucket.push(marker);           
     $('#timeline').append(marker); 
   });
+
 
   // marker click highlights corresponding note
   $("body").on("mouseenter", ".marker", function(){
@@ -98,18 +164,18 @@ $(document).ready(function(){
 
   // focus on textarea to pause video and create timestamp
 
-  // $(".field textarea").focus(function(e){
-  //   e.preventDefault();
-  //   var $myPlayer = $("#vjs_video_4_html5_api");
-  //   // var $myPlayer = $("#lecture_video");
-  //   $myPlayer[0].pause();
-  //   var timeStamp = $myPlayer[0].currentTime;
-  //   $("#new-note #note_video_timestamp").val(timeStamp);
-  //   // hide edit form, showing new note form and focusing textarea on "New Note" click
-  //   $(".edit_form").hide();  
-  //   $(".new_note_form, new_note").show();
+  $(".field textarea").focus(function(e){
+    e.preventDefault();
+    var $myPlayer = $("#vjs_video_4_html5_api");
+    // var $myPlayer = $("#lecture_video");
+    $myPlayer[0].pause();
+    var timeStamp = $myPlayer[0].currentTime;
+    $("#new-note #note_video_timestamp").val(timeStamp);
+    // hide edit form, showing new note form and focusing textarea on "New Note" click
+    $(".edit_form").hide();  
+    $(".new_note_form, new_note").show();
 
-  // });
+  });
 
   // toggling create video form for instructor -- video.index
   $('.new_video').on('click', 'button', function(){
@@ -130,6 +196,14 @@ $(document).ready(function(){
     $(".new_note_form, new_note").show();
     $(".render-edit-form").html("<p></p>");
     $(".field textarea").focus();
+
+    // getting the video duration
+    var video_duration = $("#video_duration");
+    if(video_duration.val()==""){
+      alert($myPlayer[0].duration);
+      video_duration.val($myPlayer[0].duration)
+      
+    }
 
   });
 
@@ -155,10 +229,13 @@ $(document).ready(function(){
     e.preventDefault();
     var $myPlayer = $("#vjs_video_4_html5_api");
     $myPlayer[0].play();
+
+    var video_duration = $("#video_duration").val();
     var note_timestamp = $('.new_note #note_video_timestamp').val();
     var note_body = $('.new_note #note_body').val();
-    var data = { note_video_timestamp: note_timestamp, note_body: note_body};
+    var data = { note_video_timestamp: note_timestamp, note_body: note_body, video_duration: video_duration};
     var video_id = $("#video_id").val();
+    
 
     // sending post to make new note
     $.post("/videos/"+video_id+"/notes", data, function(note_all){
@@ -167,47 +244,23 @@ $(document).ready(function(){
         $(".note_all").html(note_all);
 
         // creating markers based on timestamp and with note.id anchor tags
-        var total_time = $myPlayer[0].duration;
-        // var note_time = $(".note_all .added_note").last().find(".added_note_timestamp").val();
-    // THIS IS NOT WORKING YET - STILL WORKING ON .SORT
-
-        var duration = 4000;
+        // var total_time = $myPlayer[0].duration;
+        var duration = $("#video_duration").val();;
         var idBucket = [];
         var $allNotes = $(".added_note");
         $allNotes.each(function(){
           var noteId = $(this).find(".added_note_id").val();
           idBucket.push(noteId);
         });
-          console.log(idBucket);
-          var note_id = idBucket.sort().reverse()[0];
-          console.log("note_id:"+note_id);
-          var noteTimestamp = $("#note_wrapper_"+note_id+" .added_note_timestamp").val();
-          console.log(noteTimestamp);
-
-          // var noteTime = $(this).find(".added_note_timestamp").val();
-          // var noteTimeNumber = parseFloat(noteTime);
-          // $(this).find(".btn-toolbar").hide();
-          // var $myPlayer = $(".vjs_video_4_html5_api");
-          // // var total_time = $myPlayer[0].duration;
-          // var timeline = (((noteTimeNumber/duration)*600)+3);
-          // var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
-          // markerBucket.push(marker);           
-          // $('#timeline').append(marker); 
-        // });
-
-
-
-        // var note_id = $(".added_note_id").sort().first().val();
-        
-        // var note_id = $(".note_all .added_note").last().find(".added_note_id").val();
-        // var note_time = $(".note_wrapper_"+note_id+" .added_note_timestamp").val();
-        var timeline = (((noteTimestamp/total_time)*600)+3);
+        var note_id = idBucket.sort().reverse()[0];
+        var noteTimestamp = $("#note_wrapper_"+note_id+" .added_note_timestamp").val();
+        var timeline = (((noteTimestamp/duration)*600)+3);
         var marker = '<a href="#'+note_id+'" class="marker" data-id="'+note_id+'" style="left:'+timeline+'px;"></a>';           
         $('#timeline').append(marker);
 
         // // hide edit form 
         $(".edit_form").hide(); 
-
+        // alert("AYYYY!: "+ $("#video_duration").val());
     });
   });
 
