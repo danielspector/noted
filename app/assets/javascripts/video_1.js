@@ -2,89 +2,26 @@ $(document).ready(function(){
   $(".edit_form").hide(); 
   $(".video_form").hide();
 
-
-
-  // var myPlayer = $('#vjs_video_4_html5_api');
-  // (myPlayer).get(0).load(function(){
-  //   alert("Hi");
-  // });
-  
-  
-  // setTimeout(function(){
-  //     var $myPlayer = $("#vjs_video_4_html5_api");
-  // //     while($myPlayer[0].duration==undefined){
-  // //     setTimeout(function(){
-  // //       $myPlayer[0].duration;
-  // //     }, 500);
-  // // }
-
-  // alert($myPlayer[0].duration);
-  // }, 1000)
-
-
-  // setTimeout(function(){
-      // var $myPlayer = $("#vjs_video_4_html5_api");
-      // // $myPlayer.ready(function(){
-      //   $myPlayer.on("durationchange", function(){
-      //     alert($myPlayer[0].duration);
-      //   })
-        // $myPlayer.on('loadedmetadata', function(){
-        // alert($myPlayer[0].duration);
-       // })
-    
-    
-      // $myPlayer[0].onloadedmetadata = alert($myPlayer[0].duration);
-      // console.log($myPlayer[0].duration);
-    // }, 0);
-    
-    // var video = document.createElement('video')
-    // var $myPlayer = $("#vjs_video_4_html5_api");
-    // video.addEventListener("loadedmetadata", function(e){
-    //   // alert("Hi");
-    // })
-    // video.onloadedmetadata = alert("Hi");
-
-    // $myPlayer.on("loadeddata", function(){
-    //   alert("Hey now!")
-    // })
-
-//     var $myPlayer = $("#vjs_video_4_html5_api");
-
-      
-//       myVid=document.getElementById("vjs_video_4_html5_api");
-// myVid.onLoadedMetaData=alert($myPlayer.duration);
-
-    // setTimeout(function(){
-    //   var $myPlayer = $("#vjs_video_4_html5_api");
-    //   $myPlayer[0].play();
-    //   $myPlayer[0].addEventListener("loadedmetadata", function(e){
-    //     $myPlayer[0].duration
-    //   })
-    //   $myPlayer[0].loadedmetadata;
-    // }, 300);
-
-  // alert($("#vjs_video_4_html5_api")[0].duration);
-
   // making all of the tickers on ready
-  
-  var markerBucket = [];
-  var $allNotes = $(".added_note");
-  $allNotes.each(function(){
-    var noteId = $(this).find(".added_note_id").val();
-    var noteTime = $(this).find(".added_note_timestamp").val();
-    console.log("refresh:"+noteTime);
-    var noteTimeNumber = parseFloat(noteTime);
-    $(this).find(".btn-toolbar").hide();
-    var $myPlayer = $(".vjs_video_4_html5_api");
-    var videoDuration = $("#video_duration").val();
-    // var total_time = $myPlayer[0].duration;
-    var timeline = (((noteTimeNumber/videoDuration)*600)+3);
-    var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
-    markerBucket.push(marker);           
-    $('#timeline').append(marker); 
-  });
-
-
+  function makeMarkers(){
+    var markerBucket = [];
+    var $allNotes = $(".added_note");
+    $allNotes.each(function(){
+      var noteId = $(this).find(".added_note_id").val();
+      var noteTime = $(this).find(".added_note_timestamp").val();
+      console.log("refresh:"+noteTime);
+      var noteTimeNumber = parseFloat(noteTime);
+      $(this).find(".btn-toolbar").hide();
+      var $myPlayer = $(".vjs_video_4_html5_api");
+      var videoDuration = $("#video_duration").val();
+      // var total_time = $myPlayer[0].duration;
+      var timeline = (((noteTimeNumber/videoDuration)*600)+3);
+      var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
+      markerBucket.push(marker);           
+      $('.all_markers').append(marker); 
+    });
+  };
+  makeMarkers();
   // marker click highlights corresponding note
   $("body").on("mouseenter", ".marker", function(){
     var note_marker = $(this).data("id");
@@ -106,6 +43,8 @@ $(document).ready(function(){
     $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note_all){
       $(".note_all").html(note_all);
       $(".edit_form").hide();  
+      $(".all_markers").html("");
+      makeMarkers();
     });
   });
 
@@ -256,7 +195,7 @@ $(document).ready(function(){
         var noteTimestamp = $("#note_wrapper_"+note_id+" .added_note_timestamp").val();
         var timeline = (((noteTimestamp/duration)*600)+3);
         var marker = '<a href="#'+note_id+'" class="marker" data-id="'+note_id+'" style="left:'+timeline+'px;"></a>';           
-        $('#timeline').append(marker);
+        $('.all_markers').append(marker);
 
         // // hide edit form 
         $(".edit_form").hide(); 
@@ -294,6 +233,69 @@ $(document).ready(function(){
 //   c2.height(c2 + div_pos_change);
 // })
 
+
+// TRYING TO GET THE VIDEO META DATA DYNAMICALLY
+
+  // var myPlayer = $('#vjs_video_4_html5_api');
+  // (myPlayer).get(0).load(function(){
+  //   alert("Hi");
+  // });
+  
+  
+  // setTimeout(function(){
+  //     var $myPlayer = $("#vjs_video_4_html5_api");
+  // //     while($myPlayer[0].duration==undefined){
+  // //     setTimeout(function(){
+  // //       $myPlayer[0].duration;
+  // //     }, 500);
+  // // }
+
+  // alert($myPlayer[0].duration);
+  // }, 1000)
+
+
+  // setTimeout(function(){
+      // var $myPlayer = $("#vjs_video_4_html5_api");
+      // // $myPlayer.ready(function(){
+      //   $myPlayer.on("durationchange", function(){
+      //     alert($myPlayer[0].duration);
+      //   })
+        // $myPlayer.on('loadedmetadata', function(){
+        // alert($myPlayer[0].duration);
+       // })
+    
+    
+      // $myPlayer[0].onloadedmetadata = alert($myPlayer[0].duration);
+      // console.log($myPlayer[0].duration);
+    // }, 0);
+    
+    // var video = document.createElement('video')
+    // var $myPlayer = $("#vjs_video_4_html5_api");
+    // video.addEventListener("loadedmetadata", function(e){
+    //   // alert("Hi");
+    // })
+    // video.onloadedmetadata = alert("Hi");
+
+    // $myPlayer.on("loadeddata", function(){
+    //   alert("Hey now!")
+    // })
+
+//     var $myPlayer = $("#vjs_video_4_html5_api");
+
+      
+//       myVid=document.getElementById("vjs_video_4_html5_api");
+// myVid.onLoadedMetaData=alert($myPlayer.duration);
+
+    // setTimeout(function(){
+    //   var $myPlayer = $("#vjs_video_4_html5_api");
+    //   $myPlayer[0].play();
+    //   $myPlayer[0].addEventListener("loadedmetadata", function(e){
+    //     $myPlayer[0].duration
+    //   })
+    //   $myPlayer[0].loadedmetadata;
+    // }, 300);
+
+  // alert($("#vjs_video_4_html5_api")[0].duration);
 
 
 
