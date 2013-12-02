@@ -1,7 +1,9 @@
 $(document).ready(function(){
   $(".edit_form").hide(); 
   $(".video_form").hide();
-
+  $(".added_note").each(function(){
+    $(".note_buttons").hide();
+  });
   // making all of the tickers on ready
   function makeMarkers(){
     var markerBucket = [];
@@ -21,6 +23,15 @@ $(document).ready(function(){
       $('.all_markers').append(marker); 
     });
   };
+
+  $("body").on("mouseenter", ".added_note", function(){
+    $(this).find(".note_buttons").fadeIn("fast");
+  })
+
+  $("body").on("mouseleave", ".added_note", function(){
+    $(this).find(".note_buttons").fadeOut("fast");
+  })
+
   makeMarkers();
   // marker click highlights corresponding note
   $("body").on("mouseenter", ".marker", function(){
@@ -114,6 +125,12 @@ $(document).ready(function(){
     $(".edit_form").hide();  
     $(".new_note_form, new_note").show();
 
+    // getting the video duration
+    var video_duration = $("#video_duration");
+    if(video_duration.val()==""){
+      video_duration.val($myPlayer[0].duration)     
+    }
+
   });
 
   // toggling create video form for instructor -- video.index
@@ -139,9 +156,7 @@ $(document).ready(function(){
     // getting the video duration
     var video_duration = $("#video_duration");
     if(video_duration.val()==""){
-      alert($myPlayer[0].duration);
-      video_duration.val($myPlayer[0].duration)
-      
+      video_duration.val($myPlayer[0].duration)     
     }
 
   });
