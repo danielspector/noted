@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
 before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
 
+
   def index
   end
 
@@ -10,13 +11,13 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
 
   def create
     @video = Video.find_by(:id => params[:video_id])
+    @video.duration = params[:video_duration]
     @video.notes.build({:video_timestamp => params[:note_video_timestamp], :body => params[:note_body]})
     @video.save
     @note = @video.notes.last
     @note.student = current_user
     @note.save
-    note = { :video_timestamp => @note.video_timestamp, :body => @note.body, :id => @note.id }
-    render :json => note
+    render :partial => 'videos/note_all', :format => 'text/html'
   end
 
   def refresh
@@ -32,19 +33,20 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
   end
 
   def update
-    @note.update(notes_params)
+    @video = Video.find_by(:id => params[:video_id])
+    @note.update(:body => params[:edited_note_body])
     @note.save
-    redirect_to video_path
+    render :partial => 'videos/note_all', :format => 'text/html'
   end
 
   def destroy
+    @video = Video.find_by(:id => params[:video_id])
     @note.destroy
-    redirect_to video_path
+    render :partial => 'videos/note_all', :format => 'text/html'
   end
 
-
   private
-
+ 
   def set_note
     @note = Note.find_by(:id => params[:id])
   end

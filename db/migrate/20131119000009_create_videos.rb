@@ -4,6 +4,7 @@ class CreateVideos < ActiveRecord::Migration
       t.string :name
       t.string :link
       t.date :lecture_date
+      t.float :duration
 
       t.timestamps
     end

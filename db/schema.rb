@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120184947) do
+ActiveRecord::Schema.define(version: 20131126142445) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "notes", force: true do |t|
     t.text     "body"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20131120184947) do
     t.integer  "student_id"
   end
 
-  add_index "notes", ["student_id"], name: "index_notes_on_student_id"
+  add_index "notes", ["student_id"], name: "index_notes_on_student_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -33,15 +36,19 @@ ActiveRecord::Schema.define(version: 20131120184947) do
     t.datetime "updated_at"
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+
   create_table "videos", force: true do |t|
     t.string   "name"
     t.string   "link"
     t.date     "lecture_date"
+    t.float    "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "instructor_id"
+    t.string   "description"
   end
 
-  add_index "videos", ["instructor_id"], name: "index_videos_on_instructor_id"
+  add_index "videos", ["instructor_id"], name: "index_videos_on_instructor_id", using: :btree
 
 end

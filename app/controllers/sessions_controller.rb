@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       login(user.id)
       redirect_to videos_path
     else
-      render :text => "sign up!"
+      render :text => "C'mon and Sign Up!"
     end
   end
 

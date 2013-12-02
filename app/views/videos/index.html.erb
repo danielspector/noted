@@ -1,34 +1,34 @@
-<h1>Listing Videos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @videos.each do |video| %>
-      <tr>
-        <td><%= link_to video.name, video %></td>
-        <% if current_user.permission_type == "instructor" %>
-        <td><%= link_to '⊗', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<% if current_user.permission_type == "instructor" %>
-  <div class="new_video">
-    <button class="new_video_button">New Video</button>
-    <div class="video_form">
-      <%= render 'form' %>
+<div class="index-padding">
+
+<div class="container">
+  <%= render "layouts/nav" %>
+  <div class="row col-xs-12 center" id="video_all">
+    <div id="instructor_actions">
+    <% if current_user.permission_type == "instructor" %>
+      <% end %>
     </div>
+
+    <% @videos.each do |video| %>
+    <div class="col-xs-4 center lecture_video">
+      <!-- Added hover_description and video_wrap here -->
+      <div class="video_wrap">
+        <%= videojs_rails sources: {mp4: video.link}, height: "200", width: "300" %>
+        <div class="hover_description"><br><h3><%= video.name %></h3><br><p><%=video.description %></p></div>
+
+      </div><!-- .video_wrap -->
+      <button class="watch_video"><%= link_to 'Take Notes!', video %></button>
+      
+      <% if current_user.permission_type == "instructor" %>
+        <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+         <%= link_to "Edit", edit_video_path(video) %>
+      <% end %>
+    </div><!-- #lecture_video -->
+    <% end %>  
   </div>
-<% end %>
+</div>
+</div>
+
 
 
