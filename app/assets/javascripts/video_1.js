@@ -316,8 +316,3 @@ $(document).ready(function(){
     // }, 300);
 
   // alert($("#vjs_video_4_html5_api")[0].duration);
-
-
-
-
-
