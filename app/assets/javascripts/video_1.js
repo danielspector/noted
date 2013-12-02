@@ -220,10 +220,10 @@ $(document).ready(function(){
 
                   
   // INDEX - HIDE AND SHOW TOGGLE
-  $('.lecture_video').hover(function(){
-    $(this).find('.video-js-box').fadeTo(500, .1);
+  $('video').hover(function(){
+    $(this).closest('.video-js-box').fadeTo(200, 0);
   }, function(){
-    $(this).find('.video-js-box').fadeTo(500, 1);
+    $(this).closest('.video-js-box').fadeTo(200, 1);
   }); 
 
 });
