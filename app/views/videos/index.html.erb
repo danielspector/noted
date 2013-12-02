@@ -18,16 +18,18 @@
         <div class="hover_description"><br>
           <h3><%= video.name %></h3><br>
           <p><%=video.description %></p></div>
-
       </div><!-- .video_wrap -->
-      <% if current_user.permission_type == "student" %>
-        <button class="watch_video"><%= link_to 'Take Notes!', video %></button>
-      <% end %>
-      
-      <% if current_user.permission_type == "instructor" %>
-        <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
-         <%= link_to "Edit", edit_video_path(video) %>
-      <% end %>
+
+      <div class="index-video-buttons">
+        <% if current_user.permission_type == "student" %>
+          <button class="watch_video"><%= link_to 'Take Notes!', video %></button>
+        <% end %>
+        
+        <% if current_user.permission_type == "instructor" %>
+          <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+           <%= link_to "Edit", edit_video_path(video) %>
+        <% end %>
+      </div>
     </div><!-- #lecture_video -->
     <% end %>  
   </div>
