@@ -82,11 +82,17 @@
 }
 
 .show-nav .nav-new-video {
-  text-align: right;
+  text-align: left;
 }
 
 .show-nav .nav-logo {
   text-align: center;
+  padding-top: 5px;
+}
+
+.show-nav .nav-sign {
+  position: absolute;
+  text-align: right;
 }
 
 .navbar {
@@ -102,7 +108,7 @@
 
 .nav-new-video, .nav-sign {
   font-size: 1.2em;
-  padding-top: 20px;
+  padding-top: 10px;
   font-weight: 400;
 }
 
@@ -195,6 +201,12 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: #999;
+}
+
+h3 {
+  padding-left: 20px;
+  margin-bottom: 20px;
+  color: #aaa;
 }
 
 p {
