@@ -9,8 +9,14 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- * require ../../../vendor/assets/video-js/video-js
- *= require mediaelement_rails
- *= require mediaelement_rails/mejs-skins
+
+ * MEDIAELEMENT
+ * require mediaelement_rails
+ * require mediaelement_rails/mejs-skins
+
+ * VIDEO_JS
+ *= require video-js
+ * require ../../../vendor/assets/bootstrap-markdown/css/bootstrap-markdown.min.css
+
  *= require_tree .
  */
