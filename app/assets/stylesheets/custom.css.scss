@@ -1,4 +1,10 @@
 @import "twitter/bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
+@import url(http://fonts.googleapis.com/css?family=Neucha);
+@import url(http://fonts.googleapis.com/css?family=Rock+Salt);
+
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
+@import url(http://fonts.googleapis.com/css?family=Nixie+One);
 
 /* navbar */
 
@@ -17,12 +23,17 @@
   height: 6%;
   margin: 0;
   min-height: 30px;
+  background: #333;
+}
+
+.show-nav #logo {
+  font-size: 1.7em;
 }
 
 .nav-background {
   height: 50px;
   width: 100%;
-  background: #333;
+  background: #069BCC;
   position: fixed;
   top: 0;
   left: 0;
@@ -50,16 +61,14 @@
   width: 75%;
 }
 
-.navbar li {
+.navbar #logo a {
   padding: 10px;
 }
 
 .nav-new-video, .nav-sign {
   text-align: right;
-}
-
-.nav-logo {
-  left: 30px;
+  color: #ddd;
+  padding-top: 10px;
 }
 
 nav ul {
@@ -102,22 +111,26 @@ textarea {
 #logo {
 /*  float: left;
   margin-right: 10px;*/
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
- /* padding-top: 18px;*/
+  font-size: 2.5em;
+/*  letter-spacing: -1px;
+*/ /* padding-top: 18px;*/
 /*  padding-left: 68%;*/
-  font-weight: bold;
-  line-height: 1;
-
+/*  font-weight: 900;
+/**/  /*line-height: 1;*/
+  margin-bottom: 10px;
+  font-family: 'Cutive Mono', cursive;
 }
 
-#logo:hover {
-  color: #26c5ff;
+nav .navbar a:hover, #logo:hover {
+  color: #fff;
+  text-decoration: none;
   text-decoration: none;
 }
 
+nav .navbar a, #logo {
+  color: #eee;
+}
+   
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
