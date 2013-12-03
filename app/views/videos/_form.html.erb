@@ -1,7 +1,5 @@
 
-<div class="container">
-	<div id="new_video_form_wrapper">
-	<h3>New Video</h3>
+
 	<br>
 	<%= form_for(@video) do |f| %>
 		<div class="new_video_form">
@@ -13,7 +11,9 @@
 			<br>
 			<%= f.text_field :lecture_date, :placeholder => "Lecture Date" %><br>
 			<br>
-			<%= f.submit %>	
+			<div class="submit-button">
+				<%= f.submit %>	
+			</div>
 		</div>
 	<% end %>
 	</div>

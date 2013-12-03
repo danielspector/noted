@@ -95,7 +95,7 @@
 }
 
 .show-nav .nav-logo {
-  text-align: center;
+  text-align: left;
   padding-top: 5px;
 }
 
@@ -103,8 +103,8 @@
   color: #555;
 }
 
-.show-nav .nav-logo #logo:hover {
-  color: white;
+.show-nav .nav-logo #logo:hover, .show-nav .nav-sign a:hover  {
+  color: #ddd;
   font-weight: 400;
 }
 
