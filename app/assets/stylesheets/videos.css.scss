@@ -452,6 +452,9 @@ input {
   width: 350px;
 }
 
+.modal-content {
+    padding: 30px;
+}
 
 .modal-body {
     max-height: 400px;
@@ -461,11 +464,22 @@ input {
     margin-top: 15px;
 }
 
+.modal-dialog {
+    margin-top: 10%;
+}
+
 #new_video_form_wrapper {
     text-align: center;
     padding: 10px;
     width: 400px;
     margin: 0 auto;
+}
+
+#myModalLabel {
+  font-size: 2em;
+  font-family: 'PT Mono', cursive;
+  font-weight: 900;
+  color: #069BCC;
 }
 
 #new_video_form_wrapper h3 {

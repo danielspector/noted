@@ -7,6 +7,13 @@ $(document).ready(function(){
 		$.getScript("/videos/new");
 	});
 
+	$("#video_all").on("click", ".js-edit", function(e){
+		e.preventDefault();
+		var edit_path = $(this).closest(".index-video-buttons").find(".js-edit a")[0].getAttribute("href");
+		$.getScript(edit_path);
+
+	});
+
 	// $('.nav-right-options').on("click", ".nav-new-video a", function(e){
 	// 	e.preventDefault();
 	// 	alert("this works");
