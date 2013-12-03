@@ -195,6 +195,15 @@ html, body {
  /*   background: #999;*/
 }
 
+
+.controlbar-video-name {
+    position: absolute;
+    z-index: 9999;
+    color: #555;
+    padding-top: 10px;
+    font-size: 2em;
+}
+
 video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech, /*.vjs-time-controls,*/ /*.vjs-progress-control,*/ /*.vjs-progress-holder, *//*.vjs-load-progress, *//*.vjs-control, */ {
     width: 100%;
     height: 99%;
