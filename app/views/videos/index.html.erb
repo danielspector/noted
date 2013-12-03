@@ -2,38 +2,40 @@
 
 <div class="index-padding">
 
-<div class="container">
-  <%= render "layouts/nav" %>
-  <div class="row col-xs-12 center" id="video_all">
-    <div id="instructor_actions">
-    <% if current_user.permission_type == "instructor" %>
-      <% end %>
-    </div>
-
-    <% @videos.sort_by { |video| video.created_at }.each do |video| %>
-    <div class="col-xs-4 center lecture_video">
-      <!-- Added hover_description and video_wrap here -->
-      <div class="video_wrap">
-        <%= videojs_rails sources: {mp4: video.link}, height: "200", width: "300" %>
-        <div class="hover_description"><br>
-          <h3><%= video.name %></h3><br>
-          <p><%=video.description %></p></div>
-      </div><!-- .video_wrap -->
-
-      <div class="index-video-buttons">
-        <% if current_user.permission_type == "student" %>
-          <button class="watch_video"><%= link_to 'take notes', video %></button>
-        <% end %>
-        
-        <% if current_user.permission_type == "instructor" %>
-          <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
-           <%= link_to "Edit", edit_video_path(video) %>
+  <div class="container">
+    <%= render "layouts/nav" %>
+    <div class="row col-xs-12 center" id="video_all">
+      <div id="instructor_actions">
+      <% if current_user.permission_type == "instructor" %>
         <% end %>
       </div>
-    </div><!-- #lecture_video -->
-    <% end %>  
+
+      <% @videos.sort_by { |video| video.created_at }.each do |video| %>
+      <div class="col-xs-4 center lecture_video">
+        <!-- Added hover_description and video_wrap here -->
+        <div class="video_wrap">
+          <%= videojs_rails sources: {mp4: video.link}, height: "200", width: "300" %>
+          <div class="hover_description"><br>
+            <h3><%= video.name %></h3><br>
+            <p><%=video.description %></p></div>
+        </div><!-- .video_wrap -->
+
+        <div class="index-video-buttons">
+          <% if current_user.permission_type == "student" %>
+            <button class="watch_video"><%= link_to 'take notes', video %></button>
+          <% end %>
+          
+          <% if current_user.permission_type == "instructor" %>
+            <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+             <%= link_to "Edit", edit_video_path(video) %>
+          <% end %>
+        </div>
+      </div><!-- #lecture_video -->
+      <% end %>  
+    </div>
   </div>
-</div>
+  <div class="js-new-video">
+  </div>  
 </div>
 
 

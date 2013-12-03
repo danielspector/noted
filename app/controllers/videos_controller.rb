@@ -6,10 +6,12 @@ class VideosController < ApplicationController
   def index
     @video = Video.new
     @videos = Video.all
+    # render :partial => 'videos/form', :format => 'text/html'
   end
 
   def new
     @video = Video.new
+    # render :partial => 'videos/form', :format => 'text/html'
   end
 
   def create
