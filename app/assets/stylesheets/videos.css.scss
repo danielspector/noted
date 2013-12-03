@@ -9,6 +9,19 @@ h1, h2, p, a, form, input, button, text-area, li, ul, table {
   font-family: Helvetica;
 }
 
+input {
+    border: 2px solid #eee;
+}
+
+input:active {
+    border: red;
+}
+
+input:focus {
+    border: 5px solid rgba(6, 155, 204, .2);
+    outline: none;
+}
+
 .video_name {
     text-align: center;
 }
