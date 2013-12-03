@@ -10,7 +10,7 @@
       <% end %>
     </div>
 
-    <% @videos.sort_by { |video| video.created_at }.each do |video| %>
+    <% @videos.sort_by { |video| video.created_at }.reverse.each do |video| %>
     <div class="col-xs-4 center lecture_video">
       <!-- Added hover_description and video_wrap here -->
       <div class="video_wrap">
