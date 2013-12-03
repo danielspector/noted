@@ -6,7 +6,7 @@ $(document).ready(function(){
   });
 
   // get width of timeline
-  var timelineLength = $("#timeline").width();
+  var timelineLength = $("#timeline").width()-100;
 
   // making all of the tickers on ready
   function makeMarkers(){
@@ -20,7 +20,7 @@ $(document).ready(function(){
       var $myPlayer = $(".vjs_video_4_html5_api");
       var videoDuration = $("#video_duration").val();
       // var total_time = $myPlayer[0].duration;
-      var timeline = (((noteTimeNumber/videoDuration)*timelineLength)+3);
+      var timeline = (((noteTimeNumber/videoDuration)*timelineLength)+50);
       var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
       markerBucket.push(marker);           
       $('.all_markers').append(marker); 
@@ -30,7 +30,7 @@ $(document).ready(function(){
    // listen for resize of window for the timeline
   $( window ).resize(function() {
     $('.all_markers').html("");
-    var timelineLength = $("#timeline").width();
+    var timelineLength = $("#timeline").width()-100;
     var markerBucket = [];
     var $allNotes = $(".added_note");
     $allNotes.each(function(){
@@ -41,7 +41,7 @@ $(document).ready(function(){
       var $myPlayer = $(".vjs_video_4_html5_api");
       var videoDuration = $("#video_duration").val();
       // var total_time = $myPlayer[0].duration;
-      var timeline = (((noteTimeNumber/videoDuration)*timelineLength)+3);
+      var timeline = (((noteTimeNumber/videoDuration)*timelineLength)+50);
       var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
       markerBucket.push(marker);           
       $('.all_markers').append(marker); 
@@ -241,7 +241,7 @@ $(document).ready(function(){
         });
         var note_id = idBucket.sort().reverse()[0];
         var noteTimestamp = $("#note_wrapper_"+note_id+" .added_note_timestamp").val();
-        var timeline = (((noteTimestamp/duration)*timelineLength)+3);
+        var timeline = (((noteTimestamp/duration)*timelineLength)+50);
         var marker = '<a href="#'+note_id+'" class="marker" data-id="'+note_id+'" style="left:'+timeline+'px;"></a>';           
         $('.all_markers').append(marker);
 
