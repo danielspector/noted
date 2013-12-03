@@ -73,8 +73,11 @@ $(document).ready(function(){
     var data = {_method: "patch", edited_note_body: note_body}; 
     $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note_all){
       $(".note_all").html(note_all);
-      $(".edit_form").hide();  
+      $(".edit_form").hide();
       $(".new_note_form, new_note").show();
+      $(".added_note").each(function(){
+          $(".note_buttons").hide();
+        });
     });
   });
 
@@ -118,11 +121,12 @@ $(document).ready(function(){
 
   $("#new-note .field textarea").focus(function(e){
     e.preventDefault();
+
     var $myPlayer = $("#vjs_video_4_html5_api");
     // var $myPlayer = $("#lecture_video");
     $myPlayer[0].pause();
-    var timestampp = $myPlayer[0].currentTime;
-    alert(timeStamp);
+    var timeStamp = $myPlayer[0].currentTime;
+    console.log(timeStamp);
     $("#new-note #note_video_timestamp").val(timeStamp);
     // hide edit form, showing new note form and focusing textarea on "New Note" click
     $(".edit_form").hide();  
