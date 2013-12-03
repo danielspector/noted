@@ -75,10 +75,12 @@
   left: 0;
   z-index: 9999;
   margin-bottom: 60px;
+/*  box-shadow: inset 0px -1px 10px 0px #111;*/
 }
 
 .show-nav .navbar {
   width: 100%;
+  box-shadow: inset 0px -1px 10px 0px #111;
 }
 
 .show-nav .nav-new-video a {
