@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require fancybox
+//= require twitter/bootstrap/modal
 //= require jquery_ujs
 
 //= require video
