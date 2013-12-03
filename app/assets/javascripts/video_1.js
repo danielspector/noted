@@ -5,6 +5,11 @@ $(document).ready(function(){
     $(".note_buttons").hide();
   });
 
+  // append video.name and video.description to control bar skin
+
+  var message = '<h1 class="message">Hi</h1>';
+  $("body").append(message);
+
   // get width of timeline
   var timelineLength = $("#timeline").width()-100;
 
