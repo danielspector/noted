@@ -64,7 +64,7 @@ $(document).ready(function(){
   // marker click highlights corresponding note
   $("body").on("mouseenter", ".marker", function(){
     var note_marker = $(this).data("id");
-    $("#note_wrapper_"+note_marker).css("border", "3px solid pink");
+    $("#note_wrapper_"+note_marker).css("border", "1px solid #069BCC");
     // $("#note_wrapper_"+note_marker).trigger("click");
     $("#note-all").animate({
          scrollTop: $("#note_wrapper_"+note_marker).position().top
