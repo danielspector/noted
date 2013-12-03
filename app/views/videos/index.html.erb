@@ -10,7 +10,7 @@
       <% end %>
     </div>
 
-    <% @videos.sort_by { |video| video.created_at }.each do |video| %>
+    <% @videos.sort_by { |video| video.created_at }.reverse.each do |video| %>
     <div class="col-xs-4 center lecture_video">
       <!-- Added hover_description and video_wrap here -->
       <div class="video_wrap">
@@ -26,8 +26,8 @@
         <% end %>
         
         <% if current_user.permission_type == "instructor" %>
-          <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
-           <%= link_to "Edit", edit_video_path(video) %>
+          <button class="instructor-buttons"><%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+           <button class="instructor-buttons"><%= link_to "Edit", edit_video_path(video) %></button>
         <% end %>
       </div>
     </div><!-- #lecture_video -->
