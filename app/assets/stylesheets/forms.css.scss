@@ -1,9 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+
+.sign-in-page {
+  width: 100%;
+  height: 100%;
+  padding-top: 10%;
+}
+
 .new_user_form {
 	text-align: center;
 }
 
 .sign_in {
 	padding: 30px;
+}
+
+.sign-in-page input {
+  padding: 10px 70px;
 }
 
 .login_signup_buttons {
@@ -19,3 +31,44 @@
 	margin-left: 5px;
 	float: right;
 }
+
+#signup_button input, #login_button button {
+  padding: 3px 10px;
+  border: none;
+  box-shadow: none;
+}
+
+#signup_button input {
+  color: white;
+  background: #069BCC;
+}
+
+#login_button button {
+  background: #eee;
+  border: 1px solid #ccc;
+  color: #069BCC;
+}
+
+#signup_button input:hover {
+  background: white;
+  color: #069BCC;
+  border: 1px solid #ccc;
+}
+
+#login_button button:hover {
+  background-color: white;
+}
+
+/* font size */
+.sign-in-page .logo-splash {
+  font-size: 6em;
+  font-family: 'PT Mono', cursive;
+  font-weight: 900;
+  color: #069BCC;
+
+}
+
+.sign-in-page .sign-in-title {
+  font-size: 2em;
+}
+
