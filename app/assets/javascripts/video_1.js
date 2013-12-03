@@ -48,6 +48,10 @@ $(document).ready(function(){
     });
   });
 
+  // make Markers on ready
+  makeMarkers();
+
+  // show note buttons on hover
   $("body").on("mouseenter", ".added_note", function(){
     $(this).find(".note_buttons").fadeIn("fast");
   })
@@ -56,12 +60,15 @@ $(document).ready(function(){
     $(this).find(".note_buttons").fadeOut("fast");
   })
 
-  makeMarkers();
+  
   // marker click highlights corresponding note
   $("body").on("mouseenter", ".marker", function(){
     var note_marker = $(this).data("id");
     $("#note_wrapper_"+note_marker).css("border", "3px solid pink");
-    $("#note_wrapper_"+note_marker).trigger("click");
+    // $("#note_wrapper_"+note_marker).trigger("click");
+    $("#note-all").animate({
+         scrollTop: $("#note_wrapper_"+note_marker).position().top
+     }, 200);
   });
 
   $("body").on("mouseleave", ".marker", function(){
