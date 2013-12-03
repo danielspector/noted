@@ -10,6 +10,10 @@ class VideosController < ApplicationController
 
   def new
     @video = Video.new
+    respond_to do |f|
+      f.html {}
+      f.js {}
+    end
   end
 
   def create
@@ -24,6 +28,10 @@ class VideosController < ApplicationController
   end
 
   def edit
+    respond_to do |f|
+      f.html {}
+      f.js {}
+    end
 
   end
 
@@ -44,7 +52,7 @@ class VideosController < ApplicationController
   end
 
   def video_params
-    params.require(:video).permit(:name, :link, :lecture_date)
+    params.require(:video).permit(:name, :link, :lecture_date, :description)
   end
 
 end
