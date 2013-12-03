@@ -1,4 +1,4 @@
-<h1>Sign Up</h1>
+<h1 class="logo-splash">noted</h1>
 
 <div class="new_user_form">
 	<%= form_for(@user) do |f| %>
@@ -10,6 +10,6 @@
 
 		<%= f.password_field :password, :placeholder => "Password" %><br/><br/>
 
-		<%= f.submit "Create New Account", class: "btn btn-large btn-primary" %>
+		<%= f.submit "Sign Up", :class => "submit-button" %>
 	<% end %>
 </div>
