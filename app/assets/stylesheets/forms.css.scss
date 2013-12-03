@@ -32,8 +32,8 @@
 	float: right;
 }
 
-#signup_button input, #login_button button {
-  padding: 3px 10px;
+#signup_button input, #login_button button, .new_user_form .submit-button {
+  padding: 3px 15px;
   border: none;
   box-shadow: none;
 }
@@ -43,7 +43,7 @@
   background: #069BCC;
 }
 
-#login_button button {
+#login_button button, .new_user_form .submit-button {
   background: #eee;
   border: 1px solid #ccc;
   color: #069BCC;
@@ -71,4 +71,12 @@
 .sign-in-page .sign-in-title {
   font-size: 2em;
 }
+
+/* only for "new_user_form */
+
+.new_user_form .submit-button:hover {
+  background: #069BCC;
+  color: white;
+}
+
 
