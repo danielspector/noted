@@ -5,7 +5,6 @@ $(document).ready(function(){
     $(".note_buttons").hide();
   });
 
-
   // get width of timeline
   var timelineLength = $("#timeline").width();
 
@@ -16,7 +15,6 @@ $(document).ready(function(){
     $allNotes.each(function(){
       var noteId = $(this).find(".added_note_id").val();
       var noteTime = $(this).find(".added_note_timestamp").val();
-      console.log("refresh:"+noteTime);
       var noteTimeNumber = parseFloat(noteTime);
       $(this).find(".btn-toolbar").hide();
       var $myPlayer = $(".vjs_video_4_html5_api");
@@ -28,6 +26,27 @@ $(document).ready(function(){
       $('.all_markers').append(marker); 
     });
   };
+
+   // listen for resize of window for the timeline
+  $( window ).resize(function() {
+    $('.all_markers').html("");
+    var timelineLength = $("#timeline").width();
+    var markerBucket = [];
+    var $allNotes = $(".added_note");
+    $allNotes.each(function(){
+      var noteId = $(this).find(".added_note_id").val();
+      var noteTime = $(this).find(".added_note_timestamp").val();
+      var noteTimeNumber = parseFloat(noteTime);
+      $(this).find(".btn-toolbar").hide();
+      var $myPlayer = $(".vjs_video_4_html5_api");
+      var videoDuration = $("#video_duration").val();
+      // var total_time = $myPlayer[0].duration;
+      var timeline = (((noteTimeNumber/videoDuration)*timelineLength)+3);
+      var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
+      markerBucket.push(marker);           
+      $('.all_markers').append(marker); 
+    });
+  });
 
   $("body").on("mouseenter", ".added_note", function(){
     $(this).find(".note_buttons").fadeIn("fast");
