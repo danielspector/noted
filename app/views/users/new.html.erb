@@ -1,4 +1,4 @@
-<div class="sign-in-page">
+<div class="signup-page">
   <h1 class="logo-splash">noted</h1>
 
   <div class="new_user_form">
@@ -11,10 +11,14 @@
 
   		<%= f.password_field :password, :placeholder => "Password" %><br/><br/>
 
-  		<div id="signup_button  "><%= f.submit "Sign Up", :class => "submit-button" %></div>
+      <div class="login_signup_buttons">
+    		<div id="signup_button  "><%= f.submit "Sign Up", :class => "submit-button" %></div>
 
   	<% end %>
-
+<div id="login_button">
+          <%= button_to "Login", "/login", :method => :get %> 
+        </div>
+      </div>
     
 
 
