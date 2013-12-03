@@ -103,6 +103,7 @@ html, body {
     height: 100%;
     min-height: 100%;
     min-width: 100%;
+    width: 90%;
     position: relative;
 }
 
@@ -423,10 +424,10 @@ input {
     width: 350px;
 }
 
-#new_video_form_wrapper {
-    text-align: center;
-    border-style: solid;
-    padding: 10px;
-    width: 400px;
-    margin: 0 auto;
+.modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+    position: relative;
+    padding: 15px;
+    margin-top: 15px;
 }
