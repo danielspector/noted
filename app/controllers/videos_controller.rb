@@ -35,7 +35,7 @@ class VideosController < ApplicationController
 
   def update
     @video.update(video_params)
-    redirect_to(@video)
+    redirect_to videos_path
   end
 
   def destroy
