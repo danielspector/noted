@@ -1,6 +1,6 @@
 POLISH LIST
 
-- markers should trigger "play" button
+#- markers should trigger "play" button
 #- index page padding on bottom
 - cartoon
 - maybe: domain name
@@ -8,6 +8,7 @@ POLISH LIST
 #- button align (login page)
 #- signup page (red and bullets)
 - add "login" link on sign up page
+#- remove padding for input 
 
 
 ***
