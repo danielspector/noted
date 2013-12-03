@@ -81,8 +81,9 @@
   width: 100%;
 }
 
-.show-nav .nav-new-video {
+.show-nav .nav-new-video a {
   text-align: left;
+  color: #aaa;
 }
 
 .show-nav .nav-logo {
@@ -90,9 +91,17 @@
   padding-top: 5px;
 }
 
+.show-nav .nav-logo #logo {
+  color: #aaa;
+}
+
 .show-nav .nav-sign {
   position: absolute;
   text-align: right;
+}
+
+.show-nav .nav-sign a {
+  color: #aaa;
 }
 
 .navbar {
