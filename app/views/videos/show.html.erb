@@ -5,13 +5,13 @@
       <div class="nav-background"></div>
         <nav>
           <ul class="navbar col-xs-12">
-            <li class="col-xs-4 nav-new-video"><%= link_to "+ New Video", new_video_path %></li>
-            <li class="col-xs-4 nav-logo">
+            <!-- <li class="col-xs-4 nav-new-video"><%#= link_to "+ New Video", new_video_path %></li> -->
+            <li class="col-xs-6 nav-logo">
               <%= link_to "noted", videos_path, id: "logo" %>
             </li>
               <% if session[:user_id] %>
               <!-- user is logged in -->
-            <li class="col-xs-4 nav-sign"><%= link_to "Sign Out", logout_path %><li>
+            <li class="col-xs-6 nav-sign"><%= link_to "Sign Out", logout_path %><li>
               <% else %>
               <!-- user is NOT logged in -->
             <li class="col-xs-4 nav-sign"><%= link_to "Sign In", login_path %></li>
@@ -28,7 +28,7 @@
 
       <!-- ACTUAL VIDEO -->
       <div id="video">    
-        <h3><%= @video.name %></h3>
+        <h3 class="video_name"><%#= @video.name %></h3>
         <input type="hidden" id="video_duration" value="<%= @video.duration if @video.duration %>"></input>
         <input type="hidden" id="video_id" value="<%= @video.id %>"></input>
         <div class="vjs_video_4_html5_api" autoplay="true" preload="metadata">
