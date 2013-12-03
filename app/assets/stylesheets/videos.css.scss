@@ -120,6 +120,7 @@ html, body {
     height: 100%;
     min-height: 100%;
     min-width: 100%;
+    width: 90%;
     position: relative;
 }
 
@@ -451,11 +452,34 @@ input {
   width: 350px;
 }
 
+.modal-content {
+    padding: 30px;
+}
+
+.modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+    position: relative;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.modal-dialog {
+    margin-top: 10%;
+}
+
 #new_video_form_wrapper {
     text-align: center;
     padding: 10px;
     width: 400px;
     margin: 0 auto;
+}
+
+#myModalLabel {
+  font-size: 2em;
+  font-family: 'PT Mono', cursive;
+  font-weight: 900;
+  color: #069BCC;
 }
 
 #new_video_form_wrapper h3 {

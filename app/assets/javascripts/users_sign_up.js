@@ -1,21 +1,4 @@
 $(document).ready(function(){
-	// $(".new_user_form").submit(function(){
-	// 	var form = $(this),
-	// 	formData = form.serialize(),
-	// 	formUrl = form.attr('action'),
-	// 	formMethod = form.attr('method'),
-	// 	response = $('.signup_response')
-
-	// 	$.ajax({
-	// 		url: formUrl,
-	// 		type: formMethod,
-	// 		data: formData,
-
-	// 	})
-
-	// 	return false;
-	// });
-
 
 	$('.login_signup_buttons').on("click", '#signup_button', function(e){
 		e.preventDefault();
