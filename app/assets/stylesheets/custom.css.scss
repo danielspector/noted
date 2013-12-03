@@ -6,7 +6,13 @@
 
 /* index page buttons */
 
-.index-video-buttons button{
+.index-video-buttons .instructor-buttons {
+  padding: 3px;
+  margin-top: 10px;
+
+}
+
+.index-video-buttons button {
   background: white;
   border: 1px solid #ddd;
   box-shadow: none;

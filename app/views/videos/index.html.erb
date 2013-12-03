@@ -26,8 +26,8 @@
         <% end %>
         
         <% if current_user.permission_type == "instructor" %>
-          <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
-           <%= link_to "Edit", edit_video_path(video) %>
+          <button class="instructor-buttons"><%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+           <button class="instructor-buttons"><%= link_to "Edit", edit_video_path(video) %></button>
         <% end %>
       </div>
     </div><!-- #lecture_video -->
