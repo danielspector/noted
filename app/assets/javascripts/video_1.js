@@ -5,11 +5,6 @@ $(document).ready(function(){
     $(".note_buttons").hide();
   });
 
-  function removePreview(){
-    $("#new-note .btn-group")[3].remove();
-  }
-  removePreview();
-
 
   // get width of timeline
   var timelineLength = $("#timeline").width();
@@ -223,6 +218,11 @@ $(document).ready(function(){
         // hide edit form 
         $(".edit_form").hide(); 
         
+        // hide new note buttons 
+        $(".added_note").each(function(){
+          $(".note_buttons").hide();
+        });
+        
     });
   });
 
@@ -233,6 +233,11 @@ $(document).ready(function(){
   }, function(){
     $(this).closest('.video-js-box').fadeTo(200, 1);
   }); 
+
+  function removePreview(){
+    $("#new-note .btn-group")[3].remove();
+  }
+  removePreview();
 
 });
 
