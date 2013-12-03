@@ -4,10 +4,10 @@ POLISH LIST
 #- index page padding on bottom
 - cartoon
 - maybe: domain name
-- add on skin: video.name, video.description
+#- add on skin: video.name, video.description
 #- button align (login page)
 #- signup page (red and bullets)
-- add "login" link on sign up page
+#- add "login" link on sign up page
 #- remove padding for input 
 
 
