@@ -1,5 +1,5 @@
-<div class="signup-page">
-  <h1 class="logo-splash">noted</h1>
+<div class="signup-page index-padding">
+  <h1 class="logo-splash new">noted</h1>
 
   <div class="new_user_form">
   	<%= form_for(@user) do |f| %>
@@ -15,7 +15,7 @@
     		<div id="signup_button  "><%= f.submit "Sign Up", :class => "submit-button" %></div>
 
   	<% end %>
-<div id="login_button">
+      <div id="login_button">
           <%= button_to "Login", "/login", :method => :get %> 
         </div>
       </div>
@@ -25,3 +25,4 @@
   </div>
 </div>
 
+<%= render 'layouts/footer' %>
