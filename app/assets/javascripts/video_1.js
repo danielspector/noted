@@ -77,7 +77,7 @@ $(document).ready(function(){
   });
   
   // delete function
-  $("body").on("click", "input[value='Delete Note']", function (e){
+  $("body").on("click", "input[value='Delete']", function (e){
     e.preventDefault();
     var note_id = $(this).closest(".added_note").find(".added_note_id").val();
     var video_id = $("#video_id").val();
