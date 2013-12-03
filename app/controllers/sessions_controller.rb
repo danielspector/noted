@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       login(user.id)
       redirect_to videos_path
     else
-      render :text => "C'mon and Sign Up!"
+      redirect_to login_path, alert: "Login Failed. Please try again." 
     end
   end
 
