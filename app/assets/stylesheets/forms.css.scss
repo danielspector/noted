@@ -83,6 +83,7 @@
 
 .alert, .error {
   text-align: center;
+  display: none;
 }
 
 .error_message {
@@ -91,6 +92,18 @@
   font: black;
   color: black;
   padding-bottom: 10px;
+}
+
+#error_explanation {
+  margin-bottom: 20px;
+  margin-right: 30px; 
+}
+
+#error_explanation li {
+  list-style: bullet;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: #333; 
 }
 
 
