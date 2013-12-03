@@ -11,6 +11,10 @@ class VideosController < ApplicationController
 
   def new
     @video = Video.new
+    respond_to do |f|
+      f.html {}
+      f.js {}
+    end
     # render :partial => 'videos/form', :format => 'text/html'
   end
 
