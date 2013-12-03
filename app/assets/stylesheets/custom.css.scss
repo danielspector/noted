@@ -91,7 +91,7 @@
 
 .show-nav .nav-new-video a {
   text-align: left;
-  color: #aaa;
+  color: #555;
 }
 
 .show-nav .nav-logo {
@@ -100,7 +100,12 @@
 }
 
 .show-nav .nav-logo #logo {
-  color: #aaa;
+  color: #555;
+}
+
+.show-nav .nav-logo #logo:hover {
+  color: white;
+  font-weight: 400;
 }
 
 .show-nav .nav-sign {
@@ -109,7 +114,7 @@
 }
 
 .show-nav .nav-sign a {
-  color: #aaa;
+  color: #555;
 }
 
 .navbar {
