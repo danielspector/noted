@@ -107,7 +107,6 @@ $(document).ready(function(){
     });
   });
 
-
   // adding play from timestamp function
   $("body").on("click",".play_button", function(){
     var timestamp = $(this).closest(".note_info").find(".added_note_timestamp").val();

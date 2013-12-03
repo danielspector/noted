@@ -6,7 +6,6 @@ class VideosController < ApplicationController
   def index
     @video = Video.new
     @videos = Video.all
-    # render :partial => 'videos/form', :format => 'text/html'
   end
 
   def new
@@ -15,7 +14,6 @@ class VideosController < ApplicationController
       f.html {}
       f.js {}
     end
-    # render :partial => 'videos/form', :format => 'text/html'
   end
 
   def create
@@ -30,6 +28,10 @@ class VideosController < ApplicationController
   end
 
   def edit
+    respond_to do |f|
+      f.html {}
+      f.js {}
+    end
 
   end
 

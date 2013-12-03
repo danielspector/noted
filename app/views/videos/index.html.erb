@@ -27,7 +27,7 @@
             
             <% if current_user.permission_type == "instructor" %>
               <button class="instructor-buttons"><%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-               <button class="instructor-buttons"><%= link_to "Edit", edit_video_path(video) %></button>
+               <button class="instructor-buttons js-edit"><%= link_to "Edit", edit_video_path(video) %></button>
             <% end %>
           </div>
       </div><!-- #lecture_video -->
@@ -36,6 +36,8 @@
   </div>
   <div class="js-new-video">
   </div>  
+  <div class="js-for-modal">
+  </div>
 </div>
 
 
