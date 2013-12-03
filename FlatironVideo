@@ -1,13 +1,15 @@
 POLISH LIST
 
-- markers should trigger "play" button (Saron)
-- index page padding on bottom (Saron)
-- cartoon (Saron)
+
+#- markers should trigger "play" button
+#- index page padding on bottom
+- cartoon
 - maybe: domain name
-- add on skin: video.name, video.description (Steph)
-- button align (login page)
-- signup page (red and bullets)
+- add on skin: video.name, video.description
+#- button align (login page)
+#- signup page (red and bullets)
 - add "login" link on sign up page
+#- remove padding for input 
 
 ***
 
