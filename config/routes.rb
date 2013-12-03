@@ -16,7 +16,6 @@ FlatironVideos::Application.routes.draw do
   post '/sessions' => 'sessions#create'
   root 'videos#index'
 
-
   # VIDEO ROUTES ONLY -- :WHOO:
   get '/videos/new' => 'videos#new', :as => 'new_video'
   get '/videos/:video_id' => 'videos#show', :as => 'video'
