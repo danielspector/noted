@@ -10,6 +10,18 @@
 
 		<%= f.password_field :password, :placeholder => "Password" %><br/></br>
 
-		<%= f.submit "Sign Up", :class => "submit-button" %>
+		<div class="login_signup_buttons">
+			
+
+			<div id="signup_button">
+				<%= f.submit "Sign Up", :class => "submit-button" %>
+			</div>
+		
 	<% end %>
+		<div id="login_button">
+			<%= button_to "Login", "/login", :method => :get %> 
+		</div>
+	</div>
+
+
 </div>
