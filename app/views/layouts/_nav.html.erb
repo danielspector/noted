@@ -4,9 +4,12 @@
     <li class="col-xs-8 nav-logo">
       <%= link_to "noted", videos_path, id: "logo" %>
     </li>
+
     <div class="col-xs-4">
       <div class="nav-right-options">
+        <% if current_user.permission_type == "instructor" %>
         <li class="nav-new-video"><%= link_to "+ New Video", new_video_path %></li>
+        <% end %>
           <% if session[:user_id] %>
           <!-- user is logged in -->
         <li class="nav-sign"><%= link_to "Sign Out", logout_path %><li>

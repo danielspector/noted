@@ -1,19 +1,36 @@
 <div class="index-padding">
   <div class="container">
-    <%= render "layouts/nav" %>
+    <%#= render "layouts/nav" %>
       <div class="center hero-unit">
-      	<h1>Sign In</h1>
-      	<%= form_tag(sessions_path) do %>
+        <div class="js-sign-in">
+        	<h1>Sign In</h1>
+        	<%= form_tag(sessions_path) do %>
 
-      	  <%= text_field_tag :email, nil, :placeholder => "Email" %><br><br>
+        	  <%= text_field_tag :email, nil, :placeholder => "Email" %><br><br>
 
-      	  <%= password_field_tag :password, nil, :placeholder => "Password" %></br></br>
+        	  <%= password_field_tag :password, nil, :placeholder => "Password" %>
 
+            <div class="error_message">
+              <br><%= flash[:alert] %></br>
+            </div>
 
-      	  <%= submit_tag "Login" %></br>
-      	<% end %>
+            <div class="login_signup_buttons">
+              <div id="login_button">
+              <%= button_tag(type: "submit", class: "btn btn-default") do %>
+                Login <i class="icon-repeat"></i>
+              <% end %>
+              </div>
+            	<% end %>
+              <div id="signup_button">
+              <%= button_to "Sign Up", users_signup_path, :class => "btn btn-primary", :method => :get %> 
+              </div>
+            </div>
+          </div>
+          <div class="js-sign-up">
 
-      	<%= link_to "Sign Up!", users_path %>
-    </div>
+          </div>
+
+        </div>
+   
   </div>
 </div>
