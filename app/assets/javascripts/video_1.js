@@ -5,7 +5,6 @@ $(document).ready(function(){
     $(".note_buttons").hide();
   });
 
-
   // get width of timeline
   var timelineLength = $("#timeline").width();
 
@@ -16,7 +15,6 @@ $(document).ready(function(){
     $allNotes.each(function(){
       var noteId = $(this).find(".added_note_id").val();
       var noteTime = $(this).find(".added_note_timestamp").val();
-      console.log("refresh:"+noteTime);
       var noteTimeNumber = parseFloat(noteTime);
       $(this).find(".btn-toolbar").hide();
       var $myPlayer = $(".vjs_video_4_html5_api");
@@ -29,6 +27,31 @@ $(document).ready(function(){
     });
   };
 
+   // listen for resize of window for the timeline
+  $( window ).resize(function() {
+    $('.all_markers').html("");
+    var timelineLength = $("#timeline").width();
+    var markerBucket = [];
+    var $allNotes = $(".added_note");
+    $allNotes.each(function(){
+      var noteId = $(this).find(".added_note_id").val();
+      var noteTime = $(this).find(".added_note_timestamp").val();
+      var noteTimeNumber = parseFloat(noteTime);
+      $(this).find(".btn-toolbar").hide();
+      var $myPlayer = $(".vjs_video_4_html5_api");
+      var videoDuration = $("#video_duration").val();
+      // var total_time = $myPlayer[0].duration;
+      var timeline = (((noteTimeNumber/videoDuration)*timelineLength)+3);
+      var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
+      markerBucket.push(marker);           
+      $('.all_markers').append(marker); 
+    });
+  });
+
+  // make Markers on ready
+  makeMarkers();
+
+  // show note buttons on hover
   $("body").on("mouseenter", ".added_note", function(){
     $(this).find(".note_buttons").fadeIn("fast");
   })
@@ -37,12 +60,15 @@ $(document).ready(function(){
     $(this).find(".note_buttons").fadeOut("fast");
   })
 
-  makeMarkers();
+  
   // marker click highlights corresponding note
   $("body").on("mouseenter", ".marker", function(){
     var note_marker = $(this).data("id");
-    $("#note_wrapper_"+note_marker).css("border", "3px solid pink");
-    $("#note_wrapper_"+note_marker).trigger("click");
+    $("#note_wrapper_"+note_marker).css("border", "1px solid #069BCC");
+    // $("#note_wrapper_"+note_marker).trigger("click");
+    $("#note-all").animate({
+         scrollTop: $("#note_wrapper_"+note_marker).position().top
+     }, 200);
   });
 
   $("body").on("mouseleave", ".marker", function(){

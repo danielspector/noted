@@ -125,7 +125,7 @@ html, body {
     height: 90%;
     min-height: 90%;
     min-width: 600px;
-    padding-bottom: 10%;
+    padding-bottom: 5%;
 }
 
 #notes {
@@ -145,7 +145,7 @@ html, body {
     margin: 0 auto;
     width: 100%;
     bottom: 0;
-    padding: 35px;
+    padding: 30px;
     vertical-align: middle;
 /*    border-top: 1px solid #333;*/
     box-shadow: 0px -1px 5px 3px #333;
@@ -183,14 +183,18 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
     height: 99%;
     min-width: 320px;
     min-height: 240px; 
-    background-color: black;   
+    background-color: black;  
+/*    border: 2px solid blue;*/ 
 }
 
 .vjs-control-bar {
+    position: absolute;
     width: 100%;
-    height: 20%;
+    height: auto;
     min-height: 30px;
-    bottom: 0px;
+    bottom: -30px;
+    z-index: 9999;
+/*    border: 3px solid white;*/
 }
 
 #note-all {
@@ -363,7 +367,7 @@ textarea:focus {
     right: 0px;
 }
 
-input[type=submit] {
+#new-note input[type=submit] {
     border-radius: 4px;
     background: none;
     color: #777;
