@@ -6,7 +6,12 @@
 
 /* index page buttons */
 
-.index-video-buttons button{
+.index-video-buttons .instructor-buttons {
+  padding: 3px;
+  margin-top: 10px;
+}
+
+.index-video-buttons button {
   background: white;
   border: 1px solid #ddd;
   box-shadow: none;
@@ -28,7 +33,6 @@
 .index-video-buttons button:hover {
   background: #069BCC;
 }
-
 
 /* button stuff */
 
@@ -59,7 +63,7 @@
   height: 6%;
   margin: 0;
   min-height: 30px;
-  background: #333;
+  background: black;
 }
 
 .show-nav #logo {
@@ -80,21 +84,26 @@
 
 .show-nav .navbar {
   width: 100%;
-  box-shadow: inset 0px -1px 10px 0px #111;
+  box-shadow: inset 0px -1px 10px 0px #444;
 }
 
 .show-nav .nav-new-video a {
   text-align: left;
-  color: #aaa;
+  color: #555;
 }
 
 .show-nav .nav-logo {
-  text-align: center;
+  text-align: left;
   padding-top: 5px;
 }
 
 .show-nav .nav-logo #logo {
-  color: #aaa;
+  color: #555;
+}
+
+.show-nav .nav-logo #logo:hover, .show-nav .nav-sign a:hover  {
+  color: #ddd;
+  font-weight: 400;
 }
 
 .show-nav .nav-sign {
@@ -103,7 +112,7 @@
 }
 
 .show-nav .nav-sign a {
-  color: #aaa;
+  color: #555;
 }
 
 .navbar {
