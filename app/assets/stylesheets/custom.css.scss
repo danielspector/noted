@@ -71,18 +71,6 @@
   font-size: 1.7em;
 }
 
-.nav-background {
-  height: 50px;
-  width: 100%;
-  background: #efefef;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  margin-bottom: 60px;
-/*  box-shadow: inset 0px -1px 10px 0px #111;*/
-}
-
 .show-nav .navbar {
   width: 100%;
   box-shadow: inset 0px -1px 10px 0px #444;
@@ -110,6 +98,7 @@
 .show-nav .nav-sign {
   position: absolute;
   text-align: right;
+  padding-top: 10px;
 }
 
 .show-nav .nav-sign a {
@@ -123,29 +112,40 @@
   width: 75%;
 }
 
-.navbar #logo a {
-  padding: 10px;
+.nav-background {
+  height: 70px;
+  width: 100%;
+  background: #efefef;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+/*  margin-bottom: 60px;*/
+  box-shadow: 0px -1px 10px 0px #eee;
+}
+
+.navbar .li a #logo {
+/*  padding: 10px;
+  margin-top: 10px;*/
+  padding-top: 20px;
 }
 
 .nav-new-video, .nav-sign {
   font-size: 1.2em;
-  padding-top: 10px;
+/*  padding-top: 15px;*/
   font-weight: 400;
-}
-
-nav ul {
-  margin-bottom: 30px;
+/*  margin-top: 15px;*/
 }
 
 nav .nav-right-options {
   float: right;
   position: absolute;
   right: 0;
-  margin-top: 12px;
+  margin-top: 20px;
 }
 
 nav li a {
-  padding: 15px;
+  padding-left: 30px;
 }
 
 nav li {
@@ -186,9 +186,13 @@ textarea {
 /* header */
 
 #logo {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+  font-size: 2.7em;
+/*  margin-bottom: 10px;*/
   font-weight: 900;
+}
+
+.col-xs-8 {
+  padding-top: 8px;
 }
 
 nav .navbar a:hover, #logo:hover {
