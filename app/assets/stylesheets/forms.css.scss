@@ -64,7 +64,8 @@
   border: none;
   box-shadow: none;
   width: 100px;
-  height: 30px;
+  height: 40px;
+  font-size: 1.2em;
 }
 
 #signup_button input {
@@ -72,7 +73,13 @@
   background: #069BCC;
 }
 
-#login_button button, .new_user_form .submit-button {
+/* trying to fix the signup button color!!!!!! */
+ .new_user_form .submit-button {
+  color: white;
+  background: #069BCC;
+}
+
+#login_button button {
   background: #eee;
   border: 1px solid #ccc;
   color: #069BCC;
