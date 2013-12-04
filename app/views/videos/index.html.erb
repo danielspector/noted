@@ -17,6 +17,7 @@
             <%= videojs_rails sources: {mp4: video.link}, height: "200", width: "300" %>
             <div class="hover_description"><br>
               <h3><%= video.name %></h3><br>
+              <p><%= video.lecture_date %></p>
               <p><%=video.description %></p></div>
           </div><!-- .video_wrap -->
 
