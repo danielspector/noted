@@ -1,21 +1,27 @@
 <div class="nav-background"></div>
 <nav>
   <ul class="navbar col-xs-12">
-    <li class="col-xs-8 nav-logo">
+    <li class="col-xs-6 nav-logo">
       <%= link_to "noted", videos_path, id: "logo" %>
     </li>
 
-    <div class="col-xs-4">
+    <div class="col-xs-6">
       <div class="nav-right-options">
         <% if current_user.permission_type == "instructor" %>
-        <li class="nav-new-video"><%= link_to "+ New Video", new_video_path %></li>
+          <li class="nav-new-video"><%= link_to "+ New Video", new_video_path %></li>
         <% end %>
           <% if session[:user_id] %>
           <!-- user is logged in -->
-        <li class="nav-sign"><%= link_to "Sign Out", logout_path %><li>
+            <% if current_user.permission_type == "student" %>
+              <li class="username"><%= current_user.name %></li>
+            <% end %>
+            <% if current_user.permission_type == "instructor" %>
+              <li class="col-xs-2 username"><%= current_user.name %><li>
+            <% end %>
+            <li class="nav-sign"><%= link_to "Sign Out", logout_path %><li>
           <% else %>
           <!-- user is NOT logged in -->
-        <li class="nav-sign"><%= link_to "Sign In", login_path %></li>
+            <li class="nav-sign"><%= link_to "Sign In", login_path %></li>
           <% end %>
       </div>
     </div>

@@ -130,11 +130,38 @@
   padding-top: 20px;
 }
 
+.username {
+  font-weight: 400;
+  color: #069BCC;
+  font-family: 'PT Mono', cursive;
+  text-transform: lowercase;
+  padding-right: 60px;
+  display: inline;
+  border-right: 3px solid #fff;
+}
+
+
+/*.nav-new-video::after {
+  content: "|";
+  margin-left: 15px;
+  position: relative;
+  font-size: 1em;
+  font-weight: 400;
+  color: #069BCC;
+  font-family: 'PT Mono', cursive;
+  text-transform: lowercase;
+}*/
+
 .nav-new-video, .nav-sign {
   font-size: 1.2em;
 /*  padding-top: 15px;*/
   font-weight: 400;
 /*  margin-top: 15px;*/
+}
+
+.nav-new-video {
+  border-right: 3px solid #fff;
+  padding-right: 40px;
 }
 
 nav .nav-right-options {
@@ -151,6 +178,10 @@ nav li a {
 nav li {
   display: inline;
 }
+
+/*nav .nav-sign {
+  border-left: 2.2px solid #069BCC;
+} */
 
 /* universal */
 
@@ -191,7 +222,7 @@ textarea {
   font-weight: 900;
 }
 
-.col-xs-8 {
+.col-xs-6 {
   padding-top: 8px;
 }
 
