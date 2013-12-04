@@ -1,11 +1,14 @@
 NEW TODO LIST
-- add tagline - SO
-- make nav bar bigger - SO
-- background - SY
-- add date to hover over - IA
-- change footer to just regular names - IA
-- seed data (9 videos) - IM
-- use with app: do it for DHH -- include pic, link, markdown, actual notes
+#- add tagline - SO
+#- make nav bar bigger - SO
+#- background - SY
+#- add date to hover over - IA
+#- change footer to just regular names - IA
+#- seed data (9 videos) - IM
+#- use with app: do it for DHH -- include pic, link, markdown, actual notes
+- fix markers: trigger is new note
+- add "target:_blank"
+- seed data: first and last name. real emails
 
 
 POLISH LIST
