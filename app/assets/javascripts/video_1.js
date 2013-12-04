@@ -259,6 +259,7 @@ $(document).ready(function(){
         // creating markers based on timestamp and with note.id anchor tags
         // var total_time = $myPlayer[0].duration;
 
+        var timelineLength = $("#timeline").width()-100;
         var duration = $("#video_duration").val();
         var idBucket = [];
         var $allNotes = $(".added_note");
