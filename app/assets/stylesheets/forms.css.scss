@@ -4,11 +4,10 @@
 
 /* sign in page/login forms */
 
-img {
+.sign-in-page img, .signup-page img {
   position: absolute;
   top: 5%;
   left: 50%;
-  z-index: 0;
 }
 
 /*.gradient {
