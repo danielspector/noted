@@ -37,7 +37,6 @@ $(document).ready(function(){
       $(this).find(".btn-toolbar").hide();
       var $myPlayer = $(".vjs_video_4_html5_api");
       var videoDuration = $("#video_duration").val();
-      // var total_time = $myPlayer[0].duration;
 
       var timeline = (((noteTimeNumber/videoDuration)*timelineLength)+50);
       var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
@@ -59,7 +58,6 @@ $(document).ready(function(){
       $(this).find(".btn-toolbar").hide();
       var $myPlayer = $(".vjs_video_4_html5_api");
       var videoDuration = $("#video_duration").val();
-      // var total_time = $myPlayer[0].duration;
       var timeline = (((noteTimeNumber/videoDuration)*timelineLength)+50);
       var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
       markerBucket.push(marker);           
@@ -220,21 +218,6 @@ $(document).ready(function(){
 
   });
 
-  // // when click on text-area, pause video and 
-  // $(".new_note").on("click", "button", function(e){
-  //   e.preventDefault();
-
-  //   var $myPlayer = $("#vjs_video_4_html5_api");
-  //   // var $myPlayer = $("#lecture_video");
-  //   $myPlayer[0].pause();
-  //   var timeStamp = $myPlayer[0].currentTime;
-  //   $("#new-note #note_video_timestamp").val(timeStamp);
-  //   // hide edit form, showing new note form and focusing textarea on "New Note" click
-  //   $(".edit_form").hide();  
-  //   $(".new_note_form, new_note").show();
-  //   $(".field textarea").focus();
-
-  // });
 
   // when "Create Note" is clicked, plays video, sends post with new note info, refreshes edit section 
   $("input[value='Create Note']").click(function(e){
@@ -257,7 +240,6 @@ $(document).ready(function(){
         $(".note_all").html(note_all);
 
         // creating markers based on timestamp and with note.id anchor tags
-        // var total_time = $myPlayer[0].duration;
 
         var timelineLength = $("#timeline").width()-100;
         var duration = $("#video_duration").val();

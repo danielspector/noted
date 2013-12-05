@@ -7,12 +7,93 @@ NEW TODO LIST
 #- seed data (9 videos) - IM
 #- use with app: do it for DHH -- include pic, link, markdown, actual notes
 - fix markers: trigger is new note
-- add "target:_blank"
-- seed data: first and last name. real emails
+#- add "target:_blank"
+#- seed data: first and last name. real emails
 
+
+FOR SCIENCE FAIR:
+- our app goal: 
+--- create a single experience, unifying watching lectures and taking notes
+--- create a new educational tool with high applicability
+--- solve our own frustrations with organizing videos/our own notes/maintaining lecture videos
+
+- our technical goals:
+--- create a custom interface
+--- learn and integrate css and javascript
+--- learn about the full process of building an app
+--- integrate technologies I wasn't familiar with (red carpet, bootstrap markdown, video.js, css modal, post gres)
+--- learning more about technologies: js partials, ajax, jquery
+
+
+- why we chose this app/problem
+--- solve our own frustrations: video sharing/viewing was disorganized and difficult
+--- interest in education
+--- simple MVP that was doable in the alotted time, but lots of feature possibilities
+
+- tools we used, why we used them
+--- Red Carpet: gem that allows us to render markdown on notes
+--- HTML5 Video element: All JQuery (.play(), .currentTime(), etc.) --> only in JS file. JQuery methods to interact with HTML5 elements
+--- Video.js: different video formats/browser compatibility, manipulate skin (considered JW Player -- too big for this purpose, MediaElements: bad documentation)
+--- JS/AJAX: single page experience
+--- JQuery: single page experience
+--- Bootstrap Markdown: a Twitter Bootstrap plugin, text editor, markdown editor 
+--- CSS: all custom errythang
+--- Rails: 
+--- Ruby:
+--- Twitter Bootstrap/Modal: Twitter Bootstrap plugin for modals
+--- PostGres: substitute for Sqlite (Model -> Active Record -> PostGres or Sqlite). To deploy to Heroku. Meant to handle more requests from db
+--- Heroku: asset pipeline: production ENV, rake assets:precompile
+- 3 environments (test, production -- Heroku, development -- test out new features)
+
+- our process/design of the app
+--- 1st: make the basic CRUD functionality work. 
+--- 2nd: decided on the UX, and built for/around that. 
+--- inspiration
+--- super custom
+--- agile, broad strokes + details, building the bridge as you need
+--- listing and prioritizing features, checking back on the list, holding ourselves accountable, mini-lists and daily goal oriented
+--- separating design from function (when possible)
+--- balance between agile and planning
+
+- what we did/how we worked together
+--- daily responsibilities
+--- communicating about git/github
+--- paired for 75% of it - super productive
+--- reflected on our progress, very aware, asked elders how we could have done better, how we could have forseen
+--- crunch time, hold our own
+
+
+- what we learned:
+--- consider design first before moving to front end
+--- bootstrap sucks
+--- redefine what programming is
+--- css sucks
+--- testing would have been awesome
+--- breakdown the problem further
+--- development process, components of an app
+--- why branches are awesome
+
+- what we would've done differently/how we messed up
+--- see above
+
+- future features/plans
+--- bookmarks
+--- questions
+--- student/instructor dashboard
+--- public notes
+--- any video you wanna take notes on
+--- video analytics
+
+- test driven development
+--- why not? making a CRUD app seemed very simple, jumped into front end
+--- pinpoint problems more easily. Capybara, Cucumber
+
+- walk me through the app
+--- 
+
+- practice the actual demo
 
 POLISH LIST
-
 
 #- markers should trigger "play" button
 #- index page padding on bottom
