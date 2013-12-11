@@ -1,7 +1,9 @@
 class VideosController < ApplicationController
   before_action :set_video, :only => [:show, :edit, :update, :destroy]
+  # changes here?
 
-  before_action :require_instructor, :except => [:index, :show]
+  before_action :require_general, :except => [:index, :show]
+  # implement changes for "general" permission setting
 
   def index
     @video = Video.new
@@ -19,6 +21,7 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     @video.instructor = current_user
+    # attribute should be owner (@video.owner)
     @video.save
     redirect_to videos_path
   end

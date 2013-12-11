@@ -20,6 +20,11 @@ class User < ActiveRecord::Base
     true if permission_type == "instructor"
   end
 
+  def general?
+    true if permission_type == "general"
+  end
+  # Do we need these truthiness checks?
+
   def role
     permission_type
   end
