@@ -6,7 +6,7 @@
 */
 @font-face {
     font-family: 'PT Mono';
-    src:url('/assets/font/PTM55FT.tff') format('truetype');
+    src:url('font/PTM55FT.tff') format('truetype');
 }
 
 h1, h2, p, a, form, input, button, text-area, li, ul, table {
@@ -327,9 +327,6 @@ form .field .md-editor {
     margin: 0 auto;
 }
 
-.watch_video {
-    margin: 20px;
-}
 textarea:focus {
     outline: none;
 }
