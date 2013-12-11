@@ -339,7 +339,7 @@ textarea:focus {
     margin: 0;
     height: 20px;
     width: 25px;
-    border: 1px solid #ccc;
+    border: 1px solid ccc;
     border-radius: 1px;
     background: pink;
 }*/
@@ -494,11 +494,12 @@ input {
 footer {
     width: 100%;
     height: 50px;
-    background: none;
-    position:relative;
+    background: white;
+    position:absolute;
     bottom: 0;
     text-align: center;
     display: inline-block;
+    z-index: 99999;
 }
 
 footer h3, .flatiron {
@@ -516,6 +517,5 @@ footer h3 a:hover {
     text-decoration: none;
     color: #069BCC;
 }
-
 
 
