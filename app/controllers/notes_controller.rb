@@ -16,6 +16,7 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
     @video.save
     @note = @video.notes.last
     @note.student = current_user
+    # attribute should be owner (@note.owner)
     @note.save
     render :partial => 'videos/note_all', :format => 'text/html'
   end

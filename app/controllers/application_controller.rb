@@ -4,9 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :login_required
 
-  def require_instructor
-    redirect_to login_path if !current_user.instructor?
+  def require_general
+    redirect_to login_path if !current_user.general?
   end
+  # previously require_instructor, !current_user.instructor?
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
