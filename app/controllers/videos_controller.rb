@@ -7,7 +7,7 @@ class VideosController < ApplicationController
 
   def index
     @video = Video.new
-    @videos = Video.all
+    @videos = Video.find(:all, :conditions => {:user_id => session[:user_id]} )
   end
 
   def new
@@ -20,7 +20,7 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
-    @video.instructor = current_user
+    @video.user = current_user
     # attribute should be owner (@video.owner)
     @video.save
     redirect_to videos_path
