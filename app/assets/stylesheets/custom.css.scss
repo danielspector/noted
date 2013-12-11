@@ -4,11 +4,11 @@
 */
 /* index page buttons */
 
-.index-video-buttons .instructor-buttons {
-  padding: 3px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
+.index-video-buttons {
+  width: 320px;
+  margin: 20px auto;
+  position: relative;
+} 
 
 .index-video-buttons button {
   background: white;
@@ -16,7 +16,9 @@
   box-shadow: none;
   border-radius: 3px;
   box-sizing: none;
-  padding: 10px;
+  padding: 10px 0; 
+  height: 40px;
+  text-transform: capitalize;
 }
 
 .index-video-buttons button a {

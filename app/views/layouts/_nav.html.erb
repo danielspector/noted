@@ -9,11 +9,10 @@
       <div class="nav-right-options">
           <% if session[:user_id] %>
           <!-- user is logged in -->
-            <%# if current_user.permission_type == "student" %>
-              <!-- change permissions to "general" -->
-              <!-- <li class="username"><%#= current_user.name %></li> -->
-            <%# end %>
-            <% if current_user.permission_type == "general" %>
+            <% if current_user.permission_type == "student" %>
+             <li class="username"><%= current_user.name %></li>
+            <% end %>
+            <% if current_user.permission_type == "general" || current_user.permission_type == "instructor" %>
               <!-- change permissions to "general" -->
               <li class="username"><%= current_user.name %><li>
               <li class="nav-new-video"><%= link_to "+ New Video", new_video_path %></li>
