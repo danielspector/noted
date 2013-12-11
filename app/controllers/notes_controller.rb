@@ -15,7 +15,8 @@ before_action :set_note, :only => [:show, :edit, :update, :destroy, :refresh]
     @video.notes.build({:video_timestamp => params[:note_video_timestamp], :body => params[:note_body]})
     @video.save
     @note = @video.notes.last
-    @note.student = current_user
+    @note.user = current_user
+    # attribute should be owner (@video.owner)
     @note.save
     render :partial => 'videos/note_all', :format => 'text/html'
   end

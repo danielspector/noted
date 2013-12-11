@@ -3,7 +3,7 @@
 
       <% @video.notes.sort_by {|note| note.video_timestamp}.each do |note| %>
 
-        <% if note.student == @current_user %>
+        <% if note.user == @current_user %>
         <div class="note_info" id="note_wrapper_<%= note.id %>">
             <div class="added_note one-note">
               <input type="hidden" class="added_note_timestamp" value="<%= note.video_timestamp %>"></input>

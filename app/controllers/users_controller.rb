@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.create(user_params)
-		@user.permission_type = "student"
+		@user.permission_type = "general" # change to "general" -- previously "student"
 		if @user.save
 			login(@user.id)
 			redirect_to videos_path

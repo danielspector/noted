@@ -6,8 +6,9 @@
   <%= render "layouts/nav" %>
   <div class="row col-xs-12 center" id="video_all">
     <div id="instructor_actions">
-    <% if current_user.permission_type == "instructor" %>
+    <% if current_user.permission_type == "general" %>
       <% end %>
+      <!-- change permissions to "general" - previously "instructor" -->
     </div>
 
     <% @videos.sort_by { |video| video.created_at }.reverse.each do |video| %>
@@ -22,13 +23,16 @@
           </div><!-- .video_wrap -->
 
           <div class="index-video-buttons">
-            <% if current_user.permission_type == "student" %>
+            <% if current_user.permission_type == "general" || current_user.permission_type =="student" %>
+            <!-- change permissions to "general" - previously "student" -->
               <button class="watch_video"><%= link_to 'take notes', video %></button>
             <% end %>
             
-            <% if current_user.permission_type == "instructor" %>
+            <% if current_user.permission_type == "general" || current_user.permission_type =="instructor" %>
+            <!-- change permissions to "general" - previously "instructor" -->
               <button class="instructor-buttons"><%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %></button>
                <button class="instructor-buttons js-edit"><%= link_to "Edit", edit_video_path(video) %></button>
+               <!-- modify button locations for Edit, Destroy buttons; CONFLICT WITH "TAKE NOTES BUTTON" -->
             <% end %>
           </div>
       </div><!-- #lecture_video -->
