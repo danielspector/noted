@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20131126142445) do
     t.integer  "video_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "student_id"
+    t.integer  "user_id"
   end
 
-  add_index "notes", ["student_id"], name: "index_notes_on_student_id", using: :btree
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 20131126142445) do
     t.float    "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "instructor_id"
+    t.integer  "user_id"
     t.string   "description"
   end
 
-  add_index "videos", ["instructor_id"], name: "index_videos_on_instructor_id", using: :btree
+  add_index "videos", ["user_id"], name: "index_videos_on_user_id", using: :btree
 
 end
