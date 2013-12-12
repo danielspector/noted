@@ -50,8 +50,10 @@ end
 gem 'videojs_rails'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
+# Seed Dump gem
+gem 'seed_dump'
 # Use unicorn as the app server
 # gem 'unicorn'
 
