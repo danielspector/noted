@@ -102,17 +102,21 @@ $(document).ready(function(){
   });
   
   // delete function
-  $("body").on("click", "input[value='Delete']", function (e){
+  $("body").on("click", ".delete", function (e){
     e.preventDefault();
-    var note_id = $(this).closest(".added_note").find(".added_note_id").val();
-    var video_id = $("#video_id").val();
-    var data = {_method: "delete"}; 
-    $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note_all){
-      $(".note_all").html(note_all);
-      $(".edit_form").hide();  
-      $(".all_markers").html("");
-      makeMarkers();
-    });
+    if(confirm("Do you want to delete this note?")){
+      var note_id = $(this).closest(".added_note").find(".added_note_id").val();
+      var video_id = $("#video_id").val();
+      var data = {_method: "delete"}; 
+      $.post("/videos/"+video_id+"/notes/"+note_id, data, function(note_all){
+        $(".note_all").html(note_all);
+        $(".edit_form").hide();  
+        $(".all_markers").html("");
+        makeMarkers();
+      });
+    };
+
+    
   });
 
   // update function

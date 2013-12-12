@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = User.create([{name: "Avi Flombaum", email: "avi@flatironschool.com", password_digest: "itest1", permission_type: "instructor"},{name: "Stephanie Oh", email: "stephoh@gmail.com", password_digest: "stest1", permission_type: "student"}, {name: "Ian Miller", email: "irmiller22@gmail.com", password_digest: "stest22", permission_type: "student"}, {name: "Saron Yitbarek", email: "saron.yitbarek@gmail.com", password_digest: "stest1", permission_type: "student"}])
+# DELETED - REBASED VERSION!!!
 
 # videos = Video.create([
 	# {name: "Lecture 1", user_id: 1, link: "http://flatiron-school.s3.amazonaws.com/ruby-003/reviews/railstour.mp4", description: "Overview for Ruby on Rails", lecture_date: "01/11/2013"}, 
