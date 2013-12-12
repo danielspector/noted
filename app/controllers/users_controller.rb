@@ -7,7 +7,6 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.create(user_params)
-		binding.pry
 		@user.permission_type = "general" # change to "general" -- previously "student"
 		if @user.save
 			login(@user.id)
