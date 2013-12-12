@@ -12,9 +12,6 @@ class User < ActiveRecord::Base
   validates :password, format: { with: VALID_PASSWORD_REGEX, :message => "Password must include at least 1 digit" }
   validates :password, :length => { :minimum => 6 }
 
-  # validates :password_confirmation, :presence => true
-  # validates :password_confirmation, :length => { :minimum => 6 }
-
   after_create :seed_video, :seed_notes
 
   has_many :notes
