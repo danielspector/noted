@@ -1,13 +1,19 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
+  has_secure_password
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_PASSWORD_REGEX = /(?=.*[\d])/
 
   validates :name, :presence => true, length: { maximum: 50 }
   validates :email, :presence => true, format: { with: VALID_EMAIL_REGEX },
                 :uniqueness => { case_sensitive: false }
   validates :password, :presence => true
+  validates :password, format: { with: VALID_PASSWORD_REGEX, :message => "Password must include at least 1 digit" }
   validates :password, :length => { :minimum => 6 }
+
+  # validates :password_confirmation, :presence => true
+  # validates :password_confirmation, :length => { :minimum => 6 }
 
   after_create :seed_video, :seed_notes
 
@@ -29,10 +35,6 @@ class User < ActiveRecord::Base
 
   def role
     permission_type
-  end
-
-  def authenticate(password)
-    User.find_by(:password => password) ? true : false
   end
 
   def seed_video

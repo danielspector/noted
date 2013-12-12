@@ -273,3 +273,11 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
+/* img */
+
+#note-all img {
+  max-width: 100%;
+  vertical-align: middle;
+  position: relative;
+}

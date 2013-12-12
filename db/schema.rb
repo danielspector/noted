@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20131126142445) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.string   "permission_type"
     t.datetime "created_at"
     t.datetime "updated_at"
