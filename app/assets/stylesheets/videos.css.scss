@@ -65,7 +65,6 @@ video {
     background: #ccc;
 }
 .new_note button:hover {
- /*   background: #356094;*/
     border: solid 1px #777;
     text-decoration: none;
 }
@@ -75,7 +74,6 @@ video {
     -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);*/
     background: #2E5481;
-/*    border: solid 1px #203E5F;*/
 }
 
 li {
@@ -248,14 +246,6 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
     right: 0;
 }
 
-/*.note-highlight {
-    border: 2px solid #069BCC;
-    border-shadow: 0px 0px 5px 0px;
-    transition-all: all;
-    transition-duration: 1s;
-    background: pink; 
-} */
-
 form .field .md-editor {
     display: show;
     background: none;
@@ -287,15 +277,9 @@ form .field .md-editor {
     top: 0;
     left: 0;
     float: left;
-/*    background: cornflower-blue; */
 }
 
 /* INDEX VIDEO PAGE */
-
-/*.show-nav .col-xs-4 {
-    background: pink;
-
-}*/
 
 .col-xs-4 .video-js-box {
     position: relative;
@@ -307,13 +291,6 @@ form .field .md-editor {
 
 #video_all {
     margin-bottom: 200px;
-/*    margin: 0 auto;
-    padding: 0;
-    display: block;
-    width: 90%;
-    min-width: 973px;
-    max-width: 1100px;
-    background: pink;*/
 }
 
 .lecture_video {
@@ -324,19 +301,6 @@ form .field .md-editor {
 textarea:focus {
     outline: none;
 }
-
-/*#new-note button {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    padding: 0;
-    margin: 0;
-    height: 20px;
-    width: 25px;
-    border: 1px solid ccc;
-    border-radius: 1px;
-    background: pink;
-}*/
 
 .one-note button {
     position: relative;
