@@ -157,7 +157,6 @@ html, body {
     bottom: 0;
     padding: 30px;
     vertical-align: middle;
-/*    border-top: 1px solid #333;*/
     box-shadow: 0px -1px 5px 3px #333;
 }
 
@@ -166,14 +165,10 @@ html, body {
     height: 8px;
     background: #444;
     width: 87%;
-/*    box-shadow: 0px -2px 3px 2px #555;*/
-  /*  float: left;*/
-/*    margin-left: 40px;*/
 }
 
 .one-note button, .one-note .button_to, {
     position: relative;
-/*    background: #ddd;*/
     border-radius: 5px;
     font-size: .7em;
     font-family: Helvetica;
@@ -185,7 +180,6 @@ html, body {
     position: relative;
     float: right;
     margin-bottom: 3px;
- /*   background: #999;*/
 }
 
 
@@ -358,24 +352,19 @@ textarea:focus {
     box-shadow: none;
 }
 
-.one-note .button_to {
-    position: relative;
-    bottom: 20px;
-    background: none;
+.one-note .delete {
+    width: 50px;
+}
+
+.one-note button a {
+    color: black;
+    margin: 0 10px;
 
 }
 
-.one-note .button_to .delete  {
-    right: -43px;
-    position: relative;
-    display: inline-block;
-    height: 20px;
-    margin: 5px;
-    width: 40px;
-    bottom: 0px;
-    border: none;
-    border-radius: 4px;
-    background: #eee
+button a:hover {
+    text-decoration: none;
+    color: black;
 }
 
 .play {
