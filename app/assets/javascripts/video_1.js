@@ -244,20 +244,20 @@ $(document).ready(function(){
         $(".note_all").html(note_all);
 
         // creating markers based on timestamp and with note.id anchor tags
-
-        var timelineLength = $("#timeline").width()-100;
-        var duration = $("#video_duration").val();
-        var idBucket = [];
-        var $allNotes = $(".added_note");
-        $allNotes.each(function(){
-          var noteId = $(this).find(".added_note_id").val();
-          idBucket.push(noteId);
-        });
-        var note_id = idBucket.sort().reverse()[0];
-        var noteTimestamp = $("#note_wrapper_"+note_id+" .added_note_timestamp").val();
-        var timeline = (((noteTimestamp/duration)*timelineLength)+50);
-        var marker = '<a href="#'+note_id+'" class="marker" data-id="'+note_id+'" style="left:'+timeline+'px;"></a>';           
-        $('.all_markers').append(marker);
+        makeMarkers();
+        // var timelineLength = $("#timeline").width()-100;
+        // var duration = $("#video_duration").val();
+        // var idBucket = [];
+        // var $allNotes = $(".added_note");
+        // $allNotes.each(function(){
+        //   var noteId = $(this).find(".added_note_id").val();
+        //   idBucket.push(noteId);
+        // });
+        // var note_id = idBucket.sort().reverse()[0];
+        // var noteTimestamp = $("#note_wrapper_"+note_id+" .added_note_timestamp").val();
+        // var timeline = (((noteTimestamp/duration)*timelineLength)+50);
+        // var marker = '<a href="#'+note_id+'" class="marker" data-id="'+note_id+'" style="left:'+timeline+'px;"></a>';           
+        // $('.all_markers').append(marker);
 
         // hide edit form 
         $(".edit_form").hide(); 
