@@ -195,9 +195,11 @@ $(document).ready(function(){
   });
 
   // toggling create video form for instructor -- video.index
-  $('.new_video').on('click', 'button', function(){
-    $(this).closest('.new_video').find('.video_form').toggle();
-  });
+  // $('.nav-new-video a').click(function(){
+  //   console.log("hi");
+  //   $(this).closest('.new_video').find('.video_form').toggle();
+
+  // });
 
   // pause and show new note form on "new note" button
  $(".new_note").on("click", "button", function(e){
