@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :login_required
 
   def require_general
-    redirect_to login_path if !current_user.general?
+    redirect_to login_path if current_user.student?
   end
   # previously require_instructor, !current_user.instructor?
 
