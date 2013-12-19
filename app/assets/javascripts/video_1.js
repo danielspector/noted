@@ -43,30 +43,6 @@ $(document).ready(function(){
 
   // make Markers on ready
   makeMarkers();
-
-   // clicking marker plays note
-  $("body").on("click", ".marker", function(){
-    var note_marker = $(this).data("id");
-    var timestamp = $("#note_wrapper_"+note_marker+" .added_note_timestamp").val();
-    var $myPlayer = $("#vjs_video_4_html5_api");
-    $myPlayer[0].play();
-    $myPlayer[0].currentTime = timestamp;
-  });
-
-  // marker hover highlights corresponding note
-  $("body").on("mouseenter", ".marker", function(){
-    var note_marker = $(this).data("id");
-    $("#note_wrapper_"+note_marker).css("border", "1px solid #069BCC");
-    // $("#note_wrapper_"+note_marker).trigger("click");
-    $("#note-all").animate({
-         scrollTop: $("#note_wrapper_"+note_marker).position().top
-     }, 200);
-  });
-
-  $("body").on("mouseleave", ".marker", function(){
-    var note_marker = $(this).data("id");
-    $("#note_wrapper_"+note_marker).css("border", "none");
-  });
   
   // delete function on notes
   $("body").on("click", ".delete", function (e){
@@ -86,7 +62,6 @@ $(document).ready(function(){
 
   // when "Create Note" is clicked, plays video, sends post with new note info, refreshes edit section 
   $("input[value='Create Note']").click(function(e){
-    // $('.new_note_form').toggle();
     e.preventDefault();
     var $myPlayer = $("#vjs_video_4_html5_api");
     $myPlayer[0].play();
