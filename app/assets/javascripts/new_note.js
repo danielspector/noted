@@ -8,7 +8,6 @@ $(document).ready(function(){
     // var $myPlayer = $("#lecture_video");
     $myPlayer[0].pause();
     var timeStamp = $myPlayer[0].currentTime;
-    console.log(timeStamp);
     $("#new-note #note_video_timestamp").val(timeStamp);
     // hide edit form, showing new note form and focusing textarea on "New Note" click
     $(".edit_form").hide();  
