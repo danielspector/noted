@@ -5,10 +5,10 @@ $(document).ready(function(){
     e.preventDefault();
 
     var $myPlayer = $("#vjs_video_4_html5_api");
-    // var $myPlayer = $("#lecture_video");
     $myPlayer[0].pause();
     var timeStamp = $myPlayer[0].currentTime;
     $("#new-note #note_video_timestamp").val(timeStamp);
+    
     // hide edit form, showing new note form and focusing textarea on "New Note" click
     $(".edit_form").hide();  
     $(".new_note_form, new_note").show();
@@ -29,6 +29,7 @@ $(document).ready(function(){
     $myPlayer[0].pause();
     var timeStamp = $myPlayer[0].currentTime;
     $("#new-note #note_video_timestamp").val(timeStamp);
+
     // hide edit form, showing new note form and focusing textarea on "New Note" click
     $(".edit_form").hide();  
     $(".new_note_form, new_note").show();

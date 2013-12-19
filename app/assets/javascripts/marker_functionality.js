@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    // clicking marker plays note
+  
+  // clicking marker plays note
   $("body").on("click", ".marker", function(){
     var note_marker = $(this).data("id");
     var timestamp = $("#note_wrapper_"+note_marker+" .added_note_timestamp").val();
@@ -21,4 +22,5 @@ $(document).ready(function(){
     var note_marker = $(this).data("id");
     $("#note_wrapper_"+note_marker).css("border", "none");
   });
+  
 });

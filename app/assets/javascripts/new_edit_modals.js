@@ -1,5 +1,3 @@
-// FORM OVERLAY FOR INSTRUCTOR - NEW VIDEO FEATURE
-
 $(document).ready(function(){
 	$(".nav-new-video a").click(function(e){
 		e.preventDefault();
