@@ -11,7 +11,6 @@ $(document).ready(function(){
 		e.preventDefault();
 		var edit_path = $(this).closest(".index-video-buttons").find(".js-edit a")[0].getAttribute("href");
 		$.getScript(edit_path);
-
 	});
 
 });
