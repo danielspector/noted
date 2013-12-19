@@ -1,9 +1,4 @@
 $(document).ready(function(){
-  $(".edit_form").hide(); 
-  $(".video_form").hide();
-  $(".added_note").each(function(){
-    $(".note_buttons").hide();
-  });
 
   // get width of timeline
   var timelineLength = $("#timeline").width()-100;
@@ -19,7 +14,6 @@ $(document).ready(function(){
       $(this).find(".btn-toolbar").hide();
       var $myPlayer = $(".vjs_video_4_html5_api");
       var videoDuration = $("#video_duration").val();
-
       var timeline = (((noteTimeNumber/videoDuration)*timelineLength)+50);
       var marker = '<a href="#'+noteId+'" class="marker" data-id="'+noteId+'" style="left:'+timeline+'px;"></a>';
       markerBucket.push(marker);           
@@ -50,16 +44,7 @@ $(document).ready(function(){
   // make Markers on ready
   makeMarkers();
 
-  // show note buttons on hover
-  $("body").on("mouseenter", ".added_note", function(){
-    $(this).find(".note_buttons").fadeIn("fast");
-  })
-
-  $("body").on("mouseleave", ".added_note", function(){
-    $(this).find(".note_buttons").fadeOut("fast");
-  })
-
-  // marker click plays note
+   // clicking marker plays note
   $("body").on("click", ".marker", function(){
     var note_marker = $(this).data("id");
     var timestamp = $("#note_wrapper_"+note_marker+" .added_note_timestamp").val();
@@ -115,43 +100,13 @@ $(document).ready(function(){
       $(".added_note").each(function(){
           $(".note_buttons").hide();
         });
+      $(".render-edit-form").html("");
     });
   });
 
-  // adding play from timestamp function
-  $("body").on("click",".play_button", function(){
-    var timestamp = $(this).closest(".note_info").find(".added_note_timestamp").val();
-      var $myPlayer = $("#vjs_video_4_html5_api");
-      $myPlayer[0].play();
-      $myPlayer[0].currentTime = timestamp;
-  });
 
-  // toggling the edit button 
-  $("body").on("click", '.edit_button', function(){
 
-    var note_id = $(this).data("note-id");
-
-    var $edit_form = $("#note_"+ note_id +".edit_form");
-    $(".new_note_form, new_note").hide();
-    
-    // grab the old note edit form render-edit and move it back up
-    // then replace the html
-    var $old_edit_form  = $(".render-edit-form .edit_form");
-    var old_edit_note_id = $old_edit_form.data("note-id");
-    console.log(old_edit_note_id)
-    $("#note_wrapper_"+ old_edit_note_id).append($old_edit_form );
-    
-    $(".render-edit-form").html($edit_form);
-    
-    $(".edit_form").hide();
-    $edit_form.show();
-
-    $("#new-note #note_body").markdown({autofocus:false,savable:false}, function(){
-        
-    });
-    $(".render-edit-form .btn-group")[3].remove();
-    
-  });
+  
 
   // focus on textarea to pause video and create timestamp
 
