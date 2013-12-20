@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	$(".nav-new-video a").click(function(e){
 		e.preventDefault();
-    console.log("hi");
 		$.getScript("/videos/new");
 	});
 
