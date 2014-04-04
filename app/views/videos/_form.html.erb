@@ -8,7 +8,8 @@
 			<%= f.text_field :link, :placeholder => "Link (mp4 only!)" %><br>
 			<br>
 			<%= f.text_field :lecture_date, :placeholder => "Lecture Date" %><br>
-			<%= f.collection_select :semester_id, Semester.all, :id, :name %>
+			<br>
+			<%= f.collection_select :semester_id, Semester.all, :id, :name %><br>
 			<br>
 			<div class="submit-button">
 				<%= f.submit %>	

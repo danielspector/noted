@@ -375,11 +375,11 @@ button a:hover {
     margin-top: 20px;
 }
 
-input, select {
+input {
     text-align: center;
 }
 
-.new_video_form > input {
+.new_video_form > input, .new_video_form > select {
     margin: 0 auto;
     text-align: center;
     width: 350px;
