@@ -1,4 +1,5 @@
 <div class="nav-background"></div>
+
 <nav>
   <ul class="navbar col-xs-12">
     <li class="col-xs-6 nav-logo">
@@ -7,22 +8,22 @@
 
     <div class="col-xs-6">
       <div class="nav-right-options">
-          <% if session[:user_id] %>
-          <!-- user is logged in -->
-            <% if current_user.permission_type == "student" %>
-             <li class="username"><%= current_user.name %></li>
-            <% end %>
-            <% if current_user.permission_type == "general" || current_user.permission_type == "instructor" %>
-              <!-- change permissions to "general" -->
-              <li class="username"><%= current_user.name %><li>
-              <li class="nav-new-video"><%= link_to "+ New Video", new_video_path %></li>
-            <% end %>
-            <!-- permission_type == "instructor" -->
-            <li class="nav-sign"><%= link_to "Sign Out", logout_path %><li>
-          <% else %>
-          <!-- user is NOT logged in -->
-            <li class="nav-sign"><%= link_to "Sign In", login_path %></li>
+        <% if session[:user_id] %>
+        <!-- user is logged in -->
+          <% if current_user.permission_type == "student" %>
+           <li class="username"><%= current_user.name %></li>
           <% end %>
+          <% if current_user.permission_type == "general" || current_user.permission_type == "instructor" %>
+            <!-- change permissions to "general" -->
+            <li class="username"><%= current_user.name %><li>
+            <li class="nav-new-video"><%= link_to "+ New Video", new_video_path %></li>
+          <% end %>
+          <!-- permission_type == "instructor" -->
+          <li class="nav-sign"><%= link_to "Sign Out", logout_path %><li>
+        <% else %>
+        <!-- user is NOT logged in -->
+          <li class="nav-sign"><%= link_to "Sign In", login_path %></li>
+        <% end %>
       </div>
     </div>
   </ul>

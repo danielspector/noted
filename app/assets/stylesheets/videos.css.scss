@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 @font-face {
     font-family: 'PT Mono';
     src:url('font/PTM55FT.tff') format('truetype');
@@ -438,14 +437,14 @@ input, select {
 /* footer */
 
 footer {
-    width: 100%;
-    height: 50px;
-    background: white;
-    position:absolute;
-    bottom: 0;
-    text-align: center;
-    display: inline-block;
-    z-index: 99999;
+  width: 100%;
+  height: 50px;
+  background: white;
+//  position: absolute;
+  bottom: 0;
+  text-align: center;
+  display: inline-block;
+//  z-index: 99999;
 }
 
 footer h3, .flatiron {
@@ -459,9 +458,9 @@ footer h3 a {
     font-weight: 600;
 }
 
-footer h3 a:hover {
-    text-decoration: none;
-    color: #069BCC;
-}
+//footer h3 a:hover {
+//    text-decoration: none;
+//    color: #069BCC;
+//}
 
 

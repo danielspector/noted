@@ -8,6 +8,11 @@ class VideosController < ApplicationController
   def index
     @video = Video.new
     @videos = Video.all
+    @semesters = Semester.all
+    respond_to do |f|
+      f.html
+      f.js
+    end
   end
 
   def new
