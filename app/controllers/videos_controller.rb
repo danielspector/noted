@@ -7,7 +7,7 @@ class VideosController < ApplicationController
 
   def index
     @video = Video.new
-    @videos = Video.find(:all, :conditions => {:user_id => session[:user_id]} )
+    @videos = Video.all
   end
 
   def new
