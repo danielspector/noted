@@ -14,6 +14,7 @@
     <% @videos.sort_by { |video| video.created_at }.reverse.each do |video| %>
       <div class="col-xs-4 center lecture_video">
         <!-- Added hover_description and video_wrap here -->
+        <h2><%= video.name %></h2>
           <div class="video_wrap">
             <%= videojs_rails sources: {mp4: video.link}, height: "200", width: "300" %>
             <div class="hover_description"><br>
