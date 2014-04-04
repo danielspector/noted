@@ -7,13 +7,18 @@ class VideosController < ApplicationController
 
   def index
     @video = Video.new
-    @videos = Video.all
+    @last_semester = Semester.first
+    @videos = @last_semester.videos
     @semesters = Semester.all
   end
 
   def filter_semester
-    semester = Semester.find(params[:id])
-    @videos = semester.videos
+    if params[:id] == "all"
+      @videos = Video.all
+    else
+      semester = Semester.find(params[:id])
+      @videos = semester.videos
+    end
 
     respond_to { |format| format.js }
   end
