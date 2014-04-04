@@ -9,10 +9,13 @@ class VideosController < ApplicationController
     @video = Video.new
     @videos = Video.all
     @semesters = Semester.all
-    respond_to do |f|
-      f.html
-      f.js
-    end
+  end
+
+  def filter_semester
+    semester = Semester.find(params[:id])
+    @videos = semester.videos
+
+    respond_to { |format| format.js }
   end
 
   def new
@@ -61,7 +64,7 @@ class VideosController < ApplicationController
   end
 
   def video_params
-    params.require(:video).permit(:name, :link, :lecture_date, :description)
+    params.require(:video).permit(:name, :link, :lecture_date, :description, :semester_id)
   end
 
 end

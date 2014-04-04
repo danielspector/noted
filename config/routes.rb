@@ -25,6 +25,8 @@ FlatironVideos::Application.routes.draw do
   get '/videos' => 'videos#index'
   post '/videos' => 'videos#create'
 
+  post '/filter_semester' => 'videos#filter_semester', :as => 'filter_semester'
+
   
 # NOTES ROUTES ONLY -- :YIKES:
 
