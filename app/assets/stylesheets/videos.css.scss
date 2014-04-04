@@ -8,19 +8,19 @@
     src:url('font/PTM55FT.tff') format('truetype');
 }
 
-h1, h2, p, a, form, input, button, text-area, li, ul, table {
+h1, h2, p, a, form, input, select, button, text-area, li, ul, table {
   font-family: Helvetica;
 }
 
-input {
+input, select {
     border: 2px solid #eee;
 }
 
-input:active {
+input:active, select:active {
     border: red;
 }
 
-input:focus {
+input:focus, input:focus {
     border: 5px solid rgba(6, 155, 204, .2);
     outline: none;
 }
@@ -233,7 +233,7 @@ video, .vjs_video_4_html5_api, #vjs_video_4, .video-js-box, .video-js, .vjs-tech
 }
 
 
-#new-note .actions input {
+#new-note .actions input, select {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -376,7 +376,7 @@ button a:hover {
     margin-top: 20px;
 }
 
-input {
+input, select {
     text-align: center;
 }
 
@@ -388,7 +388,7 @@ input {
     box-shadow: none;
 }
 
-.new_video_form .submit-button input {
+.new_video_form .submit-button input, select {
   padding: 10px 15px;
   border: none;
   box-shadow: none;

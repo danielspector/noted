@@ -14,3 +14,9 @@ Note.create([
   {body: "Differences between the **test, development, and production databases**. Development is a database that's used during the feature development process, whereas production is a database that's used for production purposes.", video_timestamp: 1157.556356, video_id: "#{@video.id}", created_at: "2013-12-04 20:52:15", updated_at: "2013-12-04 22:07:44", user_id: self.id},
   {body: "Installing the **Guard gem** to automatically run rspec tests after each Rails file save action.", video_timestamp: 3783.467413, video_id: "#{@video.id}", created_at: "2013-12-04 20:55:41", updated_at: "2013-12-04 22:08:00", user_id: self.id}
 ])
+
+Semester.create(name: "Ruby 004")
+Semester.create(name: "Ruby 003")
+Semester.create(name: "Ruby 002")
+Semester.create(name: "Ruby 001")
+Semester.create(name: "Ruby 000")

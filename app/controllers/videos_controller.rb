@@ -12,6 +12,7 @@ class VideosController < ApplicationController
 
   def new
     @video = Video.new
+    @semesters = Semester.all
     respond_to do |f|
       f.html {}
       f.js {}
