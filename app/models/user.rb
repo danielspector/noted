@@ -21,15 +21,15 @@ class User < ActiveRecord::Base
   has_many :videos
 
   def student?
-    true if permission_type == "student"
+    permission_type == "student"
   end
 
   def instructor?
-    true if permission_type == "instructor"
+    permission_type == "instructor"
   end
 
   def general?
-    true if permission_type == "general"
+    permission_type == "general"
   end
   # Do we need these truthiness checks?
 
